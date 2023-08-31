@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --primary-color: #4eb2d4;
+    --hover-color: #3176b1;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    transition: all .5s ease;
+    font-family: 'Poppins';
+}
