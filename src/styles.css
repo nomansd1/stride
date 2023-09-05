@@ -28,3 +28,20 @@ div.mat-expansion-panel-body {
 .mat-expansion-indicator::after {
     color: #989DA6 !important;
 }
+
+/* mat tabs styles */
+.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
+    flex-grow: 0 !important;
+}
+.mdc-tab {
+    min-width: fit-content !important;
+    padding: 0 !important;
+}
+.mat-tab-label {
+    border-color: lightgray !important;
+}  
+.mdc-tab-indicator--active, 
+.mat-mdc-focus-indicator, 
+.mdc-tab--active {
+    border-color: var(--hover-color) !important; 
+}
