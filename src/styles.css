@@ -16,3 +16,15 @@
     transition: all .5s ease;
     font-family: 'Poppins';
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div.mat-expansion-panel-body {
+    @apply p-0 !important;
+}
+.mat-content.mat-content-hide-toggle {
+    @apply mr-0 !important;
+}
+.mat-expansion-indicator::after {
+    color: #989DA6 !important;
+}
