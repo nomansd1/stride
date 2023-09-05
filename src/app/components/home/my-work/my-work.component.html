@@ -2,5 +2,17 @@
     <div class="flex items-center">
         <h1 class="text-2xl font-medium">My Work</h1>
     </div>
-    <button class="p-2.5 text-[11px] w-full bg-[#F6F7F9] rounded-md mt-2">+ Add your most important tasks here</button>
+    <div class="w-full">
+        <mat-tab-group>
+            <mat-tab> 
+                <ng-template mat-tab-label>
+                    <span>To Do</span>
+                </ng-template>
+                Content 1 
+            </mat-tab>
+            <mat-tab label="Comments"> Content 2 </mat-tab>
+            <mat-tab label="Done"> Content 3 </mat-tab>
+            <mat-tab label="Delegated"> Content 4 </mat-tab>
+        </mat-tab-group>
+    </div>
 </section>
