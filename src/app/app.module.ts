@@ -14,6 +14,9 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { HomeComponent } from './layout/home/home.component';
 import { NotificationsComponent } from './layout/notifications/notifications.component';
 import { HomeHeaderComponent } from './components/home/home-header/home-header.component';
+import { LineupTasksComponent } from './components/home/lineup-tasks/lineup-tasks.component';
+import { TrendingTasksComponent } from './components/home/trending-tasks/trending-tasks.component';
+import { MyWorkComponent } from './components/home/my-work/my-work.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { HomeHeaderComponent } from './components/home/home-header/home-header.c
     HomeComponent,
     NotificationsComponent,
     HomeHeaderComponent,
+    LineupTasksComponent,
+    TrendingTasksComponent,
+    MyWorkComponent,
   ],
   imports: [
     BrowserModule,
