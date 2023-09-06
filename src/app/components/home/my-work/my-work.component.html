@@ -1,15 +1,108 @@
-<section class="w-full px-10 py-5">
+<section class="w-full px-10 py-5 pb-5">
     <div class="flex items-center">
         <h1 class="text-2xl font-medium">My Work</h1>
     </div>
-    <div class="w-full">
-        <mat-tab-group class="">
+    <div class="w-full relative">
+        <mat-tab-group>
             <mat-tab> 
                 <ng-template mat-tab-label>
-                    <span class="text-sm font-medium bg-red-400 p-1 mr-5">To Do</span>
+                    <span class="text-sm font-medium py-2 mx-3">To Do</span>
                 </ng-template>
-                Content 1 
+                <div class="w-full py-4">
+                    <mat-expansion-panel class="!shadow-none !mb-6">
+                        <mat-expansion-panel-header class="!p-0 !flex !flex-row-reverse task__ep">
+                            <mat-panel-title class="pl-3 group">
+                                <span class="font-normal text-[13px]">Today</span>
+                                <div class="w-full hidden group-[:hover]:flex">
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 ml-1 capitalize">+ task</button>
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 capitalize">+ reminder</button>
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="w-full p-2">
+                            <p class="text-[10px] text-center text-[#7c828d]">No tasks or Reminders scheduled for today.</p>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="!shadow-none !mb-6">
+                        <mat-expansion-panel-header class="!p-0 !flex !flex-row-reverse task__ep">
+                            <mat-panel-title class="pl-3 group">
+                                <span class="font-normal text-[13px]">Overdue</span>
+                                <div class="w-full hidden group-[:hover]:flex">
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 ml-1 capitalize">+ task</button>
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 capitalize">+ reminder</button>
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="w-full p-2">
+                            <p class="text-[10px] text-center text-[#7c828d]">No tasks or Reminders scheduled.</p>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="!shadow-none !mb-6">
+                        <mat-expansion-panel-header class="!p-0 !flex !flex-row-reverse task__ep">
+                            <mat-panel-title class="pl-3 group">
+                                <span class="font-normal text-[13px]">Next</span>
+                                <div class="w-full hidden group-[:hover]:flex">
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 ml-1 capitalize">+ task</button>
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 capitalize">+ reminder</button>
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="w-full p-2">
+                            <p class="text-[10px] text-center text-[#7c828d]">No tasks or Reminders scheduled for today.</p>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="!shadow-none !mb-6">
+                        <mat-expansion-panel-header class="!p-0 !flex !flex-row-reverse task__ep">
+                            <mat-panel-title class="pl-3 group">
+                                <span class="font-normal text-[13px]">Unscheduled</span>
+                                <div class="w-full hidden group-[:hover]:flex">
+                                    <button class="p-1 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-sm mx-0.5 ml-1 capitalize">+ task</button>
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="w-full p-2">
+                            <p class="text-[10px] text-center text-[#7c828d]">No tasks or Reminders scheduled for today.</p>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-tab>
+            <mat-tab> 
+                <ng-template mat-tab-label>
+                    <span class="text-sm font-medium py-2 mx-3">Comments</span>
+                </ng-template>
+                <div class="w-full py-4">
+                    <div class="w-full flex flex-col justify-center items-center py-5">
+                        <img src="../../../../assets/freetime.svg" class="w-[210px] mx-auto" alt="">
+                        <h1 class="text-[20px] mt-4 font-light text-[#292d34]">Woohoo, you're all done!</h1>
+                        <p class="text-[#292d34] mt-2 text-xs">You have no assigned comments</p>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab> 
+                <ng-template mat-tab-label>
+                    <span class="text-sm font-medium py-2 mx-3">Done</span>
+                </ng-template>
+                <div class="w-full py-4">
+                    <div class="w-full flex flex-col justify-center items-center py-5">                        
+                        <p class="text-[#292d34] mt-2 text-xs">There are no tasks completed.</p>
+                    </div>
+                </div> 
+            </mat-tab>
+            <mat-tab> 
+                <ng-template mat-tab-label>
+                    <span class="text-sm font-medium py-2 mx-3">Delegate</span>
+                </ng-template>
+                <div class="w-full py-4">
+                    <div class="w-full flex flex-col justify-center items-center py-5">                        
+                        <p class="text-[#292d34] mt-2 text-xs">Forgetting? Forget about it! Delegate a Reminder to make sure it gets done.</p>
+                    </div>
+                </div>
             </mat-tab>
         </mat-tab-group>
+        <button class="!z-50 absolute top-5 right-0">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+            </svg>
+        </button>
     </div>
 </section>

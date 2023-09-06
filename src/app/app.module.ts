@@ -18,6 +18,8 @@ import { HomeHeaderComponent } from './components/home/home-header/home-header.c
 import { LineupTasksComponent } from './components/home/lineup-tasks/lineup-tasks.component';
 import { TrendingTasksComponent } from './components/home/trending-tasks/trending-tasks.component';
 import { MyWorkComponent } from './components/home/my-work/my-work.component';
+import { NotificationHeaderComponent } from './components/notifications/notification-header/notification-header.component';
+import { NotificationListComponent } from './components/notifications/notification-list/notification-list.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { MyWorkComponent } from './components/home/my-work/my-work.component';
     LineupTasksComponent,
     TrendingTasksComponent,
     MyWorkComponent,
+    NotificationHeaderComponent,
+    NotificationListComponent,
   ],
   imports: [
     BrowserModule,
