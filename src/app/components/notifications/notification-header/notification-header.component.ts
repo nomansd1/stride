@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-notification-header',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-header.component.css']
 })
 export class NotificationHeaderComponent {
-
+  @Input() selectedTabIndex: number = 0;
+  @Output() tabSelected = new EventEmitter<number>();
 }

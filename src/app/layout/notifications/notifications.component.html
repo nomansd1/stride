@@ -1,6 +1,6 @@
-<app-notification-header></app-notification-header>
+<app-notification-header [selectedTabIndex]="selectedTabIndex" (tabSelected)="onTabSelected($event)"></app-notification-header>
 <div class="flex w-full h-full">
     <div class="flex flex-col flex-1 home__body overflow-auto">
-        <app-notification-list></app-notification-list>
+        <app-notification-list [selectedTabIndex]="selectedTabIndex"></app-notification-list>
     </div>
 </div>

@@ -56,3 +56,22 @@ div.mat-expansion-panel-body {
     color: var(--hover-color) !important;
     border-bottom: 3px solid var(--hover-color) !important;
 }
+.type__notifyTabs .mdc-tab-indicator {
+    display: none;
+}
+.type__notifyTabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    @apply !border-none;
+    @apply !text-white;
+}
+.type__notifyTabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label span {
+    @apply !bg-[#7F77F1];
+}
+.mat-mdc-tab-header {
+    --mdc-tab-indicator-active-indicator-height: 0px !important;
+}
+/* tool tip */
+.cdk-describedby-message-container div {
+    --mat-toolbar-container-background-color: red;
+    --mat-toolbar-container-text-color: yellowt;
+    background: var(--mat-toolbar-container-background-color) !important;
+}

@@ -7,6 +7,7 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { CalendarComponent } from './shared/calendar/calendar.component';
 import { HomeComponent } from './layout/home/home.component';
 import { NotificationsComponent } from './layout/notifications/notifications.component';
+import { EverythingSpaceComponent } from './layout/everything-space/everything-space.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'notifications', component: NotificationsComponent },
+      { path: 'everything', component: EverythingSpaceComponent },
     ]},
 ];
 
