@@ -3,13 +3,13 @@
         <div class="flex flex-1 flex-col">
             <p class="text-[11px] text-[#34313a] ml-2 capitalize">Project 1</p>
             <div class="flex items-center project__ep w-full">
-                <mat-expansion-panel class="!shadow-none w-full">
+                <mat-expansion-panel class="!shadow-none w-full" expanded="true">
                     <mat-expansion-panel-header class="!p-0">
                         <mat-panel-title class="group">
                             <div class="flex items-center">
                                 <div class="flex">
                                     <div class="flex items-center py-0.5 px-2 hover:bg-[#f2f2f2] rounded-sm">
-                                        <img class="w-5 h-5" src="../../../../assets/rightangle.svg" alt="">
+                                        <img class="w-5 h-5 rotate__icon" src="../../../../assets/rightangle.svg" alt="">
                                         <span class="text-base  font-medium text-[#2A2E34] capitalize ml-2">Project 1</span>
                                     </div>
                                     <div>
@@ -30,18 +30,45 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="w-full p-2">
-                        <mat-expansion-panel class="!shadow-none w-full">
+                        <mat-expansion-panel class="!shadow-none w-full" expanded="true">
                             <mat-expansion-panel-header class="!p-0">
                                 <mat-panel-title>
                                     <div class="group flex items-center py-0.5 px-2 hover:bg-[#f2f2f2] rounded-sm">
-                                        <img class="w-4 h-4" src="../../../../assets/rightangle.svg" alt="">
+                                        <img class="w-4 h-4 rotate__icon" src="../../../../assets/rightangle.svg" alt="">
                                         <span class="text-sm  font-medium text-[#2A2E34] capitalize ml-2">To do</span>
                                         <img class="group-[:hover]:flex hidden w-4 h-4 ml-1" src="../../../../assets/voptions.svg" alt="">
                                     </div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
                             <div class="w-full">
-
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="uppercase text-[10px] font-light text-center">
+                                            <th>todo</th>
+                                            <th class="w-[50%]">
+                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{1}} tasks</span>
+                                            </th>
+                                            <th>assignee</th>
+                                            <th>due date</th>
+                                            <th>priority</th>
+                                            <th>
+                                                <button class="hover:bg-[#F0F1F3] p-1">
+                                                    <img class="w-5 h-5" src="../../../../assets/setting.svg" alt="">
+                                                </button>
+                                            </th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </mat-expansion-panel>
                     </div>

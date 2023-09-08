@@ -1,0 +1,14 @@
+table thead tr th {
+    @apply hover:bg-[#F0F1F3];
+    @apply py-0;
+    @apply px-2;
+    @apply border-x-2;
+    @apply border-[#BCC0C7]
+}
+table thead tr th:nth-child(2),
+table thead tr th:last-child {
+    @apply hover:bg-transparent;
+}
+table thead tr th:nth-child(2) {
+    @apply text-left;
+}
