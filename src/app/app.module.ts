@@ -26,6 +26,11 @@ import { EverythingSpaceComponent } from './layout/everything-space/everything-s
 import { SpaceHeaderComponent } from './components/spaces/space-header/space-header.component';
 import { SpaceSearchComponent } from './components/spaces/space-search/space-search.component';
 import { SpaceProjectComponent } from './components/spaces/space-project/space-project.component';
+import { TeamspaceComponent } from './layout/teamspace/teamspace.component';
+import { Project1Component } from './layout/project1/project1.component';
+import { Project2Component } from './layout/project2/project2.component';
+import { SpaceProject2Component } from './components/spaces/space-project2/space-project2.component';
+import { ProjectsComponent } from './layout/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import { SpaceProjectComponent } from './components/spaces/space-project/space-p
     SpaceHeaderComponent,
     SpaceSearchComponent,
     SpaceProjectComponent,
+    TeamspaceComponent,
+    Project1Component,
+    Project2Component,
+    SpaceProject2Component,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,

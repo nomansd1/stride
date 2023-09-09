@@ -8,6 +8,10 @@ import { CalendarComponent } from './shared/calendar/calendar.component';
 import { HomeComponent } from './layout/home/home.component';
 import { NotificationsComponent } from './layout/notifications/notifications.component';
 import { EverythingSpaceComponent } from './layout/everything-space/everything-space.component';
+import { TeamspaceComponent } from './layout/teamspace/teamspace.component';
+import { ProjectsComponent } from './layout/projects/projects.component';
+import { Project1Component } from './layout/project1/project1.component';
+import { Project2Component } from './layout/project2/project2.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,6 +22,10 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'notifications', component: NotificationsComponent },
       { path: 'everything', component: EverythingSpaceComponent },
+      { path: 'teamspace', component: TeamspaceComponent },
+      { path: 'projects', component: ProjectsComponent },
+      { path: 'project1', component: Project1Component },
+      { path: 'project2', component: Project2Component },
     ]},
 ];
 
