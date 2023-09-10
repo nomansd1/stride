@@ -30,12 +30,13 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="w-full p-2">
+                        <!-- completed -->
                         <mat-expansion-panel class="!shadow-none w-full" expanded="true">
                             <mat-expansion-panel-header class="!p-0">
                                 <mat-panel-title>
-                                    <div class="group flex items-center py-0.5 px-2 hover:bg-[#f2f2f2] rounded-sm">
+                                    <div class="group flex items-center py-0.5 px-2 rounded-sm">
                                         <img class="w-4 h-4 rotate__icon" src="../../../../assets/rightangle.svg" alt="">
-                                        <span class="text-sm  font-medium text-[#2A2E34] capitalize ml-2">To do</span>
+                                        <span class="text-xs font-medium p-0.5 px-2 rounded-sm bg-[#6BC950]  text-white ml-2 uppercase">Complete</span>
                                         <img class="group-[:hover]:flex hidden w-4 h-4 ml-1" src="../../../../assets/voptions.svg" alt="">
                                     </div>
                                 </mat-panel-title>
@@ -46,7 +47,7 @@
                                         <tr class="uppercase text-[10px] font-light text-center ">
                                             <th>todo</th>
                                             <th class="w-[50%]">
-                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{4}} tasks</span>
+                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{2}} tasks</span>
                                             </th>
                                             <th>assignee</th>
                                             <th>due date</th>
@@ -61,7 +62,7 @@
                                     <tbody>
                                         <tr class="group">
                                             <td>
-                                                <button class="w-2 h-2 bg-orange-400 rounded-sm"></button>
+                                                <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
                                             </td>
                                             <td>
                                                 Task 1
@@ -87,7 +88,93 @@
                                         </tr>
                                         <tr class="group">
                                             <td>
-                                                <button class="w-2 h-2 bg-orange-400 rounded-sm"></button>
+                                                <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
+                                            </td>
+                                            <td>
+                                                Testing
+                                            </td>
+                                            <td>
+                                                <button class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
+                                            </td>
+                                            <td>
+                                                <button class="hover:bg-[#F0F1F3] p-1">
+                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/duedate.svg" alt="">
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="hover:bg-[#F0F1F3] p-1">
+                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/priority.svg" alt="">
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="hidden group-[:hover]:flex mx-auto">
+                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/voptions.svg" alt="">
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel class="!shadow-none w-full !my-4" expanded="true">
+                            <mat-expansion-panel-header class="!p-0">
+                                <mat-panel-title>
+                                    <div class="group flex items-center py-0.5 px-2 rounded-sm">
+                                        <img class="w-4 h-4 rotate__icon" src="../../../../assets/rightangle.svg" alt="">
+                                        <span class="text-xs bg-[#04A9F4] py-0.5 rounded-sm px-2 font-medium text-white uppercase ml-2">in progress</span>
+                                        <img class="group-[:hover]:flex hidden w-4 h-4 ml-1" src="../../../../assets/voptions.svg" alt="">
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="w-full">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="uppercase text-[10px] font-light text-center ">
+                                            <th>todo</th>
+                                            <th class="w-[50%]">
+                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{4}} tasks</span>
+                                            </th>
+                                            <th>assignee</th>
+                                            <th>due date</th>
+                                            <th>priority</th>
+                                            <th>
+                                                <button class="hover:bg-[#F0F1F3] p-1">
+                                                    <img class="w-4 h-4" src="../../../../assets/setting.svg" alt="">
+                                                </button>
+                                            </th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="group">
+                                            <td>
+                                                <button class="w-2 h-2 bg-[#04A9F4] rounded-sm"></button>
+                                            </td>
+                                            <td>
+                                                Task 1
+                                            </td>
+                                            <td>
+                                                <button class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
+                                            </td>
+                                            <td>
+                                                <button class="hover:bg-[#F0F1F3] p-1">
+                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/duedate.svg" alt="">
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="hover:bg-[#F0F1F3] p-1">
+                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/priority.svg" alt="">
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="hidden group-[:hover]:flex mx-auto">
+                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/voptions.svg" alt="">
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="group">
+                                            <td>
+                                                <button class="w-2 h-2 bg-[#04A9F4] rounded-sm"></button>
                                             </td>
                                             <td>
                                                 Testing
@@ -113,7 +200,7 @@
                                         </tr>
                                         <tr class="group">
                                             <td>
-                                                <button class="w-2 h-2 bg-orange-400 rounded-sm"></button>
+                                                <button class="w-2 h-2 bg-[#04A9F4] rounded-sm"></button>
                                             </td>
                                             <td>
                                                 Task 2
@@ -139,96 +226,10 @@
                                         </tr>
                                         <tr class="group">
                                             <td>
-                                                <button class="w-2 h-2 bg-orange-400 rounded-sm"></button>
+                                                <button class="w-2 h-2 bg-[#04A9F4] rounded-sm"></button>
                                             </td>
                                             <td>
                                                 Task 3
-                                            </td>
-                                            <td>
-                                                <button class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
-                                            </td>
-                                            <td>
-                                                <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/duedate.svg" alt="">
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/priority.svg" alt="">
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="hidden group-[:hover]:flex mx-auto">
-                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/voptions.svg" alt="">
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </mat-expansion-panel>
-                        <!-- completed -->
-                        <mat-expansion-panel class="!shadow-none w-full !my-4" expanded="true">
-                            <mat-expansion-panel-header class="!p-0">
-                                <mat-panel-title>
-                                    <div class="group flex items-center py-0.5 px-2 rounded-sm">
-                                        <img class="w-4 h-4 rotate__icon" src="../../../../assets/rightangle.svg" alt="">
-                                        <span class="text-sm  font-medium p-0.5 rounded-sm bg-[#6BC950]  text-white capitalize ml-2">Complete</span>
-                                        <img class="group-[:hover]:flex hidden w-4 h-4 ml-1" src="../../../../assets/voptions.svg" alt="">
-                                    </div>
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <div class="w-full">
-                                <table class="w-full">
-                                    <thead>
-                                        <tr class="uppercase text-[10px] font-light text-center ">
-                                            <th>todo</th>
-                                            <th class="w-[50%]">
-                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{4}} tasks</span>
-                                            </th>
-                                            <th>assignee</th>
-                                            <th>due date</th>
-                                            <th>priority</th>
-                                            <th>
-                                                <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <img class="w-4 h-4" src="../../../../assets/setting.svg" alt="">
-                                                </button>
-                                            </th>    
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="group">
-                                            <td>
-                                                <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
-                                            </td>
-                                            <td>
-                                                Task 1
-                                            </td>
-                                            <td>
-                                                <button class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
-                                            </td>
-                                            <td>
-                                                <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/duedate.svg" alt="">
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/priority.svg" alt="">
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button class="hidden group-[:hover]:flex mx-auto">
-                                                    <img class="w-5 h-5 text-[#b9bec7]" src="../../../../assets/voptions.svg" alt="">
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr class="group">
-                                            <td>
-                                                <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
-                                            </td>
-                                            <td>
-                                                Testing
                                             </td>
                                             <td>
                                                 <button class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
