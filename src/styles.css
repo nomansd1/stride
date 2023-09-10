@@ -27,7 +27,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #ADB3BD;
     @apply rounded-full
 }
-
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+  }
 /* mat expansion panel styles */
 div.mat-expansion-panel-body {
     @apply p-0 !important;
