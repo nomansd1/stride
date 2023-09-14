@@ -11,6 +11,6 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   gotoapp() {
-    this.router.navigate(['/app'])
+    this.router.navigate(['/app/everything'])
   }
 }
