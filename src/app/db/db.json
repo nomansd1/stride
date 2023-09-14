@@ -1,0 +1,62 @@
+{
+    "spaces": [
+      {
+        "id": 1,
+        "name": "Personal",
+        "folders": [
+          {
+            "id": 101,
+            "name": "Work",
+            "subfolders": [
+              {
+                "id": 1001,
+                "name": "Important",
+                "lists": [
+                  {
+                    "id": 10001,
+                    "name": "To-Do",
+                    "tasks": [
+                      {
+                        "id": 100001,
+                        "name": "Task 1",
+                        "subtasks": [
+                          {
+                            "id": 1000001,
+                            "name": "Subtask 1"
+                          },
+                          {
+                            "id": 1000002,
+                            "name": "Subtask 2"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "docs": [
+          {
+            "id": 1001,
+            "name": "ProjectPlan.docx"
+          }
+        ],
+        "whiteboards": [
+          {
+            "id": 10001,
+            "name": "Brainstorming"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Work",
+        "folders": [],
+        "docs": [],
+        "whiteboards": []
+      }
+    ]
+  }
+  
