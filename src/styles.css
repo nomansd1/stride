@@ -50,8 +50,8 @@ div.mat-expansion-panel-body {
 .project__ep .mat-expansion-indicator {
     display: none !important;
 }
-.mat-expansion-panel:hover, .mat-expansion-panel {
-    background-color: transparent !important;
+.mat-expansion-panel:hover {
+    background-color: #F6F7F9 !important;
 }
 .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
     background-color: transparent !important;

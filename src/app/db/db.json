@@ -2,15 +2,15 @@
     "spaces": [
       {
         "id": 1,
-        "name": "Personal",
+        "name": "Team Space",
         "folders": [
           {
             "id": 101,
-            "name": "Work",
+            "name": "Projects",
             "subfolders": [
               {
                 "id": 1001,
-                "name": "Important",
+                "name": "Project 1",
                 "lists": [
                   {
                     "id": 10001,

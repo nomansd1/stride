@@ -1,136 +1,142 @@
-<aside class="bg-white min-w-[301px] max-w-[301px] h-full max-h-screen p-4 border-r-2 border-[#EBEAFD] relative flex flex-col justify-between overflow-hidden">
-    <div class="bg-white w-full overflow-auto">
-        <div class="flex justify-between items-center">
-            <img src="../../../assets/logo.png" alt="" class="w-[95px]">
-            <button class="hover:bg-[#F0F1F3] px-1.5 py-2 rounded-sm">
-                <svg class="w-3 h-3 transform -rotate-180" fill="#3176b1" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.73 30.73" xml:space="preserve" stroke="#3176b1" stroke-width="0.00030725"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M13.832,30.725c-0.642,0-1.279-0.244-1.769-0.732c-0.978-0.977-0.978-2.56,0-3.535l11.095-11.093L12.064,4.268 c-0.978-0.979-0.978-2.562,0-3.535c0.978-0.978,2.56-0.978,3.535,0l14.628,14.631L15.6,29.992 C15.111,30.48,14.473,30.725,13.832,30.725z M4.766,29.992l14.628-14.628L4.766,0.733c-0.979-0.978-2.561-0.978-3.535,0 c-0.978,0.977-0.978,2.56,0,3.535l11.095,11.096L1.23,26.457c-0.978,0.978-0.978,2.561,0,3.535 c0.488,0.488,1.127,0.732,1.769,0.732C3.64,30.725,4.275,30.48,4.766,29.992z"></path></g></g>
-                </svg>
-            </button>
-        </div>
-        <div class="w-full bg-[#F6F7F9] py-1.5 px-2 flex items-center mt-4 rounded-md">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#C5C3F6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#C5C3F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            <input type="text" class="bg-transparent focus:outline-none w-full placeholder:text-[#C5C3F6] text-sm px-2" placeholder="Search">
-        </div>
-        <div class="w-full mt-3">
-            <a routerLink="home" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] bg-white hover:bg-[#F6F7F9] w-full flex items-center rounded-md p-2">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
-                </svg>
-                <span class="text-[13px] ml-4 font-medium">Home</span>
-            </a>
-            <a routerLink="notifications" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] bg-white hover:bg-[#F6F7F9] w-full flex items-center rounded-md p-2">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 21">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C15 15.4 15 16 14.462 16H1.538C1 16 1 15.4 1 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 8 3.464ZM4.54 16a3.48 3.48 0 0 0 6.92 0H4.54Z"/>
-                </svg>
-                <span class="text-[13px] ml-4 font-medium">Notifications</span>
-            </a>
-        </div>
-        <div class="w-full mt-5">
-            <li class="w-full list-none uppercase">
-                <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
-                    <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white hover:!bg-[#F6F7F9]">
-                        <mat-panel-title class="flex items-center text-[13px] px-2 py-2.5 !w-full">
-                          Favorites
-                        </mat-panel-title>
-                    </mat-expansion-panel-header> 
-                      <div class="w-full px-2 py-3">
-                        <span class="text-xs text-black font-medium">You don't have any Favorites yet.</span>
-                      </div>
-                </mat-expansion-panel>
-            </li>
-            <li class="w-full list-none uppercase">
-                <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
-                    <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white hover:!bg-[#F6F7F9]">
-                        <mat-panel-title class="flex items-center text-[13px] px-2 py-2.5 !w-full">
-                          Spaces
-                        </mat-panel-title>
-                      </mat-expansion-panel-header> 
-                      <div class="w-full px-2 py-3">
-                        <button class="uppercase text-xs py-1.5 px-2 w-full bg-[#F6F7F9] hover:bg-[#E4E4E4] rounded-sm font-medium inline-flex items-center justify-center"> 
-                            <svg class="w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                            </svg>
-                           <span>new space</span>
-                        </button>
-                        <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
-                            <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white hover:!bg-[#F6F7F9]">
-                                <mat-panel-title>
-                                    <a routerLink="teamspace" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] flex items-center rounded-md py-1.5 px-2">
-                                        <span class="py-1.5 px-2 bg-[#03A2FD] rounded-md text-white">
-                                            <img class="w-3 h-3" src="../../../assets/team.svg" alt="">
-                                        </span>
-                                        <span class="text-[13px] ml-4 font-medium capitalize">team space</span>
-                                    </a>
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <div class="px-2 py-3">
-                                <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
-                                    <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white !hover:!bg-[#F6F7F9]">
-                                        <mat-panel-title>
-                                            <a routerLink="projects" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] flex items-center rounded-md py-1.5 px-2 ml-6">
-                                                <img class="w-3 h-3" src="../../../assets/team.svg" alt="">
-                                                <span class="text-[13px] ml-4 font-medium capitalize">Projects</span>
-                                            </a>    
-                                        </mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <div class="w-full px-2 py-3">
-                                        <a routerLink="project1" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] w-full flex items-center rounded-md py-1.5 px-2 mt-2 ml-10">
-                                            <span class="text-[13px] ml-4 font-medium capitalize">Project 1</span>
-                                        </a>
-                                        <a routerLink="project2" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] w-full flex items-center rounded-md py-1.5 px-2 mt-2 ml-10">
-                                            <span class="text-[13px] ml-4 font-medium capitalize">Project 2</span>
-                                        </a>
-                                    </div>
-                                </mat-expansion-panel>
-                            </div>
-                        </mat-expansion-panel>
-                        <a routerLink="everything" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] bg-white hover:bg-[#F6F7F9] w-full flex items-center rounded-md py-1.5 px-2 mt-2">
-                            <img class="w-3 h-3" src="../../../assets/evspace.svg" alt="">
-                            <span class="text-[13px] ml-4 font-medium capitalize">everything</span>
-                        </a>
-                      </div>
-                </mat-expansion-panel>
-            </li>
-            <li class="w-full list-none uppercase">
-                <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-b-2 border-[#F6F7F9]">
-                    <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white hover:!bg-[#F6F7F9]">
-                        <mat-panel-title class="flex items-center text-[13px] px-2 py-2.5 !w-full">
-                          Docs
-                        </mat-panel-title>
-                      </mat-expansion-panel-header> 
-                      <div class="w-full px-2 py-3">
-                        <button class="uppercase text-xs py-1.5 px-2 w-full bg-[#F6F7F9] hover:bg-[#E4E4E4] rounded-sm font-medium inline-flex items-center justify-center"> 
-                            <svg class="w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                            </svg>
-                           <span>new space</span>
-                        </button>
-                      </div>
-                </mat-expansion-panel>
-            </li>
-        </div>
-    </div>
-    <div class="py-4 w-full relative">
-        <button (click)="toggleUserInfo()" class="flex justify-center items-center cursor-pointer">
-            <div class="relative">
-                <span class="inline-flex justify-center items-center p-1 w-[35px] h-[35px] bg-orange-500 text-white rounded-full">N</span>
-                <span class="w-[13px] h-[13px] rounded-full inline-block bg-green-500 absolute -top-1 right-0"></span>
-            </div>
-            <svg class="w-3 h-3 text-gray-500 ml-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+<aside *ngIf="sidebarStateService.sidebarOpen$ | async" class="bg-white min-w-[301px] max-w-[301px] h-full max-h-screen border-r-2 border-[#EBEAFD] relative overflow-hidden">
+    <div class="flex justify-between items-center p-4">
+        <img src="../../../assets/logo.png" alt="" class="w-[95px]">
+        <button (click)="toggleSidebar()" class="hover:bg-[#F0F1F3] px-1.5 py-2 rounded-sm">
+            <svg class="w-3 h-3 transform -rotate-180" fill="#3176b1" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.73 30.73" xml:space="preserve" stroke="#3176b1" stroke-width="0.00030725"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M13.832,30.725c-0.642,0-1.279-0.244-1.769-0.732c-0.978-0.977-0.978-2.56,0-3.535l11.095-11.093L12.064,4.268 c-0.978-0.979-0.978-2.562,0-3.535c0.978-0.978,2.56-0.978,3.535,0l14.628,14.631L15.6,29.992 C15.111,30.48,14.473,30.725,13.832,30.725z M4.766,29.992l14.628-14.628L4.766,0.733c-0.979-0.978-2.561-0.978-3.535,0 c-0.978,0.977-0.978,2.56,0,3.535l11.095,11.096L1.23,26.457c-0.978,0.978-0.978,2.561,0,3.535 c0.488,0.488,1.127,0.732,1.769,0.732C3.64,30.725,4.275,30.48,4.766,29.992z"></path></g></g>
             </svg>
         </button>
-        <div [ngClass]="userInfo? 'block': 'hidden'" class="absolute !bg-white shadow-md bottom-14 left-20 !p-0">
-            <div class="bg__info w-[250px] flex items-center p-5">
-                <svg class="w-4 h-4 text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-2 3h4a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
-                </svg>
-                <h1 class="text-white font-medium">Syed Noman Ali</h1>
+    </div>
+    <div class="sidebar__menu px-4 flex flex-col justify-between overflow-auto">
+        <div class="bg-white w-full">
+            <div class="w-full bg-[#F6F7F9] py-1.5 px-2 flex items-center  rounded-md">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#C5C3F6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#C5C3F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                <input type="text" class="bg-transparent focus:outline-none w-full placeholder:text-[#C5C3F6] text-sm px-2" placeholder="Search">
             </div>
-            <div class="w-full p-5">
-                <a href="" class="text-xs font-normal text-[#292d34] hover:text-primary-hover block mb-3">My Settings</a>
-                <a href="" class="text-xs font-normal text-[#292d34] hover:text-primary-hover block mb-3">Notifications</a>
-                <a href="" class="text-xs font-normal text-[#292d34] hover:text-primary-hover block mb-3">Log out</a>
+            <div class="w-full mt-3">
+                <a routerLink="home" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] bg-white hover:bg-[#F6F7F9] w-full flex items-center rounded-md p-2">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
+                    </svg>
+                    <span class="text-[13px] ml-4 font-medium">Home</span>
+                </a>
+                <a routerLink="notifications" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] bg-white hover:bg-[#F6F7F9] w-full flex items-center rounded-md p-2">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 21">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C15 15.4 15 16 14.462 16H1.538C1 16 1 15.4 1 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 8 3.464ZM4.54 16a3.48 3.48 0 0 0 6.92 0H4.54Z"/>
+                    </svg>
+                    <span class="text-[13px] ml-4 font-medium">Notifications</span>
+                </a>
+            </div>
+            <div class="w-full mt-5">
+                <li class="w-full list-none uppercase">
+                    <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
+                        <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white hover:!bg-[#F6F7F9]">
+                            <mat-panel-title class="flex items-center text-[11px] px-2 py-2.5 !w-full">
+                              Favorites
+                            </mat-panel-title>
+                        </mat-expansion-panel-header> 
+                          <div class="w-full px-2 py-3 bg-white">
+                            <span class="text-[10px] text-black font-medium mx-auto">You don't have any Favorites yet.</span>
+                          </div>
+                    </mat-expansion-panel>
+                </li>
+                <li class="w-full list-none uppercase">
+                    <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
+                        <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white">
+                            <mat-panel-title class="flex items-center text-[11px] px-2 py-2.5 !w-full">
+                              Spaces
+                            </mat-panel-title>
+                          </mat-expansion-panel-header> 
+                          <div class="w-full px-2 py-3 bg-white">
+                            <button class="uppercase text-[11px] mb-1 py-1.5 px-2 w-full bg-[#F6F7F9] hover:bg-[#E4E4E4] rounded-sm font-medium inline-flex items-center justify-center"> 
+                                <svg class="w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                </svg>
+                               <span>new space</span>
+                            </button>
+                            <mat-expansion-panel *ngFor="let space of spaces" class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
+                                <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white">
+                                    <mat-panel-title>
+                                        <a routerLink="teamspace" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] flex items-center rounded-md py-1.5 px-2">
+                                            <span class="py-1 px-1.5 bg-[#03A2FD] rounded-md text-white">
+                                                <img class="w-3 h-3" src="../../../assets/team.svg" alt="">
+                                            </span>
+                                            <span class="text-[11px] ml-2 font-medium capitalize">{{ space.name }}</span>
+                                        </a>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="px-2 py-1 bg-white">
+                                    <mat-expansion-panel *ngFor="let folder of space.folders" class="w-full !shadow-none bg-white border-t-2 border-[#F6F7F9]">
+                                        <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white">
+                                            <mat-panel-title>
+                                                <a routerLink="projects" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] flex items-center rounded-md py-1.5 px-2 ml-6">
+                                                    <span class="py-1 px-1.5 bg-[#E9EBF1] rounded-md text-white">
+                                                        <img class="w-3 h-3" src="../../../assets/folder.svg" alt="">
+                                                    </span>
+                                                    <span class="text-[11px] ml-2 font-medium capitalize">{{ folder.name }}</span>
+                                                </a>    
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="w-full px-2 py-1 bg-white">
+                                            <a routerLink="project1" *ngFor="let subFolder of folder.subfolders" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] w-full flex items-center rounded-md py-1.5 px-2 mt-2 ml-10">
+                                                <span class="text-[11px] ml-4 font-medium capitalize">{{ subFolder.name }}</span>
+                                            </a>
+                                            <!-- <a routerLink="project2" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] w-full flex items-center rounded-md py-1.5 px-2 mt-2 ml-10">
+                                                <span class="text-[13px] ml-4 font-medium capitalize">Project 2</span>
+                                            </a> -->
+                                        </div>
+                                    </mat-expansion-panel>
+                                </div>
+                            </mat-expansion-panel>
+                            <a routerLink="everything" class="text-[#8D939C] focus:text-[#3176b1] active:text-[#3176b1] bg-white hover:bg-[#F6F7F9] w-full flex items-center rounded-md py-1.5 px-2 mt-2">
+                                <span class="py-1 px-1.5 bg-[#E9EBF1] rounded-md text-white">
+                                    <img class="w-3 h-3" src="../../../assets/evspace.svg" alt="">
+                                </span>
+                                <span class="text-[11px] ml-2 font-medium capitalize">everything</span>
+                            </a>
+                          </div>
+                    </mat-expansion-panel>
+                </li>
+                <li class="w-full list-none uppercase">
+                    <mat-expansion-panel class="w-full !shadow-none bg-white border-t-2 border-b-2 border-[#F6F7F9]">
+                        <mat-expansion-panel-header class="!pl-0 !pr-3 bg-white hover:!bg-[#F6F7F9]">
+                            <mat-panel-title class="flex items-center text-[11px] px-2 py-2.5 !w-full">
+                              Docs
+                            </mat-panel-title>
+                          </mat-expansion-panel-header> 
+                          <div class="w-full px-2 py-3">
+                            <button class="uppercase text-[11px] py-1.5 px-2 w-full bg-[#F6F7F9] hover:bg-[#E4E4E4] rounded-sm font-medium inline-flex items-center justify-center"> 
+                                <svg class="w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                </svg>
+                               <span>new space</span>
+                            </button>
+                          </div>
+                    </mat-expansion-panel>
+                </li>
+            </div>
+        </div>
+        <div class="py-4 w-full relative">
+            <button (click)="toggleUserInfo()" class="flex justify-center items-center cursor-pointer">
+                <div class="relative">
+                    <span class="inline-flex justify-center items-center p-1 w-[35px] h-[35px] bg-orange-500 text-white rounded-full">N</span>
+                    <span class="w-[13px] h-[13px] rounded-full inline-block bg-green-500 absolute -top-1 right-0"></span>
+                </div>
+                <svg class="w-3 h-3 text-gray-500 ml-3 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+                </svg>
+            </button>
+            <div [ngClass]="userInfo? 'block': 'hidden'" class="absolute !bg-white shadow-md bottom-14 left-20 !p-0">
+                <div class="bg__info w-[250px] flex items-center p-5">
+                    <svg class="w-4 h-4 text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-2 3h4a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
+                    </svg>
+                    <h1 class="text-white font-medium">Syed Noman Ali</h1>
+                </div>
+                <div class="w-full p-5">
+                    <a href="" class="text-xs font-normal text-[#292d34] hover:text-primary-hover block mb-3">My Settings</a>
+                    <a href="" class="text-xs font-normal text-[#292d34] hover:text-primary-hover block mb-3">Notifications</a>
+                    <a href="" class="text-xs font-normal text-[#292d34] hover:text-primary-hover block mb-3">Log out</a>
+                </div>
             </div>
         </div>
     </div>

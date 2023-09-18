@@ -31,6 +31,7 @@ import { Project1Component } from './layout/project1/project1.component';
 import { Project2Component } from './layout/project2/project2.component';
 import { SpaceProject2Component } from './components/spaces/space-project2/space-project2.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
+import { TaskSelectionHeaderComponent } from './components/layout/task-selection-header/task-selection-header.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ProjectsComponent } from './layout/projects/projects.component';
     Project2Component,
     SpaceProject2Component,
     ProjectsComponent,
+    TaskSelectionHeaderComponent,
   ],
   imports: [
     BrowserModule,

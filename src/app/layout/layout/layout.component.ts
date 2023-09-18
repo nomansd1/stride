@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarStateService } from 'src/app/services/sidebar-state.service';
 
 @Component({
   selector: 'app-layout',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
+  
+  constructor(public sidebarStateService: SidebarStateService) {}
 
+  toggleSidebarState() {
+    this.sidebarStateService.toggleSidebarState();
+  }
 }

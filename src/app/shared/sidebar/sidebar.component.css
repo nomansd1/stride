@@ -2,3 +2,6 @@
     background: url('../../../assets/loginbg.svg');
     background-size: 100%;
 }
+.sidebar__menu {
+    height: calc(100% - 60px);
+}
