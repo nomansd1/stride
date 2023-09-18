@@ -88,8 +88,9 @@ div.mat-expansion-panel-body {
     --mdc-tab-indicator-active-indicator-height: 0px !important;
 }
 /* tool tip */
-.cdk-describedby-message-container div {
-    --mat-toolbar-container-background-color: red;
-    --mat-toolbar-container-text-color: yellowt;
-    background: var(--mat-toolbar-container-background-color) !important;
+.custom__tooltip > div {
+    background: #000 !important;
+    font-size: 11px !important;
+    text-align: center !important;
+    @apply rounded-md;
 }
