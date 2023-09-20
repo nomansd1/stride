@@ -1,4 +1,4 @@
-<aside *ngIf="sidebarStateService.sidebarOpen$ | async" class="bg-white min-w-[301px] max-w-[301px] h-full max-h-screen border-r-2 border-[#EBEAFD] relative overflow-hidden">
+<aside *ngIf="sidebarStateService.sidebarOpen$ | async" class="sidebar__exp bg-white min-w-[301px] max-w-[301px] h-full max-h-screen border-r-2 border-[#EBEAFD] relative overflow-hidden">
     <div class="flex justify-between items-center p-4">
         <img src="../../../assets/logo.png" alt="" class="w-[95px]">
         <button (click)="toggleSidebar()" class="hover:bg-[#F0F1F3] px-1.5 py-2 rounded-sm">

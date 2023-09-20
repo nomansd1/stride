@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ListSelectionToolbarService } from 'src/app/services/list-selection-toolbar.service';
 
 @Component({
   selector: 'app-task-selection-header',
   templateUrl: './task-selection-header.component.html',
   styleUrls: ['./task-selection-header.component.css']
 })
-export class TaskSelectionHeaderComponent {
+export class TaskSelectionHeaderComponent implements OnInit {
+  isHeaderVisible = true;
+
   toolbarLinks = [
     { tooltip: 'Set Watchers', url: '', icon: '../../../../assets/watcher.svg' },
     { tooltip: 'Set Assignees', url: '', icon: '../../../../assets/assignee.svg' },
@@ -24,4 +27,12 @@ export class TaskSelectionHeaderComponent {
     { tooltip: 'Archive tasks', url: '', icon: '../../../../assets/arch.svg' },
     { tooltip: 'Delete', url: '', icon: '../../../../assets/del.svg' },
   ]
+
+  constructor(private selectionToolbarService: ListSelectionToolbarService) {}
+
+  ngOnInit(): void {
+    this.selectionToolbarService.isHeaderVisible$.subscribe((isVisible) => {
+      this.isHeaderVisible = isVisible;
+    });
+  }
 }

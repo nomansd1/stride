@@ -14,7 +14,7 @@
                 "lists": [
                   {
                     "id": 10001,
-                    "name": "To-Do",
+                    "status": "To-Do",
                     "tasks": [
                       {
                         "id": 100001,

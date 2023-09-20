@@ -7,19 +7,12 @@ table thead tr th:hover {
     @apply border-x-2;
     @apply border-[#BCC0C7];
 }
-table thead tr th:nth-child(2), table tbody tr td:nth-child(2) {
+/* table thead tr th:nth-child(2), table tbody tr td:nth-child(2) {
     @apply text-left;
-}
-table thead tr th:nth-child(2),
-table thead tr th:last-child {
+} */
+table thead tr th:nth-child(1){
     @apply hover:bg-transparent;
     @apply border-none;
-}
-table thead tr th:nth-child(2) span:hover,
-table thead tr th:last-child span:hover
-table thead tr th:nth-child(2) {
-    @apply border-x-2;
-    @apply border-[#BCC0C7];    
 }
 table tbody tr {
     @apply text-center;
@@ -29,4 +22,13 @@ table tbody tr {
 table tbody tr td {
     @apply py-1;
     @apply px-2;
+}
+.selected-row {
+    border: 1px solid black;
+}
+.visible {
+    visibility: visible;
+}
+.right__border {
+    border-right: 1px solid black !important;
 }
