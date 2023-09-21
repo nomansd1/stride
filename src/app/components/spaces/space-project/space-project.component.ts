@@ -17,6 +17,7 @@ export class SpaceProjectComponent {
   listOfSubFolders: any[] = [];
   listOfTasks: any[] = [];
   tasks: any[] = [];
+  subTasks: any[] = [];
 
   constructor(private selectionToolbarService: ListSelectionToolbarService) { }
 
@@ -38,6 +39,10 @@ export class SpaceProjectComponent {
       this.tasks = this.listOfTasks.reduce((acc: any[], item: any) => {
         const tasks = item.tasks;
         return acc.concat(tasks);
+      }, []);
+      this.subTasks = this.tasks.reduce((acc: any[], item: any) => {
+        const subtasks = item.subtasks;
+        return acc.concat(subtasks);
       }, []);
       // console.log(this.listOfFolders);
       // console.log(this.listOfSubFolders);
