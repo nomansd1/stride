@@ -8,6 +8,7 @@ import { ListSelectionToolbarService } from 'src/app/services/list-selection-too
 })
 export class TaskSelectionHeaderComponent implements OnInit {
   isHeaderVisible = true;
+  selectedRowsCount: number = 0;
 
   toolbarLinks = [
     { tooltip: 'Set Watchers', url: '', icon: '../../../../assets/watcher.svg' },
@@ -32,7 +33,10 @@ export class TaskSelectionHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectionToolbarService.isHeaderVisible$.subscribe((isVisible) => {
-      this.isHeaderVisible = isVisible;
+      this.isHeaderVisible = isVisible;  
+    });
+    this.selectionToolbarService.selectedRowsCount$.subscribe((count) => {
+      this.selectedRowsCount = count;
     });
   }
 }

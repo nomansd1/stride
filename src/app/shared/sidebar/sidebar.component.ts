@@ -23,9 +23,7 @@ export class SidebarComponent implements OnInit {
   getSpaces() {
     this.apiClient.getData('assets/db/db.json')
       .then((data) => {
-        this.spaces = data.spaces;
-        console.log(this.spaces);
-        
+        this.spaces = data.spaces;        
       })
       .catch((error) => {
         console.log(error);
