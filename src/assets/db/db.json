@@ -14,7 +14,7 @@
                 "lists": [
                   {
                     "id": 10001,
-                    "status": "To-Do",
+                    "status": "Completed",
                     "tasks": [
                       {
                         "id": 100001,
@@ -57,6 +57,22 @@
                             "title": "Subtask 2"
                           }
                         ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": 10002,
+                    "status": "In Progress",
+                    "tasks": [
+                      {
+                        "id": 100001,
+                        "title": "Testing 1",
+                        "subtasks": []
+                      },
+                      {
+                        "id": 100002,
+                        "title": "Testing 2",
+                        "subtasks": []
                       }
                     ]
                   }
