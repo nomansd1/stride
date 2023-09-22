@@ -24,29 +24,40 @@ export class SpaceProjectComponent {
   // When the component initializes or when the 'data' input changes, update the 'lists' property
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] && changes['data'].currentValue) {
-      this.listOfFolders = this.data.reduce((acc: any[], item: any) => {
-        const folders = item.folders;
-        return acc.concat(folders);
-      }, []);
-      this.listOfSubFolders = this.listOfFolders.reduce((acc: any[], item: any) => {
-        const subfolders = item.subfolders;
-        return acc.concat(subfolders);
-      }, []);
-      this.listOfTasks = this.listOfSubFolders.reduce((acc: any[], item: any) => {
-        const lists = item.lists;
-        return acc.concat(lists);
-      }, []);
-      this.tasks = this.listOfTasks.reduce((acc: any[], item: any) => {
-        const tasks = item.tasks;
-        return acc.concat(tasks);
-      }, []);
-      this.subTasks = this.tasks.reduce((acc: any[], item: any) => {
-        const subtasks = item.subtasks;
-        return acc.concat(subtasks);
-      }, []);
-      // console.log(this.listOfFolders);
-      // console.log(this.listOfSubFolders);
-      // console.log(this.listOfTasks);
+      // this.listOfFolders = this.data.reduce((acc: any[], item: any) => {
+      //   const folders = item.folders;
+      //   return acc.concat(folders);
+      // }, []);
+      // this.listOfSubFolders = this.listOfFolders.reduce((acc: any[], item: any) => {
+      //   const subfolders = item.subfolders;
+      //   return acc.concat(subfolders);
+      // }, []);
+      // this.listOfTasks = this.listOfSubFolders.reduce((acc: any[], item: any) => {
+      //   const lists = item.lists;
+      //   return acc.concat(lists);
+      // }, []);
+      // this.tasks = this.listOfTasks.reduce((acc: any[], item: any) => {
+      //   const tasks = item.tasks;
+      //   return acc.concat(tasks);
+      // }, []);
+      // this.subTasks = this.tasks.reduce((acc: any[], item: any) => {
+      //   const subtasks = item.subtasks;
+      //   return acc.concat(subtasks);
+      // }, []);
+      
+      this.listOfFolders = [].concat(
+        ...this.data.map((item:any) => item.folders)
+      );
+      this.listOfSubFolders = [].concat(
+        ...this.listOfFolders.map((item:any) => item.subfolders)
+      )
+      this.listOfTasks = [].concat(
+        ...this.listOfSubFolders.map((item:any) => item.lists)
+      )
+      
+      console.log(this.listOfFolders);
+      console.log(this.listOfSubFolders);
+      console.log(this.listOfTasks);
       // console.log(this.tasks);
     }
   }

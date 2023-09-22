@@ -72,7 +72,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="relative">
-                                            <tr *ngFor="let task of tasks; let i = index" [class.selected-row]="selectedRows.includes(i)" class="group">
+                                            <tr *ngFor="let task of list.tasks; let i = index" [class.selected-row]="selectedRows.includes(i)" class="group">
                                                 <td [class.right__border]="selectedRows.includes(i)"
                                                     class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
                                                     <button [class.visible]="selectedRows.includes(i)" (click)="toggleRowSelection(i)"
