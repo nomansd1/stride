@@ -35,7 +35,7 @@
                     </mat-expansion-panel-header>
                     <div class="w-full p-2 bg-white">
                         <!-- completed -->
-                        <mat-expansion-panel *ngFor="let list of listOfTasks" class="!shadow-none w-full project__spaceExp" expanded="true">
+                        <mat-expansion-panel *ngFor="let list of listOfTasks; let i = index" class="!shadow-none w-full project__spaceExp !mb-3" expanded="true">
                             <mat-expansion-panel-header class="!p-0">
                                 <mat-panel-title>
                                     <div class="group flex items-center py-0.5 px-2 rounded-sm">
@@ -162,7 +162,7 @@
                                     </tbody>
                                 </table>
                                 <!-- Add new task row toolbar -->
-                                <div *ngIf="addNewTaskToolbar" class="h-[37px] selected-row flex items-center ml-[77px]">
+                                <div *ngIf="taskRowVisibility[i]" class="h-[37px] selected-row flex items-center ml-[77px]">
                                     <!-- new task add row toolbar -->
                                     <div class="w-[128px] h-full flex items-center justify-center">
                                         <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
@@ -179,13 +179,13 @@
                                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </button>
                                         <button class="bg-primary text-white rounded-sm text-xs px-2.5 py-1 uppercase mx-1.5">Save</button>
-                                        <button (click)="hideAddNewTaskToolbar()" class="w-6 h-6 text-[#b9bec7]">
+                                        <button (click)="hideAddNewTaskToolbar(i)" class="w-6 h-6 text-[#b9bec7]">
                                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g > <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
                                         </button>
                                     </div>
                                 </div>
-                                <div *ngIf="showAddTaskButton" class="w-full ml-[73px]">
-                                    <button (click)="showAddNewTaskToolbar()"
+                                <div *ngIf="!taskRowVisibility[i]" class="w-full ml-[73px]">
+                                    <button (click)="showAddNewTaskToolbar(i)"
                                         class="py-0.5 px-2 text-[10px] text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1">
                                         + New task
                                     </button>

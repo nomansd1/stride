@@ -10,8 +10,7 @@ export class SpaceProjectComponent {
   @Input() data: any;
   isRowSelected = false;
   selectedRows: number[]= [];
-  addNewTaskToolbar = false;
-  showAddTaskButton = true;
+  taskRowVisibility: boolean[] = [];  
   closedTaskFilterButton = "Show Closed"; // button text for filtration button for closed task
   listOfFolders: any[] = [];
   listOfSubFolders: any[] = [];
@@ -19,32 +18,12 @@ export class SpaceProjectComponent {
   tasks: any[] = [];
   subTasks: any[] = [];
 
-  constructor(private selectionToolbarService: ListSelectionToolbarService) { }
+
+  constructor(private selectionToolbarService: ListSelectionToolbarService) {}
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] && changes['data'].currentValue) {
-      // this.listOfFolders = this.data.reduce((acc: any[], item: any) => {
-      //   const folders = item.folders;
-      //   return acc.concat(folders);
-      // }, []);
-      // this.listOfSubFolders = this.listOfFolders.reduce((acc: any[], item: any) => {
-      //   const subfolders = item.subfolders;
-      //   return acc.concat(subfolders);
-      // }, []);
-      // this.listOfTasks = this.listOfSubFolders.reduce((acc: any[], item: any) => {
-      //   const lists = item.lists;
-      //   return acc.concat(lists);
-      // }, []);
-      // this.tasks = this.listOfTasks.reduce((acc: any[], item: any) => {
-      //   const tasks = item.tasks;
-      //   return acc.concat(tasks);
-      // }, []);
-      // this.subTasks = this.tasks.reduce((acc: any[], item: any) => {
-      //   const subtasks = item.subtasks;
-      //   return acc.concat(subtasks);
-      // }, []);
-      
       this.listOfFolders = [].concat(
         ...this.data.map((item:any) => item.folders)
       );
@@ -54,11 +33,7 @@ export class SpaceProjectComponent {
       this.listOfTasks = [].concat(
         ...this.listOfSubFolders.map((item:any) => item.lists)
       )
-      
-      console.log(this.listOfFolders);
-      console.log(this.listOfSubFolders);
-      console.log(this.listOfTasks);
-      // console.log(this.tasks);
+      this.taskRowVisibility = Array(this.listOfTasks.length).fill(false);
     }
   }
 
@@ -75,13 +50,11 @@ export class SpaceProjectComponent {
     this.toggleListSelectionToolbar();
     this.selectionToolbarService.setSelectedRowsCount(this.selectedRows.length);
   }
-  showAddNewTaskToolbar(): void {
-    this.addNewTaskToolbar = true;
-    this.showAddTaskButton = false;
+  showAddNewTaskToolbar(index: number): void {
+    this.taskRowVisibility[index] = true;
   }
-  hideAddNewTaskToolbar(): void {
-    this.addNewTaskToolbar = false;
-    this.showAddTaskButton = true;
+  hideAddNewTaskToolbar(index: number): void {
+    this.taskRowVisibility[index] = false;
   }
   // closed task Filteration
   closedTaskFiltration(): void {
