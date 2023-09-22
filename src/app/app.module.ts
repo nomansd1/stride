@@ -32,6 +32,7 @@ import { Project2Component } from './layout/project2/project2.component';
 import { SpaceProject2Component } from './components/spaces/space-project2/space-project2.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
 import { TaskSelectionHeaderComponent } from './components/layout/task-selection-header/task-selection-header.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { TaskSelectionHeaderComponent } from './components/layout/task-selection
     MatExpansionModule,
     MatMenuModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

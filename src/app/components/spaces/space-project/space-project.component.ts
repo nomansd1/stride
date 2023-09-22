@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { ApiClientService } from 'src/app/services/api-client.service';
 import { ListSelectionToolbarService } from 'src/app/services/list-selection-toolbar.service';
 
 @Component({
@@ -17,9 +18,14 @@ export class SpaceProjectComponent {
   listOfTasks: any[] = [];
   tasks: any[] = [];
   subTasks: any[] = [];
+  newTaskName!: string;
+  // for temporay use 
+  savedTaskList: any = []
 
-
-  constructor(private selectionToolbarService: ListSelectionToolbarService) {}
+  constructor(
+    private selectionToolbarService: ListSelectionToolbarService,
+    private apiClient: ApiClientService
+    ) {}
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
   ngOnChanges(changes: SimpleChanges) {
@@ -50,12 +56,15 @@ export class SpaceProjectComponent {
     this.toggleListSelectionToolbar();
     this.selectionToolbarService.setSelectedRowsCount(this.selectedRows.length);
   }
+
   showAddNewTaskToolbar(index: number): void {
     this.taskRowVisibility[index] = true;
   }
+
   hideAddNewTaskToolbar(index: number): void {
     this.taskRowVisibility[index] = false;
   }
+  
   // closed task Filteration
   closedTaskFiltration(): void {
     if (this.closedTaskFilterButton === "Show Closed") {
@@ -65,7 +74,13 @@ export class SpaceProjectComponent {
       this.closedTaskFilterButton = "Show Closed"
     }
   }
+  
   toggleListSelectionToolbar() {
     this.selectionToolbarService.toggleHeaderVisibility();
+  }
+
+  addNewTask() {
+    console.log(this.newTaskName);
+    this.savedTaskList.push(this.newTaskName)
   }
 }
