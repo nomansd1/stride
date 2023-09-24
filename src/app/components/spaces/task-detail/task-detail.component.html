@@ -1,0 +1,138 @@
+<div class="bg-[#EFF0F3] p-3.5 flex items-center justify-between group">
+    <div class="flex items-center">
+        <div class="inline-flex items-center bg-white px-2.5 py-[4px] text-xs rounded-md">
+            <span>Team space > Projects > Project 1 </span>
+            <span class="mx-3">1 of 1 </span>
+            <button matTooltip="Move task" matTooltipClass="custom__tooltip" class="inline-flex items-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke-width="0"></g>
+                    <g stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g>
+                        <path
+                            d="M11.0005 15.9995L15.0005 11.9995M15.0005 11.9995L11.0005 7.99951M15.0005 11.9995H3.00049M11.0005 2.99951H17.7997C18.9198 2.99951 19.4799 2.99951 19.9077 3.2175C20.284 3.40925 20.59 3.71521 20.7817 4.09153C20.9997 4.51935 20.9997 5.07941 20.9997 6.19951V17.7995C20.9997 18.9196 20.9997 19.4797 20.7817 19.9075C20.59 20.2838 20.284 20.5898 19.9077 20.7815C19.4799 20.9995 18.9198 20.9995 17.7997 20.9995H11.0005"
+                            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <button matTooltip="Add task to another list" matTooltipClass="custom__tooltip"
+            class="bg-white p-[3px] ml-1 rounded-md hidden group-[:hover]:block">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g stroke-width="0"></g>
+                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                <g>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z" fill="#080341">
+                    </path>
+                </g>
+            </svg>
+        </button>
+    </div>
+    <div class="flex items-center">
+        <button class="bg-white py-1 px-1.5 ml-1 rounded-md">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g stroke-width="0"></g>
+                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                <g>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.9393 12L6.9696 15.9697L8.03026 17.0304L12 13.0607L15.9697 17.0304L17.0304 15.9697L13.0607 12L17.0303 8.03039L15.9696 6.96973L12 10.9393L8.03038 6.96973L6.96972 8.03039L10.9393 12Z"
+                        fill="#080341"></path>
+                </g>
+            </svg>
+        </button>
+    </div>
+</div>
+<div class="w-full h-full">
+    <div class="w-[55%] h-full border-4 border-red-500">
+        <div class="inline-flex px-5 justify-between items-center py-4 border border-b-[#EFF0F3] w-full">
+            <div class="inline-flex items-center">
+                <button class="px-4 py-2 bg-[#E8EAED] text-[11px] uppercase rounded-sm">To do</button>
+                <button matTooltip="Next Status" matTooltipClass="custom__tooltip"
+                    class="px-2.5 bg-[#E8EAED] h-[32.5px] ml-1 rounded-sm">
+                    <svg class="w-1.5 h-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#080341"
+                        viewBox="0 0 10 16">
+                        <path
+                            d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z" />
+                    </svg>
+                </button>
+                <button matTooltip="Assign" matTooltipClass="custom__tooltip" class="relative inline-flex group">
+                    <span
+                        class="inline-flex justify-center items-center rounded-full border border-dashed border-[#c1c1c1] group-[:hover]:border-primary-hover w-[40px] h-[40px] ml-5">
+                        <svg class="w-5 h-5 text-[#c1c1c1]" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g>
+                                <path
+                                    d="M4 20V19C4 16.2386 6.23858 14 9 14H12.75M17.5355 13.9645V17.5M17.5355 17.5V21.0355M17.5355 17.5H21.0711M17.5355 17.5H14M15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </span>
+                    <span
+                        class="absolute bottom-0 right-0 rounded-full bg-[#c1c1c1] group-[:hover]:bg-primary-hover p-0.5">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g stroke-width="0"></g>
+                            <g stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z"
+                                    fill="currentColor">
+                                </path>
+                            </g>
+                        </svg>
+                    </span>
+                </button>
+                <span class="h-[25px] w-[1px] bg-[#c1c1c1] mx-5"></span>
+                <button matTooltip="Set priority" matTooltipClass="custom__tooltip"
+                    class="inline-flex justify-center items-center rounded-full border border-dashed border-[#c1c1c1 hover:border-primary-hover w-[40px] h-[40px] ml-5">
+                    <svg class="w-5 h-5 text-[#c1c1c1]" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                        <g stroke-width="0"></g>
+                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g>
+                            <path
+                                d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7"
+                                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <button class="group" matTooltip="Task Settings" matTooltipClass="custom__tooltip">
+                    <img class="w-5 h-5 group-[:hover]:scale-x-[-1] transition-all ease-linear duration-300"
+                        src="../../../../assets/voptions.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="w-full px-5 h-full overflow-auto border border-green-500">
+            <div class="w-full py-4">
+                <button matTooltip="Edit tags" matTooltipClass="custom__tooltip"
+                    class="inline-flex justify-center items-center rounded-full border border-dashed border-[#c1c1c1 hover:border-primary-hover p-1">
+                    <svg class="w-5 h-5 text-[#c1c1c1]" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g stroke-width="0"></g>
+                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g>
+                            <path
+                                d="M21.07 10.3L15.07 4.29996C14.93 4.15996 14.74 4.07996 14.54 4.07996H3C2.59 4.07996 2.25 4.41996 2.25 4.82996V12.71C2.25 12.91 2.33 13.1 2.47 13.24L8.47 19.23C8.91 19.67 9.49 19.91 10.11 19.91C10.73 19.91 11.32 19.67 11.75 19.23L11.97 19.01C12.01 19.09 12.05 19.17 12.12 19.23C12.57 19.68 13.17 19.91 13.76 19.91C14.35 19.91 14.95 19.68 15.41 19.23L21.06 13.58C21.96 12.68 21.96 11.21 21.06 10.3H21.07ZM10.7 18.17C10.54 18.33 10.34 18.41 10.12 18.41C9.9 18.41 9.69 18.32 9.54 18.17L3.75 12.4V5.57996H10.57L16.35 11.36C16.67 11.68 16.67 12.2 16.35 12.52L10.7 18.17ZM20.01 12.52L14.36 18.17C14.04 18.49 13.51 18.49 13.19 18.17C13.12 18.1 13.05 18.06 12.96 18.02L17.4 13.58C18.3 12.67 18.3 11.2 17.4 10.3L12.68 5.57996H14.22L20 11.36C20.32 11.68 20.32 12.2 20 12.52H20.01ZM8.25 8.49996C8.25 9.18996 7.69 9.74996 7 9.74996C6.31 9.74996 5.75 9.18996 5.75 8.49996C5.75 7.80996 6.31 7.24996 7 7.24996C7.69 7.24996 8.25 7.80996 8.25 8.49996Z"
+                                fill="currentColor"></path>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="w-full py-3">
+                <textarea class="w-full !p-3 text-2xl font-medium !max-h-[178px] hover:!border-2 hover:border-[#EFF0F3] focus:outline-none focus:!border-2 focus:border-primary-hover" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5" value="hello world"></textarea>
+            </div>
+            <div class="w-full py-1">
+                <textarea class="w-full !p-3 h-[150px] text-sm hover:!border-2 hover:border-[#EFF0F3] focus:outline-none focus:!border-2 focus:border-primary-hover placeholder:text-[#c1c1c1]" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5" value="hello world" placeholder="Write something"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="w-[45%]"></div>
+</div>

@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TextFieldModule } from '@angular/cdk/text-field';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -33,6 +36,7 @@ import { SpaceProject2Component } from './components/spaces/space-project2/space
 import { ProjectsComponent } from './layout/projects/projects.component';
 import { TaskSelectionHeaderComponent } from './components/layout/task-selection-header/task-selection-header.component';
 import { FormsModule } from '@angular/forms';
+import { TaskDetailComponent } from './components/spaces/task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,7 @@ import { FormsModule } from '@angular/forms';
     SpaceProject2Component,
     ProjectsComponent,
     TaskSelectionHeaderComponent,
+    TaskDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,9 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatTabsModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    TextFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

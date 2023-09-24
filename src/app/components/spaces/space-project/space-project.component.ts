@@ -1,6 +1,8 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ApiClientService } from 'src/app/services/api-client.service';
 import { ListSelectionToolbarService } from 'src/app/services/list-selection-toolbar.service';
+import { TaskDetailComponent } from '../task-detail/task-detail.component';
 
 @Component({
   selector: 'app-space-project',
@@ -24,12 +26,14 @@ export class SpaceProjectComponent {
 
   constructor(
     private selectionToolbarService: ListSelectionToolbarService,
-    private apiClient: ApiClientService
+    private apiClient: ApiClientService,
+    public dialog: MatDialog
     ) {}
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] && changes['data'].currentValue) {
+      console.log(this.data);
       this.listOfFolders = [].concat(
         ...this.data.map((item:any) => item.folders)
       );
@@ -39,7 +43,7 @@ export class SpaceProjectComponent {
       this.listOfTasks = [].concat(
         ...this.listOfSubFolders.map((item:any) => item.lists)
       )
-      this.taskRowVisibility = Array(this.listOfTasks.length).fill(false);
+      this.taskRowVisibility = Array(this.listOfTasks.length).fill(false);      
     }
   }
 
@@ -82,5 +86,19 @@ export class SpaceProjectComponent {
   addNewTask() {
     console.log(this.newTaskName);
     this.savedTaskList.push(this.newTaskName)
+  }
+
+  // open task detail modal
+  openDialog() {
+    const dialogRef = this.dialog.open(TaskDetailComponent, {
+      width: '95%',
+      height: '95%',
+      maxWidth: '100vw',
+      panelClass: 'task__detailModal'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
