@@ -56,7 +56,6 @@ export class SpaceProjectComponent {
       // Row is selected, remove it from the selectedRows array
       this.selectedRows.splice(selectedIndex, 1);
     }
-    // this.isRowSelected = !this.isRowSelected
     this.toggleListSelectionToolbar();
     this.selectionToolbarService.setSelectedRowsCount(this.selectedRows.length);
   }

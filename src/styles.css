@@ -103,5 +103,5 @@ div.mat-expansion-panel-body {
 /* custom modal  */
 .task__detailModal .mdc-dialog__surface  {
     @apply !rounded-lg;
-    @apply !overflow-hidden;
+    /* @apply !overflow-hidden; */
 }
