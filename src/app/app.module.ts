@@ -37,6 +37,7 @@ import { ProjectsComponent } from './layout/projects/projects.component';
 import { TaskSelectionHeaderComponent } from './components/layout/task-selection-header/task-selection-header.component';
 import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from './components/spaces/task-detail/task-detail.component';
+import { CommentBoxComponent } from './components/spaces/comment-box/comment-box.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { TaskDetailComponent } from './components/spaces/task-detail/task-detail
     ProjectsComponent,
     TaskSelectionHeaderComponent,
     TaskDetailComponent,
+    CommentBoxComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
-.visible {
-    visibility: visible;
-}
 .container__height {
-    height: calc(100% - 130px);
+    height: calc(100% - 120px);
 }
 .selected-row {
     border: 1px solid black;
+}
+.visible {
+    visibility: visible;
 }

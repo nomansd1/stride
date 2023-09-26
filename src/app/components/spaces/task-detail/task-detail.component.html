@@ -368,8 +368,8 @@
                 </div>
             </div>
         </div>
-        <div class="w-[45%] h-full">
-            <div class="inline-flex px-5 justify-between items-center py-4 border border-b-[#EFF0F3] w-full">
+        <div class="w-[45%] h-full relative">
+            <div class="inline-flex h-[74px] px-5 justify-between items-center py-4 border border-b-[#EFF0F3] w-full">
                 <div class="inline-flex items-center">
                     <div class="flex flex-col text-[#BFBFBF]">
                         <span class="uppercase text-[10px]">created</span>
@@ -387,20 +387,24 @@
                     </button>
                 </div>
             </div>
-            <div class="w-full px-5 container__height overflow-auto bg-[#FBFBFB]">
-                <div class="w-full p-2 inline-flex items-center group">
-                    <div class="bg-white px-2 py-1.5 flex items-center rounded-md">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c1c1c1"><g  stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                        <input class="bg-transparent w-full text-sm mx-2 focus:outline-none" type="text" placeholder="Search">
+            <div class="w-full relative px-5 container__height overflow-auto bg-[#FBFBFB]">
+                <div class="w-full">
+                    <div class="w-fit p-2 flex items-center">
+                        <div class="bg-white px-2 py-1.5 flex items-center rounded-md">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c1c1c1"><g  stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            <input class="bg-transparent w-full text-sm mx-2 focus:outline-none" type="text" placeholder="Search">
+                        </div>
+                        <button class="py-1.5 px-2 bg-white rounded-md mx-2 text-xs inline-flex items-center">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g > <path d="M3 4.6C3 4.03995 3 3.75992 3.10899 3.54601C3.20487 3.35785 3.35785 3.20487 3.54601 3.10899C3.75992 3 4.03995 3 4.6 3H19.4C19.9601 3 20.2401 3 20.454 3.10899C20.6422 3.20487 20.7951 3.35785 20.891 3.54601C21 3.75992 21 4.03995 21 4.6V6.33726C21 6.58185 21 6.70414 20.9724 6.81923C20.9479 6.92127 20.9075 7.01881 20.8526 7.10828C20.7908 7.2092 20.7043 7.29568 20.5314 7.46863L14.4686 13.5314C14.2957 13.7043 14.2092 13.7908 14.1474 13.8917C14.0925 13.9812 14.0521 14.0787 14.0276 14.1808C14 14.2959 14 14.4182 14 14.6627V17L10 21V14.6627C10 14.4182 10 14.2959 9.97237 14.1808C9.94787 14.0787 9.90747 13.9812 9.85264 13.8917C9.7908 13.7908 9.70432 13.7043 9.53137 13.5314L3.46863 7.46863C3.29568 7.29568 3.2092 7.2092 3.14736 7.10828C3.09253 7.01881 3.05213 6.92127 3.02763 6.81923C3 6.70414 3 6.58185 3 6.33726V4.6Z" stroke="#292d34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            <span class="capitalize text-[#292d34] ml-2">filter</span>
+                        </button>
+                        <button matTooltip="Filter by person" matTooltipClass="custom__tooltip" class="py-1.5 px-2 bg-white mx-2 text-xs inline-flex items-center rounded-full">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#292d34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </button>
                     </div>
-                    <button class="py-1.5 px-2 bg-white rounded-md mx-2 text-xs inline-flex items-center">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g > <path d="M3 4.6C3 4.03995 3 3.75992 3.10899 3.54601C3.20487 3.35785 3.35785 3.20487 3.54601 3.10899C3.75992 3 4.03995 3 4.6 3H19.4C19.9601 3 20.2401 3 20.454 3.10899C20.6422 3.20487 20.7951 3.35785 20.891 3.54601C21 3.75992 21 4.03995 21 4.6V6.33726C21 6.58185 21 6.70414 20.9724 6.81923C20.9479 6.92127 20.9075 7.01881 20.8526 7.10828C20.7908 7.2092 20.7043 7.29568 20.5314 7.46863L14.4686 13.5314C14.2957 13.7043 14.2092 13.7908 14.1474 13.8917C14.0925 13.9812 14.0521 14.0787 14.0276 14.1808C14 14.2959 14 14.4182 14 14.6627V17L10 21V14.6627C10 14.4182 10 14.2959 9.97237 14.1808C9.94787 14.0787 9.90747 13.9812 9.85264 13.8917C9.7908 13.7908 9.70432 13.7043 9.53137 13.5314L3.46863 7.46863C3.29568 7.29568 3.2092 7.2092 3.14736 7.10828C3.09253 7.01881 3.05213 6.92127 3.02763 6.81923C3 6.70414 3 6.58185 3 6.33726V4.6Z" stroke="#292d34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                        <span class="capitalize text-[#292d34] ml-2">filter</span>
-                    </button>
-                    <button matTooltip="Filter by person" matTooltipClass="custom__tooltip" class="py-1.5 px-2 bg-white mx-2 text-xs inline-flex items-center rounded-full">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#292d34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    </button>
                 </div>
+
+                <app-comment-box></app-comment-box>
             </div>
         </div>
     </div>

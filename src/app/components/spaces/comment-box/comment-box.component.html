@@ -1,0 +1,20 @@
+<div class="absolute bottom-0 left-0 w-full">
+    <div class="bg-white w-full h-full p-2 relative shadow__st min-h-[80px] flex flex-col items-center">
+        <div class="h-full w-full px-2 py-1.5 inline-flex items-center justify-between">
+            <textarea (focus)="showCommentBoxFooter()" (blur)="hideCommentBoxFooter()" name="" placeholder="Comment" id="" class="w-full min-h-[40px] pt-2 block text-sm placeholder:text-[#34343466] focus:outline-none"></textarea>
+            <button [ngClass]="{ 'hidden': commentBoxFooter }" matTooltip="Comment" matTooltipClass="custom__tooltip">
+                <img src="assets/send.svg" class="w-7 h-7 toolbarFooter__icons" alt="">
+            </button>
+        </div>
+        <div [ngClass]="{ 'hidden': !commentBoxFooter }" class="w-full px-2 py-3 inline-flex justify-between items-center">
+            <div class="inline-flex">
+                <button *ngFor="let option of commentToolbarOptions" [matTooltip]="option.tooltip" matTooltipClass="custom__tooltip" class="mx-1.5">
+                    <img [src]="option.icon" class="w-6 h-6 toolbarFooter__icons" alt="">
+                </button>
+            </div>
+            <button matTooltip="Comment" matTooltipClass="custom__tooltip">
+                <img src="assets/send.svg" class="w-7 h-7 toolbarFooter__icons" alt="">
+            </button>
+        </div>
+    </div>
+</div>
