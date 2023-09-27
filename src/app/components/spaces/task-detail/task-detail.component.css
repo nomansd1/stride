@@ -1,5 +1,14 @@
+.shadow__st::before {
+    content: "";
+    position: absolute;
+    top: -10px; 
+    left: 0;
+    right: 0;
+    height: 10px;
+    box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.05);
+  }
 .container__height {
-    height: calc(100% - 120px);
+    height: calc(100% - 210px);
 }
 .selected-row {
     border: 1px solid black;

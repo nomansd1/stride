@@ -39,6 +39,7 @@ import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from './components/spaces/task-detail/task-detail.component';
 import { CommentBoxComponent } from './components/spaces/comment-box/comment-box.component';
 import { CreateDocComponent } from './components/docs/create-doc/create-doc.component';
+import { ScheduleMeetingComponent } from './components/spaces/schedule-meeting/schedule-meeting.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { CreateDocComponent } from './components/docs/create-doc/create-doc.comp
     TaskDetailComponent,
     CommentBoxComponent,
     CreateDocComponent,
+    ScheduleMeetingComponent,
   ],
   imports: [
     BrowserModule,

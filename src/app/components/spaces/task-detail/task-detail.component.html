@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="w-full h-full flex">
-        <div class="w-[55%] h-full">
+        <div class="w-[55%] h-full relative border-r border-[#EFF0F3]">
             <div class="inline-flex px-5 justify-between items-center py-4 border border-b-[#EFF0F3] w-full">
                 <div class="inline-flex items-center">
                     <button class="px-4 py-2 bg-[#E8EAED] text-[11px] uppercase rounded-sm">To do</button>
@@ -362,9 +362,11 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="my-3 w-full h-[110px] rounded-md border-2 border-dashed border-[#EFF0F3] flex items-center justify-center">
-                        <span class="text-sm text-[#34343466] italic">Drag files here to attach or <a href="#" class="underline text-primary-hover">Browse</a> </span>
-                    </div>
+                </div>
+            </div>
+            <div class="sticky bottom-0 left-0 w-full">
+                <div class="bg-white w-full h-full p-2 relative shadow__st min-h-[80px] flex flex-col items-center justify-center">
+                    <span class="text-sm text-[#34343466] italic">Drag files here to attach or <a href="#" class="underline text-primary-hover">Browse</a> </span>
                 </div>
             </div>
         </div>
@@ -381,13 +383,13 @@
                         <span class="text-[10px]">Sep 23</span>
                     </div>
                     <span class="h-[25px] w-[1px] bg-[#c1c1c1] mx-5"></span>
-                    <button class="group inline-flex items-center border border-primary-hover hover:bg-primary-hover hover:text-white py-1 px-2 rounded-md text-[#080341]">
+                    <button (click)="openDialog()" class="group inline-flex items-center border border-primary-hover hover:bg-primary-hover hover:text-white py-1 px-2 rounded-md text-[#080341]">
                         <svg class="h-4 w-4 group-[:hover]:text-white text-[#080341]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g  stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M21 16C21 18.8284 21 20.2426 20.1213 21.1213C19.2426 22 17.8284 22 15 22H14C11.1716 22 9.75736 22 8.87868 21.1213C8 20.2426 8 18.8284 8 16V8C8 5.17157 8 3.75736 8.87868 2.87868C9.75736 2 11.1716 2 14 2H15C17.8284 2 19.2426 2 20.1213 2.87868C21 3.75736 21 5.17157 21 8V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path> <path d="M8 19.5C5.64298 19.5 4.46447 19.5 3.73223 18.7678C3 18.0355 3 16.857 3 14.5V14M8 4.5C5.64298 4.5 4.46447 4.5 3.73223 5.23223C3 5.96447 3 7.14298 3 9.5V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.5 16V8M14.5 8L17 10.5M14.5 8L12 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         <span class="ml-2 text-xs capitalize">Schedule meeting</span>
                     </button>
                 </div>
             </div>
-            <div class="w-full relative px-5 container__height overflow-auto bg-[#FBFBFB]">
+            <div class="w-full px-5 container__height overflow-auto bg-[#FBFBFB]">
                 <div class="w-full">
                     <div class="w-fit p-2 flex items-center">
                         <div class="bg-white px-2 py-1.5 flex items-center rounded-md">
@@ -403,9 +405,29 @@
                         </button>
                     </div>
                 </div>
-
-                <app-comment-box></app-comment-box>
+                <div class="w-full my-2">
+                    <div class="flex items-center justify-between my-1 text-[#ACACAC]">
+                        <span class="text-sm">You created this task</span>
+                        <span class="text-xs">Sep 12, at 12:38 pm</span>
+                    </div>
+                </div>
+                <div class="w-full flex">
+                    <div class="relative w-fit">
+                        <div class="w-[35px] h-[35px] inline-flex justify-center items-center bg-orange-400 rounded-full text-white">N</div>
+                        <div class="rounded-full w-2.5 h-2.5 p-0.5 bg-green-400 absolute top-0 right-0"></div>
+                    </div>
+                    <div class="h-auto py-2 px-4 flex flex-col w-full bg-white rounded-md ml-3">
+                        <div class="flex justify-between items-center text-[#ACACAC] w-full">
+                            <span class="text-xs"><b>You</b> commented</span>
+                            <span class="text-[11px]">9:30pm</span>
+                        </div>
+                        <div class="w-full mt-3">
+                            <span class="text-sm">Hey! could you please provide us the details thanks.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <app-comment-box></app-comment-box>
         </div>
     </div>
 </div>
