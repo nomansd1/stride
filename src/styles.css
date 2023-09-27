@@ -101,7 +101,6 @@ div.mat-expansion-panel-body {
     @apply rounded-md;
 }
 /* custom modal  */
-.task__detailModal .mdc-dialog__surface  {
+.custom__modal .mdc-dialog__surface  {
     @apply !rounded-lg;
-    /* @apply !overflow-hidden; */
 }

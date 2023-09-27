@@ -38,6 +38,7 @@ import { TaskSelectionHeaderComponent } from './components/layout/task-selection
 import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from './components/spaces/task-detail/task-detail.component';
 import { CommentBoxComponent } from './components/spaces/comment-box/comment-box.component';
+import { CreateDocComponent } from './components/docs/create-doc/create-doc.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CommentBoxComponent } from './components/spaces/comment-box/comment-box
     TaskSelectionHeaderComponent,
     TaskDetailComponent,
     CommentBoxComponent,
+    CreateDocComponent,
   ],
   imports: [
     BrowserModule,

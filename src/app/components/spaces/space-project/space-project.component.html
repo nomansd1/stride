@@ -11,7 +11,8 @@
                                     <div class="flex items-center py-0.5 px-2 hover:bg-[#f2f2f2] rounded-sm">
                                         <img class="w-5 h-5 rotate__icon" src="../../../../assets/rightangle.svg"
                                             alt="">
-                                        <span class="text-base  font-medium text-[#2A2E34] capitalize ml-2">{{ project.name }}</span>
+                                        <span class="text-base  font-medium text-[#2A2E34] capitalize ml-2">{{
+                                            project.name }}</span>
                                     </div>
                                     <div>
                                         <button
@@ -35,7 +36,8 @@
                     </mat-expansion-panel-header>
                     <div class="w-full p-2 bg-white">
                         <!-- completed -->
-                        <mat-expansion-panel *ngFor="let list of listOfTasks; let i = index" class="!shadow-none w-full project__spaceExp !mb-3" expanded="true">
+                        <mat-expansion-panel *ngFor="let list of listOfTasks; let i = index"
+                            class="!shadow-none w-full project__spaceExp !mb-3" expanded="true">
                             <mat-expansion-panel-header class="!p-0">
                                 <mat-panel-title>
                                     <div class="group flex items-center py-0.5 px-2 rounded-sm">
@@ -45,8 +47,9 @@
                                             'bg-[#6BC950]': list.status === 'Completed',
                                             'bg-[#1090E0]': list.status === 'In Progress',
                                             'bg-[#E8EAED]': list.status === 'To do'
-                                        }"
-                                            class="text-xs font-medium p-0.5 px-2 text-white rounded-sm ml-2 uppercase">{{ list.status }}</span>
+                                            }"
+                                            class="text-xs font-medium p-0.5 px-2 text-white rounded-sm ml-2 uppercase">{{
+                                            list.status }}</span>
                                         <img class="group-[:hover]:flex hidden w-4 h-4 ml-1"
                                             src="../../../../assets/voptions.svg" alt="">
                                     </div>
@@ -58,217 +61,432 @@
                                         <tr class="uppercase text-[10px] font-light text-center ">
                                             <th class="max-w-[77px] w-[77px]"></th>
                                             <th class="max-w-[128px] w-[128px]">{{ list.status }}</th>
-                                            <th class="w-[45%] text-left">
-                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{list.tasks.length}} tasks</span>
+                                            <th class="w-[25%] text-left">
+                                                <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{list.tasks.length}}
+                                                    tasks</span>
                                             </th>
                                             <th>assignee</th>
                                             <th>due date</th>
                                             <th>priority</th>
+                                            <th class="w-[90px]">status</th>
+                                            <th>comments</th>
                                             <th>
                                                 <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g > <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"
+                                                                stroke="#1C274C" stroke-width="1.5"
+                                                                stroke-linecap="round"></path>
+                                                            <path
+                                                                d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7"
+                                                                stroke="#1C274C" stroke-width="1.5"
+                                                                stroke-linecap="round"></path>
+                                                        </g>
+                                                    </svg>
                                                 </button>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="relative">
-                                            <tr *ngFor="let task of list.tasks;" [class.selected-row]="selectedRows.includes(task.id)" class="group">
-                                                <td [class.right__border]="selectedRows.includes(task.id)"
-                                                    class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
-                                                    <button [class.visible]="selectedRows.includes(task.id)" (click)="toggleRowSelection(task.id)"
-                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
-                                                        <svg *ngIf="selectedRows.includes(task.id) === false" class="w-5 h-5"
-                                                            viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <g stroke-width="0"></g>
-                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                            <g>
-                                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                    d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                                                    fill="#EBDCDC"></path>
-                                                                <circle cx="12" cy="12" r="5.25" fill="none"></circle>
-                                                            </g>
-                                                        </svg>
-                                                        <svg *ngIf="selectedRows.includes(task.id) === true" class="w-5 h-5"
-                                                            viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <g stroke-width="0"></g>
-                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                            <g>
-                                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                    d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                                                    fill="#3176b1"></path>
-                                                                <circle cx="12" cy="12" r="5.25" fill="#3176b1"></circle>
-                                                            </g>
-                                                        </svg>
-                                                    </button>
-                                                    <button
-                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
-                                                        <svg class="w-5 h-6" viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <g stroke-width="0"></g>
-                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                            <g id="SVGRepo_iconCarrier">
-                                                                <path
-                                                                    d="M9 6H9.01M15 6H15.01M15 12H15.01M9 12H9.01M9 18H9.01M15 18H15.01M10 6C10 6.55228 9.55228 7 9 7C8.44772 7 8 6.55228 8 6C8 5.44772 8.44772 5 9 5C9.55228 5 10 5.44772 10 6ZM16 6C16 6.55228 15.5523 7 15 7C14.4477 7 14 6.55228 14 6C14 5.44772 14.4477 5 15 5C15.5523 5 16 5.44772 16 6ZM10 12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12C8 11.4477 8.44772 11 9 11C9.55228 11 10 11.4477 10 12ZM16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12ZM10 18C10 18.5523 9.55228 19 9 19C8.44772 19 8 18.5523 8 18C8 17.4477 8.44772 17 9 17C9.55228 17 10 17.4477 10 18ZM16 18C16 18.5523 15.5523 19 15 19C14.4477 19 14 18.5523 14 18C14 17.4477 14.4477 17 15 17C15.5523 17 16 17.4477 16 18Z"
-                                                                    stroke="#EBDCDC" stroke-width="2" stroke-linecap="round"
-                                                                    stroke-linejoin="round"></path>
-                                                            </g>
-                                                        </svg>
-                                                    </button>
-                                                </td>
-                                                <td class="max-w-[128px] w-[128px]">
-                                                    <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
-                                                </td>
-                                                <td class="text-left !px-5">
-                                                    <mat-expansion-panel class="!shadow-none w-fit !h-full">
-                                                        <mat-expansion-panel-header class="!p-0">
-                                                            <mat-panel-title>
-                                                                {{ task.title }}
-                                                                <span class="hidden group-[:hover]:inline-flex">
-                                                                    <button matTooltipPosition="above" matTooltip="Create subtask" matTooltipClass="custom__tooltip" class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <rect x="16" y="9" width="4" height="4" rx="2" transform="rotate(90 16 9)" stroke="currentColor" stroke-width="2"></rect> <rect x="20" y="17" width="4" height="4" rx="2" transform="rotate(90 20 17)" stroke="currentColor" stroke-width="2"></rect> <path d="M5 4V15C5 16.8856 5 17.8284 5.58579 18.4142C6.17157 19 7.11438 19 9 19H16" stroke="currentColor" stroke-width="2"></path> <path d="M5 7V7C5 8.88562 5 9.82843 5.58579 10.4142C6.17157 11 7.11438 11 9 11H12" stroke="currentColor" stroke-width="2"></path> </g></svg>
-                                                                    </button>
-                                                                    <button matTooltipPosition="above" matTooltip="Rename" matTooltipClass="custom__tooltip" class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                                                    </button>
-                                                                </span>
-                                                            </mat-panel-title>
-                                                        </mat-expansion-panel-header>
-                                                        <div class="w-full absolute -bottom-2">red</div>
-                                                    </mat-expansion-panel>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
-                                                </td>
-                                                <td>
-                                                    <button class="p-1">
-                                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g><path d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#b9bec7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="p-1">
-                                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7" stroke="#b9bec7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="hidden group-[:hover]:flex mx-auto">
-                                                        <img class="w-5 h-5 text-[#b9bec7]"
-                                                            src="../../../../assets/voptions.svg" alt="">
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <!-- temporary saved tasks -->
-                                            <tr *ngFor="let task of savedTaskList; let i = index" [class.selected-row]="selectedRows.includes(i)" class="group">
-                                                <td [class.right__border]="selectedRows.includes(i)"
-                                                    class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
-                                                    <button [class.visible]="selectedRows.includes(i)" (click)="toggleRowSelection(i)"
-                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
-                                                        <svg *ngIf="selectedRows.includes(i) === false" class="w-5 h-5"
-                                                            viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <g stroke-width="0"></g>
-                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                            <g>
-                                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                    d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                                                    fill="#EBDCDC"></path>
-                                                                <circle cx="12" cy="12" r="5.25" fill="none"></circle>
-                                                            </g>
-                                                        </svg>
-                                                        <svg *ngIf="selectedRows.includes(i) === true" class="w-5 h-5"
-                                                            viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <g stroke-width="0"></g>
-                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                            <g>
-                                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                    d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                                                    fill="#3176b1"></path>
-                                                                <circle cx="12" cy="12" r="5.25" fill="#3176b1"></circle>
-                                                            </g>
-                                                        </svg>
-                                                    </button>
-                                                    <button
-                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
-                                                        <svg class="w-5 h-6" viewBox="0 0 24 24" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <g stroke-width="0"></g>
-                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                            <g id="SVGRepo_iconCarrier">
-                                                                <path
-                                                                    d="M9 6H9.01M15 6H15.01M15 12H15.01M9 12H9.01M9 18H9.01M15 18H15.01M10 6C10 6.55228 9.55228 7 9 7C8.44772 7 8 6.55228 8 6C8 5.44772 8.44772 5 9 5C9.55228 5 10 5.44772 10 6ZM16 6C16 6.55228 15.5523 7 15 7C14.4477 7 14 6.55228 14 6C14 5.44772 14.4477 5 15 5C15.5523 5 16 5.44772 16 6ZM10 12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12C8 11.4477 8.44772 11 9 11C9.55228 11 10 11.4477 10 12ZM16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12ZM10 18C10 18.5523 9.55228 19 9 19C8.44772 19 8 18.5523 8 18C8 17.4477 8.44772 17 9 17C9.55228 17 10 17.4477 10 18ZM16 18C16 18.5523 15.5523 19 15 19C14.4477 19 14 18.5523 14 18C14 17.4477 14.4477 17 15 17C15.5523 17 16 17.4477 16 18Z"
-                                                                    stroke="#EBDCDC" stroke-width="2" stroke-linecap="round"
-                                                                    stroke-linejoin="round"></path>
-                                                            </g>
-                                                        </svg>
-                                                    </button>
-                                                </td>
-                                                <td class="max-w-[128px] w-[128px]">
-                                                    <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
-                                                </td>
-                                                <td class="text-left !px-5">
-                                                    <mat-expansion-panel class="!shadow-none w-fit !h-full">
-                                                        <mat-expansion-panel-header class="!p-0">
-                                                            <mat-panel-title>
-                                                                {{ task }}
-                                                                <span class="hidden group-[:hover]:inline-flex">
-                                                                    <button matTooltipPosition="above" matTooltip="Create subtask" matTooltipClass="custom__tooltip" class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <rect x="16" y="9" width="4" height="4" rx="2" transform="rotate(90 16 9)" stroke="currentColor" stroke-width="2"></rect> <rect x="20" y="17" width="4" height="4" rx="2" transform="rotate(90 20 17)" stroke="currentColor" stroke-width="2"></rect> <path d="M5 4V15C5 16.8856 5 17.8284 5.58579 18.4142C6.17157 19 7.11438 19 9 19H16" stroke="currentColor" stroke-width="2"></path> <path d="M5 7V7C5 8.88562 5 9.82843 5.58579 10.4142C6.17157 11 7.11438 11 9 11H12" stroke="currentColor" stroke-width="2"></path> </g></svg>
-                                                                    </button>
-                                                                    <button matTooltipPosition="above" matTooltip="Rename" matTooltipClass="custom__tooltip" class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                                                    </button>
-                                                                </span>
-                                                            </mat-panel-title>
-                                                        </mat-expansion-panel-header>
-                                                        <div class="w-full absolute -bottom-2">red</div>
-                                                    </mat-expansion-panel>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
-                                                </td>
-                                                <td>
-                                                    <button class="p-1">
-                                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g><path d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#b9bec7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="p-1">
-                                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7" stroke="#b9bec7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="hidden group-[:hover]:flex mx-auto">
-                                                        <img class="w-5 h-5 text-[#b9bec7]"
-                                                            src="../../../../assets/voptions.svg" alt="">
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                        <tr *ngFor="let task of list.tasks;"
+                                            [class.selected-row]="selectedRows.includes(task.id)" class="group">
+                                            <td [class.right__border]="selectedRows.includes(task.id)"
+                                                class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
+                                                <button [class.visible]="selectedRows.includes(task.id)"
+                                                    (click)="toggleRowSelection(task.id)"
+                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
+                                                    <svg *ngIf="selectedRows.includes(task.id) === false"
+                                                        class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                fill="#292d34"></path>
+                                                            <circle cx="12" cy="12" r="5.25" fill="none"></circle>
+                                                        </g>
+                                                    </svg>
+                                                    <svg *ngIf="selectedRows.includes(task.id) === true" class="w-5 h-5"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                fill="#3176b1"></path>
+                                                            <circle cx="12" cy="12" r="5.25" fill="#3176b1"></circle>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                                <button
+                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
+                                                    <svg class="w-5 h-6" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <path
+                                                                d="M9 6H9.01M15 6H15.01M15 12H15.01M9 12H9.01M9 18H9.01M15 18H15.01M10 6C10 6.55228 9.55228 7 9 7C8.44772 7 8 6.55228 8 6C8 5.44772 8.44772 5 9 5C9.55228 5 10 5.44772 10 6ZM16 6C16 6.55228 15.5523 7 15 7C14.4477 7 14 6.55228 14 6C14 5.44772 14.4477 5 15 5C15.5523 5 16 5.44772 16 6ZM10 12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12C8 11.4477 8.44772 11 9 11C9.55228 11 10 11.4477 10 12ZM16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12ZM10 18C10 18.5523 9.55228 19 9 19C8.44772 19 8 18.5523 8 18C8 17.4477 8.44772 17 9 17C9.55228 17 10 17.4477 10 18ZM16 18C16 18.5523 15.5523 19 15 19C14.4477 19 14 18.5523 14 18C14 17.4477 14.4477 17 15 17C15.5523 17 16 17.4477 16 18Z"
+                                                                stroke="#292d34" stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                            <td class="max-w-[128px] w-[128px]">
+                                                <button [ngClass]="{
+                                                        'bg-[#6BC950]': list.status === 'Completed',
+                                                        'bg-[#1090E0]': list.status === 'In Progress',
+                                                        'bg-[#E8EAED]': list.status === 'To do'
+                                                        }" class="w-2 h-2 rounded-sm"></button>
+                                            </td>
+                                            <td (click)="openDialog()" class="text-left !px-5">
+                                                <mat-expansion-panel class="!shadow-none w-fit !h-full">
+                                                    <mat-expansion-panel-header class="!p-0">
+                                                        <mat-panel-title>
+                                                            {{ task.title }}
+                                                            <span class="hidden group-[:hover]:inline-flex">
+                                                                <button matTooltipPosition="above"
+                                                                    matTooltip="Create subtask"
+                                                                    matTooltipClass="custom__tooltip"
+                                                                    class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <g stroke-width="0"></g>
+                                                                        <g stroke-linecap="round"
+                                                                            stroke-linejoin="round"></g>
+                                                                        <g>
+                                                                            <rect x="16" y="9" width="4" height="4"
+                                                                                rx="2" transform="rotate(90 16 9)"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </rect>
+                                                                            <rect x="20" y="17" width="4" height="4"
+                                                                                rx="2" transform="rotate(90 20 17)"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </rect>
+                                                                            <path
+                                                                                d="M5 4V15C5 16.8856 5 17.8284 5.58579 18.4142C6.17157 19 7.11438 19 9 19H16"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </path>
+                                                                            <path
+                                                                                d="M5 7V7C5 8.88562 5 9.82843 5.58579 10.4142C6.17157 11 7.11438 11 9 11H12"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </button>
+                                                                <button matTooltipPosition="above" matTooltip="Rename"
+                                                                    matTooltipClass="custom__tooltip"
+                                                                    class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <g stroke-width="0"></g>
+                                                                        <g stroke-linecap="round"
+                                                                            stroke-linejoin="round"></g>
+                                                                        <g>
+                                                                            <path
+                                                                                d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"></path>
+                                                                            <path
+                                                                                d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </button>
+                                                            </span>
+                                                        </mat-panel-title>
+                                                    </mat-expansion-panel-header>
+                                                    <div class="w-full absolute -bottom-2">red</div>
+                                                </mat-expansion-panel>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
+                                            </td>
+                                            <td>
+                                                <button class="p-1">
+                                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path
+                                                                d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                                                                stroke="#292d34" stroke-width="1" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="p-1">
+                                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" stroke="#292d34">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path
+                                                                d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7"
+                                                                stroke="#292d34" stroke-width="1" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                            <td [ngClass]="{
+                                                'bg-[#6BC950]': list.status === 'Completed',
+                                                'bg-[#1090E0]': list.status === 'In Progress',
+                                                'bg-[#E8EAED] text-black': list.status === 'To do'
+                                                }" class="text-white">{{list.status}}</td>
+                                            <td>
+                                                <button>
+                                                    <svg class="w-6 h-6" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M18.1 5.00016H6.9C6.53425 4.99455 6.18126 5.13448 5.9187 5.38917C5.65614 5.64385 5.50553 5.99242 5.5 6.35816V14.5002C5.50553 14.8659 5.65614 15.2145 5.9187 15.4692C6.18126 15.7238 6.53425 15.8638 6.9 15.8582H10.77C10.9881 15.857 11.2035 15.9056 11.4 16.0002L17.051 19.0002L17 14.5002H18.43C19.0106 14.5091 19.4891 14.0467 19.5 13.4662V6.35816C19.4945 5.99242 19.3439 5.64385 19.0813 5.38917C18.8187 5.13448 18.4657 4.99455 18.1 5.00016Z" stroke="#292d34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8.5 8.25024C8.08579 8.25024 7.75 8.58603 7.75 9.00024C7.75 9.41446 8.08579 9.75024 8.5 9.75024V8.25024ZM16.5 9.75024C16.9142 9.75024 17.25 9.41446 17.25 9.00024C17.25 8.58603 16.9142 8.25024 16.5 8.25024V9.75024ZM8.5 11.2502C8.08579 11.2502 7.75 11.586 7.75 12.0002C7.75 12.4145 8.08579 12.7502 8.5 12.7502V11.2502ZM14.5 12.7502C14.9142 12.7502 15.25 12.4145 15.25 12.0002C15.25 11.586 14.9142 11.2502 14.5 11.2502V12.7502ZM8.5 9.75024H16.5V8.25024H8.5V9.75024ZM8.5 12.7502H14.5V11.2502H8.5V12.7502Z" fill="#292d34"></path> </g></svg>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="hidden group-[:hover]:flex mx-auto">
+                                                    <img class="w-5 h-5 text-[#b9bec7]"
+                                                        src="../../../../assets/voptions.svg" alt="">
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <!-- temporary saved tasks -->
+                                        <tr *ngFor="let task of savedTaskList; let i = index"
+                                            [class.selected-row]="selectedRows.includes(i)" class="group">
+                                            <td [class.right__border]="selectedRows.includes(i)"
+                                                class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
+                                                <button [class.visible]="selectedRows.includes(i)"
+                                                    (click)="toggleRowSelection(i)"
+                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
+                                                    <svg *ngIf="selectedRows.includes(i) === false" class="w-5 h-5"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                fill="#292d34"></path>
+                                                            <circle cx="12" cy="12" r="5.25" fill="none"></circle>
+                                                        </g>
+                                                    </svg>
+                                                    <svg *ngIf="selectedRows.includes(i) === true" class="w-5 h-5"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                fill="#3176b1"></path>
+                                                            <circle cx="12" cy="12" r="5.25" fill="#3176b1"></circle>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                                <button
+                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
+                                                    <svg class="w-5 h-6" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <path
+                                                                d="M9 6H9.01M15 6H15.01M15 12H15.01M9 12H9.01M9 18H9.01M15 18H15.01M10 6C10 6.55228 9.55228 7 9 7C8.44772 7 8 6.55228 8 6C8 5.44772 8.44772 5 9 5C9.55228 5 10 5.44772 10 6ZM16 6C16 6.55228 15.5523 7 15 7C14.4477 7 14 6.55228 14 6C14 5.44772 14.4477 5 15 5C15.5523 5 16 5.44772 16 6ZM10 12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12C8 11.4477 8.44772 11 9 11C9.55228 11 10 11.4477 10 12ZM16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12ZM10 18C10 18.5523 9.55228 19 9 19C8.44772 19 8 18.5523 8 18C8 17.4477 8.44772 17 9 17C9.55228 17 10 17.4477 10 18ZM16 18C16 18.5523 15.5523 19 15 19C14.4477 19 14 18.5523 14 18C14 17.4477 14.4477 17 15 17C15.5523 17 16 17.4477 16 18Z"
+                                                                stroke="#292d34" stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                            <td class="max-w-[128px] w-[128px]">
+                                                <button [ngClass]="{
+                                                        'bg-[#6BC950]': list.status === 'Completed',
+                                                        'bg-[#1090E0]': list.status === 'In Progress',
+                                                        'bg-[#E8EAED]': list.status === 'To do'
+                                                        }" class="w-2 h-2 rounded-sm"></button>
+                                            </td>
+                                            <td class="text-left !px-5">
+                                                <mat-expansion-panel class="!shadow-none w-fit !h-full">
+                                                    <mat-expansion-panel-header class="!p-0">
+                                                        <mat-panel-title>
+                                                            {{ task }}
+                                                            <span class="hidden group-[:hover]:inline-flex">
+                                                                <button matTooltipPosition="above"
+                                                                    matTooltip="Create subtask"
+                                                                    matTooltipClass="custom__tooltip"
+                                                                    class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <g stroke-width="0"></g>
+                                                                        <g stroke-linecap="round"
+                                                                            stroke-linejoin="round"></g>
+                                                                        <g>
+                                                                            <rect x="16" y="9" width="4" height="4"
+                                                                                rx="2" transform="rotate(90 16 9)"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </rect>
+                                                                            <rect x="20" y="17" width="4" height="4"
+                                                                                rx="2" transform="rotate(90 20 17)"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </rect>
+                                                                            <path
+                                                                                d="M5 4V15C5 16.8856 5 17.8284 5.58579 18.4142C6.17157 19 7.11438 19 9 19H16"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </path>
+                                                                            <path
+                                                                                d="M5 7V7C5 8.88562 5 9.82843 5.58579 10.4142C6.17157 11 7.11438 11 9 11H12"
+                                                                                stroke="currentColor" stroke-width="2">
+                                                                            </path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </button>
+                                                                <button matTooltipPosition="above" matTooltip="Rename"
+                                                                    matTooltipClass="custom__tooltip"
+                                                                    class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <g stroke-width="0"></g>
+                                                                        <g stroke-linecap="round"
+                                                                            stroke-linejoin="round"></g>
+                                                                        <g>
+                                                                            <path
+                                                                                d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"></path>
+                                                                            <path
+                                                                                d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </button>
+                                                            </span>
+                                                        </mat-panel-title>
+                                                    </mat-expansion-panel-header>
+                                                    <div class="w-full absolute -bottom-2">red</div>
+                                                </mat-expansion-panel>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
+                                            </td>
+                                            <td>
+                                                <button class="p-1">
+                                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" stroke="#292d34">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path
+                                                                d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                                                                stroke="#292d34" stroke-width="1" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="p-1">
+                                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg" stroke="#292d34">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path
+                                                                d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7"
+                                                                stroke="#292d34" stroke-width="1" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </td>
+                                            <td [ngClass]="{
+                                                'bg-[#6BC950]': list.status === 'Completed',
+                                                'bg-[#1090E0]': list.status === 'In Progress',
+                                                'bg-[#E8EAED] text-black': list.status === 'To do'
+                                                }" class="text-white">{{list.status}}</td>
+                                            <td>
+                                                <button>
+                                                    <svg class="w-6 h-6" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M18.1 5.00016H6.9C6.53425 4.99455 6.18126 5.13448 5.9187 5.38917C5.65614 5.64385 5.50553 5.99242 5.5 6.35816V14.5002C5.50553 14.8659 5.65614 15.2145 5.9187 15.4692C6.18126 15.7238 6.53425 15.8638 6.9 15.8582H10.77C10.9881 15.857 11.2035 15.9056 11.4 16.0002L17.051 19.0002L17 14.5002H18.43C19.0106 14.5091 19.4891 14.0467 19.5 13.4662V6.35816C19.4945 5.99242 19.3439 5.64385 19.0813 5.38917C18.8187 5.13448 18.4657 4.99455 18.1 5.00016Z" stroke="#292d34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8.5 8.25024C8.08579 8.25024 7.75 8.58603 7.75 9.00024C7.75 9.41446 8.08579 9.75024 8.5 9.75024V8.25024ZM16.5 9.75024C16.9142 9.75024 17.25 9.41446 17.25 9.00024C17.25 8.58603 16.9142 8.25024 16.5 8.25024V9.75024ZM8.5 11.2502C8.08579 11.2502 7.75 11.586 7.75 12.0002C7.75 12.4145 8.08579 12.7502 8.5 12.7502V11.2502ZM14.5 12.7502C14.9142 12.7502 15.25 12.4145 15.25 12.0002C15.25 11.586 14.9142 11.2502 14.5 11.2502V12.7502ZM8.5 9.75024H16.5V8.25024H8.5V9.75024ZM8.5 12.7502H14.5V11.2502H8.5V12.7502Z" fill="#292d34"></path> </g></svg>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="hidden group-[:hover]:flex mx-auto">
+                                                    <img class="w-5 h-5 text-[#b9bec7]"
+                                                        src="../../../../assets/voptions.svg" alt="">
+                                                </button>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <!-- Add new task row toolbar -->
-                                <div *ngIf="taskRowVisibility[i]" class="h-[37px] selected-row flex items-center ml-[77px]">
+                                <div *ngIf="taskRowVisibility[i]"
+                                    class="h-[37px] selected-row flex items-center ml-[77px]">
                                     <!-- new task add row toolbar -->
                                     <div class="w-[128px] h-full flex items-center justify-center">
                                         <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
                                     </div>
                                     <div class="w-[60%] text-left">
-                                        <input [(ngModel)]="newTaskName" type="text" class="w-full focus:outline-none px-2 text-xs" placeholder="Task name" autofocus>
+                                        <input [(ngModel)]="newTaskName" type="text"
+                                            class="w-full focus:outline-none px-2 text-xs" placeholder="Task name"
+                                            autofocus>
                                     </div>
                                     <div class="flex-1 h-full inline-flex items-center justify-center px-2">
-                                        <button class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px] mx-1.5">N</button>
-                                        <button class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                        <button
+                                            class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px] mx-1.5">N</button>
+                                        <button
+                                            class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                stroke="#b9bec7">
+                                                <g stroke-width="0"></g>
+                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
                                         </button>
-                                        <button class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                        <button
+                                            class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                stroke="#b9bec7">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
                                         </button>
-                                        <button (click)="addNewTask()" (click)="hideAddNewTaskToolbar(i)" class="bg-primary text-white rounded-sm text-xs px-2.5 py-1 uppercase mx-1.5">Save</button>
+                                        <button (click)="addNewTask()" (click)="hideAddNewTaskToolbar(i)"
+                                            class="bg-primary text-white rounded-sm text-xs px-2.5 py-1 uppercase mx-1.5">Save</button>
                                         <button (click)="hideAddNewTaskToolbar(i)" class="w-6 h-6 text-[#b9bec7]">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g > <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g stroke-width="0"></g>
+                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g>
+                                                    <circle cx="12" cy="12" r="10" stroke="currentColor"
+                                                        stroke-width="1.5"></circle>
+                                                    <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
+                                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                                    </path>
+                                                </g>
+                                            </svg>
                                         </button>
                                     </div>
                                 </div>
@@ -280,7 +498,7 @@
                                 </div>
                             </div>
                         </mat-expansion-panel>
-<!-- 
+                        <!-- 
                         <mat-expansion-panel class="!shadow-none w-full !my-4 project__spaceExp !hidden"
                             expanded="true">
                             <mat-expansion-panel-header class="!p-0">

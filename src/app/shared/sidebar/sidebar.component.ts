@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateDocComponent } from 'src/app/components/docs/create-doc/create-doc.component';
 import { ApiClientService } from 'src/app/services/api-client.service';
 import { SidebarStateService } from 'src/app/services/sidebar-state.service';
 
@@ -17,7 +19,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private apiClient: ApiClientService,
-    public sidebarStateService: SidebarStateService  
+    public sidebarStateService: SidebarStateService,
+    public dialog: MatDialog
   ) {}
 
   getSpaces() {
@@ -37,5 +40,19 @@ export class SidebarComponent implements OnInit {
 
   toggleSidebar() {
     this.sidebarStateService.toggleSidebarState();
+  }
+
+  // open task detail modal
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateDocComponent, {
+      width: '90%',
+      height: '90%',
+      maxWidth: '100vw',
+      panelClass: 'custom__modal'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

@@ -93,7 +93,7 @@ export class SpaceProjectComponent {
       width: '95%',
       height: '95%',
       maxWidth: '100vw',
-      panelClass: 'task__detailModal'
+      panelClass: 'custom__modal'
     });
 
     dialogRef.afterClosed().subscribe(result => {
