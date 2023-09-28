@@ -1,0 +1,34 @@
+.container__label {
+    width: 150px;
+    @apply font-medium;
+    @apply text-[#34343466];
+}
+.container__input {
+    @apply rounded-md;
+    @apply px-2;
+    @apply py-1.5;
+    @apply text-sm;
+    @apply focus:outline-none;
+    @apply border-2;
+    @apply border-[#EFF0F3];
+    @apply focus:border-primary-hover;
+}
+.container__textarea {
+    @apply rounded-md;
+    @apply px-2;
+    @apply py-1.5;
+    @apply text-sm;
+    @apply focus:outline-none;
+    @apply min-h-[150px];
+    @apply resize-none;
+    @apply border-2;
+    @apply border-[#EFF0F3];
+    @apply focus:border-primary-hover;
+}
+
+img {
+    filter: invert(85%) sepia(0%) saturate(18%) hue-rotate(181deg) brightness(92%) contrast(91%);
+}
+.hover__img {
+  filter: invert(38%) sepia(85%) saturate(467%) hue-rotate(165deg) brightness(91%) contrast(83%);
+}

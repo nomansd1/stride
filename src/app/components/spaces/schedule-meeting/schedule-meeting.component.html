@@ -1,1 +1,60 @@
-<p>schedule-meeting works!</p>
+<div class="w-full h-full">
+    <div class="bg-[#EFF0F3] p-5 flex items-center justify-between group">
+        <div class="inline-flex items-center">
+            <img class="w-7 h-7" src="assets/meeting.svg" alt="">
+            <h1 class="ml-2 text-lg font-medium capitalize">schedule meeting</h1>
+        </div>
+        <div class="flex items-center">
+            <button mat-dialog-close class="bg-white py-1 px-1.5 ml-1 rounded-md">
+                <img class="w-5 h-6" src="assets/close2.svg" alt="">
+            </button>
+        </div>
+    </div>
+    <div class="w-full flex p-5">
+        <div class="w-fit h-full">
+            <button class="group flex flex-col border-2 border-[#EFF0F3] hover:border-primary-hover py-3 px-5 rounded-md">
+                <img class="w-8 h-8 group-[:hover]:hover__img" src="assets/sendmeeting.svg" alt="">
+                <span class="text-sm capitalize text-[#34343466] group-[:hover]:text-primary-hover">send</span>
+            </button>
+        </div>
+        <div class="w-full h-full ml-4 flex flex-col">
+            <div class="inline-flex items-center mb-2">
+                <label class="text-sm container__label" for="">From:</label>
+                <input type="text" class="w-full container__input">
+            </div>
+            <div class="inline-flex items-center mb-2">
+                <label class="text-sm container__label" for="">Title:</label>
+                <input type="text" class="w-full container__input">
+            </div>
+            <div class="inline-flex items-center mb-2">
+                <label class="text-sm container__label" for="">Required:</label>
+                <input type="text" class="w-full container__input">
+            </div>
+            <div class="inline-flex items-center mb-2">
+                <label class="text-sm container__label" for="">Optional:</label>
+                <input type="text" class="w-full container__input">
+            </div>
+            <div class="inline-flex items-center mb-2">
+                <label class="text-sm w-[127.7px]" for="">Start Time:</label>
+                <input type="date" class="container__input">
+                <input type="time" class="container__input mx-2">
+                <div class="inline-flex items-center">
+                    <input type="checkbox" name="" id="">
+                    <label class="text-sm ml-2 text-[#34343466]" for="">All Day</label>
+                </div>
+            </div>
+            <div class="inline-flex items-center mb-2">
+                <label class="text-sm w-[127.7px]" for="">End Time:</label>
+                <input type="date" class="container__input">
+                <input type="time" class="container__input mx-2">
+                <div class="inline-flex items-center">
+                    <input type="checkbox" name="" id="">
+                    <label class="text-sm ml-2 text-[#34343466]" for="">Recurring</label>
+                </div>
+            </div>
+            <div class="w-full mt-3">
+                <textarea name="" id="" class="container__textarea w-full" placeholder="Cooment"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
