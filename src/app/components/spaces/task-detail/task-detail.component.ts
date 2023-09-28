@@ -31,8 +31,8 @@ export class TaskDetailComponent {
   // open schedule modal
   openDialog() {
     const dialogRef = this.dialog.open(ScheduleMeetingComponent, {
-      width: '80%',
-      height: '80%',
+      width: '95%',
+      height: '95%',
       maxWidth: '100vw',
       panelClass: 'custom__modal'
     });
