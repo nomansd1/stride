@@ -40,6 +40,8 @@ import { TaskDetailComponent } from './components/spaces/task-detail/task-detail
 import { CommentBoxComponent } from './components/spaces/comment-box/comment-box.component';
 import { CreateDocComponent } from './components/docs/create-doc/create-doc.component';
 import { ScheduleMeetingComponent } from './components/spaces/schedule-meeting/schedule-meeting.component';
+import { DocsSidebarComponent } from './components/docs/docs-sidebar/docs-sidebar.component';
+import { DocsContentComponent } from './components/docs/docs-content/docs-content.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { ScheduleMeetingComponent } from './components/spaces/schedule-meeting/s
     CommentBoxComponent,
     CreateDocComponent,
     ScheduleMeetingComponent,
+    DocsSidebarComponent,
+    DocsContentComponent,
   ],
   imports: [
     BrowserModule,

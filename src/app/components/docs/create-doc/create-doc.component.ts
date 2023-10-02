@@ -7,16 +7,5 @@ import { Component } from '@angular/core';
 })
 export class CreateDocComponent {
 
-  // st-sidebar
-  searchIcon = true;
-  searchbarState = false;
 
-  showSearchbar() {
-    this.searchbarState = true;
-    this.searchIcon = false;
-  }
-  hideSearchbar() {
-    this.searchbarState = false;
-    this.searchIcon = true;
-  }
 }
