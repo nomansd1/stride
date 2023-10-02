@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DocsSidebarStateService } from 'src/app/services/docs-sidebar-state.service';
 
 @Component({
   selector: 'st-docs-content',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./docs-content.component.css']
 })
 export class DocsContentComponent {
+  constructor(public sidebarService: DocsSidebarStateService) {}
 
+  showSidebar() {
+    this.sidebarService.toggleSidebarState();
+  }
 }

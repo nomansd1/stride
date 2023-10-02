@@ -11,7 +11,7 @@ export class DocsSidebarComponent {
   searchbarState = false;
   sidebarState = true;
 
-  constructor(private sidebar: DocsSidebarStateService) {}
+  constructor(public sidebar: DocsSidebarStateService) {}
  
   showSearchbar() {
     this.searchbarState = true;
@@ -21,11 +21,7 @@ export class DocsSidebarComponent {
     this.searchbarState = false;
     this.searchIcon = true;
   }
-  showSidebar() {
-    this.sidebar.showSidebar();
-  }
   hideSidebar() {
-    this.sidebar.hideSidebar();
-    this.sidebarState = false
+    this.sidebar.toggleSidebarState();
   }
 }
