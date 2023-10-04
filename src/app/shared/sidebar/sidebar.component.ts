@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
   // open task detail modal
   openDialog() {
     const dialogRef = this.dialog.open(CreateDocComponent, {
-      width: 'fit-content',
+      width: '90%',
       height: '90%',
       maxWidth: '100vw',
       panelClass: 'custom__modal'

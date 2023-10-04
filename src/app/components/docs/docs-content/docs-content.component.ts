@@ -7,6 +7,10 @@ import { DocsSidebarStateService } from 'src/app/services/docs-sidebar-state.ser
   styleUrls: ['./docs-content.component.css']
 })
 export class DocsContentComponent {
+
+  docsTitle = '';
+  docsTitleRows = 1;
+
   constructor(public sidebarService: DocsSidebarStateService) {}
 
   showSidebar() {

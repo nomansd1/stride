@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'primary': 'var(--primary-color)',
         'primary-hover': 'var(--hover-color)',
+        'secondary-color': 'var(--secondary-color)',
       }
     },
   },

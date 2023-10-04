@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import axios from 'axios';
+import { ApiClientService } from 'src/app/services/api-client.service';
 
 @Component({
   selector: 'app-notification-list',

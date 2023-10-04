@@ -1,3 +1,86 @@
-<div class="w-full flex-1 bg-[red] relative">
-    <button (click)="showSidebar()">open sidebar</button>
+<div class="w-full flex flex-col flex-grow relative">
+    <!-- Doc Content Header -->
+    <div class="w-full bg-white flex items-center justify-between px-3 h-[48px] border-2 border-b-secondary-color sticky top-0">
+        <div class="h-full flex items-center">
+            <button (click)="showSidebar()"
+                class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color">
+                <img class="w-4 h-4 toolbar__icon" src="assets/sidebarclose.svg" alt="">
+            </button>
+        </div>
+        <div class="flex items-center h-full">
+            <button matTooltip="" matTooltipClass="custom__tooltip"
+                class="inline-flex justify-center items-center rounded-full border border-dashed border-[#c1c1c1 hover:border-primary-hover w-[25px] h-[25px]">
+                <img class="w-4 h-4 toolbar__icon" src="assets/tags.svg" alt="">
+            </button>
+            <span class="h-[25px] w-[1px] bg-[#c1c1c1] ml-5 mr-3"></span>
+            <button
+                class="rounded-[4px] px-2 py-[4px] bg-primary hover:bg-primary-hover text-white text-sm focus:outline-none">Share</button>
+            <span class="h-[25px] w-[1px] bg-[#c1c1c1] ml-3 mr-5"></span>
+            <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
+                <img class="w-[18px] h-[18px] toolbar__icon" src="assets/fav.svg" alt="">
+            </button>
+            <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
+                <img class="w-[18px] h-[18px] scale-x-[-1] toolbar__icon" src="assets/comments.svg" alt="">
+            </button>
+            <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
+                <img class="w-[18px] h-[18px] toolbar__icon" src="assets/voptions.svg" alt="">
+            </button>
+            <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
+                <img class="w-[18px] h-[18px] toolbar__icon" src="assets/close3.svg" alt="">
+            </button>
+        </div>
+    </div>
+    <!-- Doc Content Actions -->
+    <div class="w-full px-20 flex items-center mt-[50px] group">
+        <button class="inline-flex items-center px-2 py-1.5 rounded-md hover:bg-secondary-color mr-0.5">
+            <img class="w-4 h-4 mr-1.5 icon" src="assets/comments.svg" alt="">
+            <span class="text-sm text-[#87909e]">Add comment</span>
+        </button>
+        <button class="inline-flex items-center px-2 py-1.5 rounded-md hover:bg-secondary-color mr-0.5">
+            <img class="w-4 h-4 mr-1.5 -rotate-45 icon" src="assets/linktotask.svg" alt="">
+            <span class="text-sm text-[#87909e]">Link to task or Doc</span>
+        </button>
+        <div class="hidden items-center group-[:hover]:inline-flex">
+            <button class="inline-flex items-center px-2 py-1.5 rounded-md hover:bg-secondary-color mr-0.5">
+                <img class="w-4 h-4 mr-1.5 icon" src="assets/emoji.svg" alt="">
+                <span class="text-sm text-[#87909e]">Add Icon</span>
+            </button>
+            <button class="inline-flex items-center px-2 py-1.5 rounded-md hover:bg-secondary-color mr-0.5">
+                <img class="w-4 h-4 mr-1.5 icon" src="assets/gallery.svg" alt="">
+                <span class="text-sm text-[#87909e]">Add Cover</span>
+            </button>
+            <button class="inline-flex items-center px-2 py-1.5 rounded-md hover:bg-secondary-color mr-0.5">
+                <span class="text-sm text-[#87909e]">Settings</span>
+            </button>
+        </div>
+    </div>
+    <!-- Docs Title Text Area -->
+    <div class="w-full h-auto px-20 flex items-center my-1">
+        <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"
+            [(ngModel)]="docsTitle" name=""
+            class="text-[rgb(42,44,52)] placeholder:text-[#D6D9DE] focus:placeholder:text-[rgb(42,44,52)] font-bold text-5xl focus:outline-none w-full h-auto resize-none"
+            placeholder="Untitled"></textarea>
+    </div>
+    <!-- Date of Doc Last Update -->
+    <div class="w-full flex items-center px-20">
+        <button class="px-2 py-1 rounded-md hover:bg-secondary-color">
+            <span
+                class="w-7 h-7 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[12px]">
+                N
+            </span>
+            <span class="text-sm ml-2">You</span>
+        </button>
+        <div class="flex items-center ml-2">
+            <label for="" class="text-sm">Last Updated:</label>
+            <a class="text-sm font-medium ml-2" matTooltip="View page history" matTooltipClass="custom__tooltip"
+                href="">Today at 12:38 pm</a>
+        </div>
+    </div>
+    <!-- Docs Content Text Area -->
+    <div class="w-full h-auto px-20 flex items-center my-4 mb-10">
+        <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="4"
+            name=""
+            class="text-[#111] placeholder:text-[#D6D9DE] focus:outline-none w-full h-auto resize-none"
+            placeholder="Write comething"></textarea>
+    </div>
 </div>

@@ -1,4 +1,10 @@
 :host {
     width: 100%;
-    flex: 1;
+}
+
+.toolbar__icon {
+    filter: invert(47%) sepia(10%) saturate(655%) hue-rotate(175deg) brightness(88%) contrast(86%);
+}
+.icon {
+    filter: invert(70%) sepia(2%) saturate(2374%) hue-rotate(178deg) brightness(82%) contrast(81%);
 }

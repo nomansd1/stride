@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DocsSidebarStateService {
-  private sidebarOpenSubject = new BehaviorSubject<boolean>(true);
+  private sidebarOpenSubject = new BehaviorSubject<boolean>(false);
   sidebarOpen$ = this.sidebarOpenSubject.asObservable();
   
   toggleSidebarState() {

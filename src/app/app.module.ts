@@ -42,6 +42,7 @@ import { CreateDocComponent } from './components/docs/create-doc/create-doc.comp
 import { ScheduleMeetingComponent } from './components/spaces/schedule-meeting/schedule-meeting.component';
 import { DocsSidebarComponent } from './components/docs/docs-sidebar/docs-sidebar.component';
 import { DocsContentComponent } from './components/docs/docs-content/docs-content.component';
+import { QuoteComponent } from './components/notifications/quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { DocsContentComponent } from './components/docs/docs-content/docs-conten
     ScheduleMeetingComponent,
     DocsSidebarComponent,
     DocsContentComponent,
+    QuoteComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<div [ngClass]="{ 'show__sidebar': sidebar.sidebarOpen$ | async}"
-    class="hidden__sidebar max-w-[300px] h-full bg-[#F7F8F9] flex transition-all duration-1000 ease-in-out">
-    <div class="relative px-2 py-4 h-full w-full"W>
+<div [ngClass]="{ 'show__sidebar': sidebar.sidebarOpen$ | async, 'hidden__sidebar': !(sidebar.sidebarOpen$ | async)}"
+    class="h-full bg-[#F7F8F9]">
+    <div [ngClass]="{ 'hidden transition': !(sidebar.sidebarOpen$ | async)}" class="relative px-2 py-4 h-full w-full">
         <div *ngIf="searchIcon === true" class="inline-flex items-center justify-end w-full">
             <button (click)="showSearchbar()" class="px-1 py-0.5 hover:bg-[#E8EAED] rounded-sm">
                 <img src="assets/search.svg" class="w-5 h-5 icon" alt="">

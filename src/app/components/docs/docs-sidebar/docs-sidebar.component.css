@@ -1,14 +1,13 @@
 :host {
     .hidden__sidebar {
-        /* transform: translateX(-100%);  */
-        /* transition: transform 0.3s ease; */
-        position: relative;
-        left: -100%;
-        transition: all .5 ease-in-out
+        width: 0px;
+        transition: all 0.3s ease-in-out
     }
     .show__sidebar {
-        /* transform: translateX(0); */
-        position: relative;
-        left: 0;
+        width: 300px;
+        transition: all 0.3s ease-in-out
     }
+}
+.transition {
+    transition: all 0.3s ease-in-out
 }
