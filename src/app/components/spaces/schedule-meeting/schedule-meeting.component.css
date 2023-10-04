@@ -1,5 +1,5 @@
 .container__label {
-    width: 150px;
+    width: 200px;
     @apply font-medium;
     @apply text-[#34343466];
 }
