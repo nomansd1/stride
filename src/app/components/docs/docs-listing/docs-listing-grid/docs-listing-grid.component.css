@@ -1,0 +1,16 @@
+table thead tr td {
+    @apply bg-[#F0F1F3];
+    @apply py-1.5;
+    @apply px-3;
+    @apply text-left;
+}
+table tbody tr td {
+    @apply py-2;
+    @apply px-3;
+}
+.icon {
+    filter: invert(63%) sepia(12%) saturate(370%) hue-rotate(178deg) brightness(89%) contrast(88%);
+}
+.custom__height {
+    height: calc(100vh - 100px);
+}

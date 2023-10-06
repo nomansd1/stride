@@ -38,11 +38,15 @@ import { TaskSelectionHeaderComponent } from './components/layout/task-selection
 import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from './components/spaces/task-detail/task-detail.component';
 import { CommentBoxComponent } from './components/spaces/comment-box/comment-box.component';
-import { CreateDocComponent } from './components/docs/create-doc/create-doc.component';
+import { CreateDocComponent } from './components/docs/docs-creation/create-doc/create-doc.component';
 import { ScheduleMeetingComponent } from './components/spaces/schedule-meeting/schedule-meeting.component';
-import { DocsSidebarComponent } from './components/docs/docs-sidebar/docs-sidebar.component';
-import { DocsContentComponent } from './components/docs/docs-content/docs-content.component';
+import { DocsSidebarComponent } from './components/docs/docs-creation/docs-sidebar/docs-sidebar.component';
+import { DocsContentComponent } from './components/docs/docs-creation/docs-content/docs-content.component';
 import { QuoteComponent } from './components/notifications/quote/quote.component';
+import { DocsListingComponent } from './layout/docs-listing/docs-listing.component';
+import { DocsListingHeaderComponent } from './components/docs/docs-listing/docs-listing-header/docs-listing-header.component';
+import { DocsListingGridComponent } from './components/docs/docs-listing/docs-listing-grid/docs-listing-grid.component';
+import { DocsListingSearchComponent } from './components/docs/docs-listing/docs-listing-search/docs-listing-search.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +82,10 @@ import { QuoteComponent } from './components/notifications/quote/quote.component
     DocsSidebarComponent,
     DocsContentComponent,
     QuoteComponent,
+    DocsListingComponent,
+    DocsListingHeaderComponent,
+    DocsListingGridComponent,
+    DocsListingSearchComponent,
   ],
   imports: [
     BrowserModule,

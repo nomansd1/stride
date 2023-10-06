@@ -12,6 +12,7 @@ import { TeamspaceComponent } from './layout/teamspace/teamspace.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
 import { Project1Component } from './layout/project1/project1.component';
 import { Project2Component } from './layout/project2/project2.component';
+import { DocsListingComponent } from './layout/docs-listing/docs-listing.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'projects', component: ProjectsComponent },
       { path: 'project1', component: Project1Component },
       { path: 'project2', component: Project2Component },
+      { path: 'docs', component: DocsListingComponent },
     ]},
 ];
 
