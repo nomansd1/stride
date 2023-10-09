@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./schedule-meeting.component.css']
 })
 export class ScheduleMeetingComponent {
-
+  
+  selectedRequiredAttendee!: number;
+  selectedOptionalAttendee!: number;
+  
+  attendees = [
+    { id: 1, name: "John Doe" },
+    { id: 2, name: "Cassey Roe" },
+    { id: 3, name: "Goerge Smith " },
+  ]
 }

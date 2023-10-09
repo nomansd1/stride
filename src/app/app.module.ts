@@ -8,7 +8,8 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TextFieldModule } from '@angular/cdk/text-field';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -35,7 +36,6 @@ import { Project2Component } from './layout/project2/project2.component';
 import { SpaceProject2Component } from './components/spaces/space-project2/space-project2.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
 import { TaskSelectionHeaderComponent } from './components/layout/task-selection-header/task-selection-header.component';
-import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from './components/spaces/task-detail/task-detail.component';
 import { CommentBoxComponent } from './components/spaces/comment-box/comment-box.component';
 import { CreateDocComponent } from './components/docs/docs-creation/create-doc/create-doc.component';
@@ -47,6 +47,7 @@ import { DocsListingComponent } from './layout/docs-listing/docs-listing.compone
 import { DocsListingHeaderComponent } from './components/docs/docs-listing/docs-listing-header/docs-listing-header.component';
 import { DocsListingGridComponent } from './components/docs/docs-listing/docs-listing-grid/docs-listing-grid.component';
 import { DocsListingSearchComponent } from './components/docs/docs-listing/docs-listing-search/docs-listing-search.component';
+import { CalendarPickerComponent } from './components/spaces/calendar-picker/calendar-picker.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { DocsListingSearchComponent } from './components/docs/docs-listing/docs-
     DocsListingHeaderComponent,
     DocsListingGridComponent,
     DocsListingSearchComponent,
+    CalendarPickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,8 @@ import { DocsListingSearchComponent } from './components/docs/docs-listing/docs-
     MatTooltipModule,
     FormsModule,
     MatDialogModule,
-    TextFieldModule
+    TextFieldModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

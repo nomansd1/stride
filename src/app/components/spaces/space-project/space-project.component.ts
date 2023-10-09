@@ -1,8 +1,12 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiClientService } from 'src/app/services/api-client.service';
 import { ListSelectionToolbarService } from 'src/app/services/list-selection-toolbar.service';
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
+import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { CalendarPickerComponent } from '../calendar-picker/calendar-picker.component';
+
 
 @Component({
   selector: 'app-space-project',
@@ -23,11 +27,14 @@ export class SpaceProjectComponent {
   newTaskName!: string;
   // for temporay use 
   savedTaskList: any = []
+  isDropdownOpen = false;
+
 
   constructor(
     private selectionToolbarService: ListSelectionToolbarService,
     private apiClient: ApiClientService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private overlay: Overlay
     ) {}
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
@@ -99,5 +106,23 @@ export class SpaceProjectComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  @ViewChild('buttonRef') buttonRef: ElementRef | undefined;
+  openDatePicker(button: any) {
+    const config = new OverlayConfig({
+      hasBackdrop: true,
+      backdropClass: 'cdk-overlay-transparent-backdrop',
+    });
+
+    const overlayRef = this.overlay.create(config);
+    const portal = new ComponentPortal(CalendarPickerComponent);
+    const componentRef = portal.attach(overlayRef);
+
+    overlayRef.backdropClick().subscribe(() => {
+      this.isDropdownOpen = false;
+      overlayRef.detach();
+    });
+
+    this.isDropdownOpen = true;
   }
 }

@@ -212,8 +212,8 @@
                                                 <button
                                                     class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
                                             </td>
-                                            <td>
-                                                <button class="p-1">
+                                            <td class="relative">
+                                                <button (click)="openDatePicker(buttonRef)" class="p-1">
                                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7">
                                                         <g stroke-width="0"></g>
@@ -226,6 +226,9 @@
                                                         </g>
                                                     </svg>
                                                 </button>
+                                                <ng-container class="relative" *ngIf="isDropdownOpen">
+                                                    <div #buttonRef></div>
+                                                </ng-container>
                                             </td>
                                             <td>
                                                 <button class="p-1">

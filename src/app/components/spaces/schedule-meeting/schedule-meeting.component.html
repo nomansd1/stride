@@ -28,11 +28,15 @@
             </div>
             <div class="inline-flex items-center mb-2">
                 <label class="text-sm container__label" for="">Required Attendees:</label>
-                <input type="text" class="w-full container__input">
+                <ng-select class="w-full schedule__meeting container__input" placeholder="Select Required Attendees" [(ngModel)]="selectedRequiredAttendee" [multiple]="true">
+                    <ng-option *ngFor="let attendee of attendees" [value]="attendee.id">{{ attendee.name }}</ng-option>
+                </ng-select>
             </div>
             <div class="inline-flex items-center mb-2">
                 <label class="text-sm container__label" for="">Optional Attendees:</label>
-                <input type="text" class="w-full container__input">
+                <ng-select class="w-full schedule__meeting container__input" placeholder="Select Required Attendees" [(ngModel)]="selectedRequiredAttendee" [multiple]="true">
+                    <ng-option *ngFor="let attendee of attendees" [value]="attendee.id">{{ attendee.name }}</ng-option>
+                </ng-select>
             </div>
             <div class="inline-flex items-center mb-2">
                 <label class="text-sm !w-[170px] container__label" for="">Start Time:</label>
