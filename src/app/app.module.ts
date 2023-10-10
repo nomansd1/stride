@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -100,7 +101,8 @@ import { CalendarPickerComponent } from './components/spaces/calendar-picker/cal
     FormsModule,
     MatDialogModule,
     TextFieldModule,
-    NgSelectModule
+    NgSelectModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

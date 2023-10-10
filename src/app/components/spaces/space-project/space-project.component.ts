@@ -125,4 +125,7 @@ export class SpaceProjectComponent {
 
     this.isDropdownOpen = true;
   }
+  closeCalendarPicker() {
+    this.isDropdownOpen = false
+  }
 }
