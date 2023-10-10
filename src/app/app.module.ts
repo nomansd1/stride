@@ -49,6 +49,7 @@ import { DocsListingHeaderComponent } from './components/docs/docs-listing/docs-
 import { DocsListingGridComponent } from './components/docs/docs-listing/docs-listing-grid/docs-listing-grid.component';
 import { DocsListingSearchComponent } from './components/docs/docs-listing/docs-listing-search/docs-listing-search.component';
 import { CalendarPickerComponent } from './components/spaces/calendar-picker/calendar-picker.component';
+import { SpaceBoardComponent } from './components/spaces/kanban-board/space-board/space-board.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { CalendarPickerComponent } from './components/spaces/calendar-picker/cal
     DocsListingGridComponent,
     DocsListingSearchComponent,
     CalendarPickerComponent,
+    SpaceBoardComponent,
   ],
   imports: [
     BrowserModule,

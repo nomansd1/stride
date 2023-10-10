@@ -1,0 +1,15 @@
+.custom__shadow {
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .25);
+}
+.grouping:hover ~ .actions__toolbar {
+    bottom: -100%;
+}
+.custom__height {
+    height: calc(100vh - 88px);
+}
+.trans__icon {
+    filter: invert(85%) sepia(0%) saturate(18%) hue-rotate(181deg) brightness(92%) contrast(91%);
+}
+.trans__icon:hover {
+    filter: invert(38%) sepia(85%) saturate(467%) hue-rotate(165deg) brightness(91%) contrast(83%);
+}

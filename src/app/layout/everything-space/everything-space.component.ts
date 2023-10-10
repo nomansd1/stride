@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiClientService } from 'src/app/services/api-client.service';
 
 @Component({
@@ -7,13 +7,18 @@ import { ApiClientService } from 'src/app/services/api-client.service';
   styleUrls: ['./everything-space.component.css']
 })
 export class EverythingSpaceComponent implements OnInit {
-    
+  selectedTabIndex = 0;
+
   taskData: any;
 
   constructor(private apiClient: ApiClientService) {}
     
   ngOnInit(): void {
     this.getTaskData();      
+  }
+
+  onTabSelected(index: number) {
+    this.selectedTabIndex = index;
   }
 
   getTaskData() {

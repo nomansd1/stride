@@ -1,3 +1,8 @@
-<app-space-header [spaceTitle]="'Everything'"></app-space-header>
+<app-space-header [spaceTitle]="'Everything'"  (tabSelected)="onTabSelected($event)"></app-space-header>
 <app-space-search></app-space-search>
-<app-space-project [data]="taskData"></app-space-project>
+<div *ngIf="selectedTabIndex === 0">
+    <app-space-project [data]="taskData"></app-space-project>
+</div>
+<div *ngIf="selectedTabIndex === 1">
+    <st-space-board [data]="taskData"></st-space-board>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-space-header',
@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class SpaceHeaderComponent {
  @Input() spaceTitle!: string;
+ selectedTabIndex: number = 0;
+ @Output() tabSelected = new EventEmitter<number>();
 
  tabs = [
   { label: 'List', icon: '../../../../assets/list.svg' },

@@ -213,7 +213,7 @@
                                                     class="w-6 h-6 bg-orange-400 inline-flex justify-center items-center rounded-full p-1.5 text-white text-[10px]">N</button>
                                             </td>
                                             <td class="relative">
-                                                <button (click)="isDropdownOpen = !isDropdownOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin" class="p-1">
+                                                <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin #triggerOrigin="cdkOverlayOrigin" class="p-1">
                                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="#b9bec7">
                                                         <g stroke-width="0"></g>
@@ -226,10 +226,10 @@
                                                         </g>
                                                     </svg>
                                                 </button>
-                                                <ng-template cdkConnectedOverlay cdkConnectedOverlay (backdropClick)="closeCalendarPicker()" [cdkConnectedOverlayHasBackdrop]="true" [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'" [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isDropdownOpen" class="relative">
+                                                <ng-template cdkConnectedOverlay cdkConnectedOverlay (backdropClick)="closeCalendarPicker()" [cdkConnectedOverlayHasBackdrop]="true" [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'" [cdkConnectedOverlayOrigin]="triggerOrigin" [cdkConnectedOverlayOpen]="isDropdownOpenList[i]" class="relative">
                                                     <st-calendar-picker></st-calendar-picker>
                                                 </ng-template>
-                                            </td>
+                                            </td>i don
                                             <td>
                                                 <button class="p-1">
                                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"

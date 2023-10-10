@@ -4,10 +4,10 @@
             <span class="text-sm font-medium mr-3">
                 {{ spaceTitle }}
             </span>
-            <mat-tab-group>
-                <mat-tab *ngFor="let tab of tabs">
+            <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+                <mat-tab *ngFor="let tab of tabs; let i = index">
                   <ng-template mat-tab-label>
-                    <span class="group text-sm font-medium py-2 mx-3 flex items-center">
+                    <span (click)="tabSelected.emit(i)" class="group text-sm font-medium py-2 mx-3 flex items-center">
                         <img class="w-4 h-4 mr-2" [src]="tab.icon" alt="">
                         {{ tab.label }}
                         <img class="hidden group-[:hover]:flex w-4 h-4 ml-2" src="../../../../assets/voptions.svg" alt="">
