@@ -22,7 +22,7 @@
             <div class="group">
                 <button class="border-2 border-secondary-color py-0.5 px-1 inline-flex items-center rounded-sm">
                     <img class="w-4 h-4 trans__icon" src="assets/subtask.svg" alt="">
-                    <span class="text-xs ml-2">{{0}}</span>
+                    <span class="text-xs ml-2">{{2}}</span>
                 </button>
                 <button matTooltip="Create subtask" matTooltipClass="custom__tooltip" class="border-2 border-l-0 border-secondary-color py-0.5 px-1 hidden group-[:hover]:inline-flex items-center rounded-sm">
                     <img class="w-4 h-4 trans__icon" src="assets/add.svg" alt="">
@@ -110,7 +110,7 @@
         <!-- kanban status header -->
         <div class="w-full px-2.5 py-2 rounded-md border-t-2 border-[#87909e] bg-white shadow-md inline-flex items-center mb-5">
             <span class="uppercase text-sm">in progress</span>
-            <span class="rounded-full mx-2 text-xs w-[22px] h-[22px] flex items-center justify-center border-dashed border border-primary">{{1}}</span>
+            <span class="rounded-full mx-2 text-xs w-[22px] h-[22px] flex items-center justify-center border-dashed border border-primary">{{2}}</span>
         </div>
         <!-- kanban task -->
         <div class="px-2 py-1.5 shadow rounded-md my-2 group relative overflow-hidden">
@@ -128,7 +128,7 @@
             <div class="group">
                 <button class="border-2 border-secondary-color py-0.5 px-1 inline-flex items-center rounded-sm">
                     <img class="w-4 h-4 trans__icon" src="assets/subtask.svg" alt="">
-                    <span class="text-xs ml-2">{{0}}</span>
+                    <span class="text-xs ml-2">{{5}}</span>
                 </button>
                 <button matTooltip="Create subtask" matTooltipClass="custom__tooltip" class="border-2 border-l-0 border-secondary-color py-0.5 px-1 hidden group-[:hover]:inline-flex items-center rounded-sm">
                     <img class="w-4 h-4 trans__icon" src="assets/add.svg" alt="">
@@ -170,6 +170,65 @@
                 </div>
             </div>
         </div>
+        <!-- 2nd task (redundant) -->
+        <div class="px-2 py-1.5 shadow rounded-md my-2 group relative overflow-hidden">
+            <div class="inline-flex items-center">
+                <span class="text-[10px]">Everything > Projects > Project 1</span>
+            </div>
+            <div class="flex justify-between my-1">
+                <div class="flex flex-1">
+                    <span class="text-xs">Test Task</span>
+                </div>
+                <div>
+                    <button class="rounded-full bg-orange-400 text-white text-[10px] w-[23px] h-[23px] inline-flex justify-center items-center">N</button>
+                </div>
+            </div>
+            <div class="group">
+                <button class="border-2 border-secondary-color py-0.5 px-1 inline-flex items-center rounded-sm">
+                    <img class="w-4 h-4 trans__icon" src="assets/subtask.svg" alt="">
+                    <span class="text-xs ml-2">{{5}}</span>
+                </button>
+                <button matTooltip="Create subtask" matTooltipClass="custom__tooltip" class="border-2 border-l-0 border-secondary-color py-0.5 px-1 hidden group-[:hover]:inline-flex items-center rounded-sm">
+                    <img class="w-4 h-4 trans__icon" src="assets/add.svg" alt="">
+                </button>
+            </div>
+            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 grouping">
+                <button class="hover:bg-secondary-color uppercase text-[11px] px-2 py-1 rounded-sm">+ add subtask</button>
+            </div>
+            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color group-[:hover]:bottom-0 inline-flex items-center justify-between absolute -bottom-full left-0 right-0 bg-white mt-1 transition-all !duration-1000 ease-linear actions__toolbar">
+                <div class="inline-flex items-center">
+                    <button matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
+                        <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                    </button>
+                    <button matTooltip="Set priority" matTooltipClass="custom__tooltip" class="mr-2.5">
+                        <img class="w-4 h-4 trans__icon" src="assets/priority.svg" alt="">
+                    </button>
+                    <button matTooltip="Edit tags" matTooltipClass="custom__tooltip" class="mr-1">
+                        <img class="w-5 h-5 trans__icon" src="assets/tags.svg" alt="">
+                    </button>
+                </div>
+                <div class="inline-flex items-center">
+                    <button matTooltip="Close task" matTooltipClass="custom__tooltip" class="mr-2.5">
+                        <img class="w-4 u-4 trans__icon" src="assets/closeTask.svg" alt="">
+                    </button>
+                    <button>
+                        <img class="w-4 u-4 icon trans__icon" src="assets/voptions.svg"  alt="">
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="createSubTaskToolbar === true" class="flex items-center justify-between my-1 border-t-2 border-secondary-color pt-1.5">
+                <button (click)="closeCreateSubTaskToolbar()">
+                    <img class="w-3 h-3 trans__icon" src="assets/close3.svg" alt="">
+                </button>
+                <div class="flex flex-1">
+                    <input autofocus type="text" class="text-xs w-full focus:outline-none px-1.5">
+                </div>
+                <div>
+                    <button class="rounded-full bg-orange-400 text-white text-[10px] w-[23px] h-[23px] inline-flex justify-center items-center">N</button>
+                </div>
+            </div>
+        </div>
+        
         <div *ngIf="createNewTaskToolbar === false" class="my-2">
             <button (click)="openNewTaskToolbar()" class="hover:bg-secondary-color px-3.5 py-1.5 text-sm rounded-md">+ New Task</button>
         </div>

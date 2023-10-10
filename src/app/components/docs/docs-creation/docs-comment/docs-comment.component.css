@@ -1,0 +1,13 @@
+:host {
+    .hidden__commentBox {
+        width: 0px;
+        transition: all 0.3s ease-in-out
+    }
+    .show__commentBox {
+        width: 295px;
+        transition: all 0.3s ease-in-out
+    }
+}
+.transition {
+    transition: all 0.3s ease-in-out
+}

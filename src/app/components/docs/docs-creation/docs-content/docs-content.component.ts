@@ -16,4 +16,7 @@ export class DocsContentComponent {
   showSidebar() {
     this.sidebarService.toggleSidebarState();
   }
+  showCommentBox() {
+    this.sidebarService.toggleCommentBoxState();
+  }
 }

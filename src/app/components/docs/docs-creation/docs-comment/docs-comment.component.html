@@ -1,0 +1,36 @@
+<div [ngClass]="{ 'show__commentBox': sidebar.commentBoxOpen$ | async, 'hidden__commentBox': !(sidebar.commentBoxOpen$ | async)}"
+class="h-full border-l-2 border-secondary-color">
+    <div [ngClass]="{ 'hidden transition': !(sidebar.commentBoxOpen$ | async)}" class="relative flex flex-col flex-1 px-3 py-4 h-full w-full">
+        <h1 class="text-lg">Comments</h1>
+        <div class="w-full relative">
+            <mat-tab-group [disablePagination]="true">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="text-xs font-medium py-2 mx-1">Open</span>
+                    </ng-template>
+                    <div class="flex flex-col justify-between items-end w-full h-full overflow-y-auto bg-red-300">
+                        <div class="w-full mt-auto bg-green-500">
+                            <app-comment-box></app-comment-box>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="text-xs font-medium py-2 mx-1">Assigned to me</span>
+                    </ng-template>
+                    <div class="w-full h-full overflow-y-auto bg-red-300">
+                        <h1>hello</h1>
+                    </div>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="text-xs font-medium py-2 mx-1">Resolved</span>
+                    </ng-template>
+                    <div class="w-full h-full overflow-y-auto bg-red-300">
+                        <h1>hello</h1>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

@@ -8,3 +8,7 @@
 .icon {
     filter: invert(70%) sepia(2%) saturate(2374%) hue-rotate(178deg) brightness(82%) contrast(81%);
 }
+.docs__toolbar {
+    height: calc(100vh - 120px);
+    width: 60px;
+}
