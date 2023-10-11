@@ -3,7 +3,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiClientService } from 'src/app/services/api-client.service';
 import { ListSelectionToolbarService } from 'src/app/services/list-selection-toolbar.service';
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
-
+import {
+  CdkDragDrop,
+  CdkDrag,
+  CdkDropList,
+  CdkDropListGroup,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-space-project',
@@ -27,7 +34,7 @@ export class SpaceProjectComponent {
   isDropdownOpen = false;
   isDropdownOpenList: boolean[] = []
   triggerOrigin: any;
-
+  isSubTaskRow: boolean[] = [];
 
   constructor(
     private selectionToolbarService: ListSelectionToolbarService,
@@ -48,9 +55,31 @@ export class SpaceProjectComponent {
       this.listOfTasks = [].concat(
         ...this.listOfSubFolders.map((item:any) => item.lists)
       )
+      this.subTasks = [].concat(
+        ...this.listOfTasks.map((item:any) => item.subtasks)
+      )
       this.taskRowVisibility = Array(this.listOfTasks.length).fill(false);      
     }
   }
+
+// Drag and Drop of list items
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+  }
+
+  // Toggle sub tasks row
+  toggleSubTasksRow(index: any) {
+    this.isSubTaskRow[index] = !this.isSubTaskRow[index];
+  } 
 
   toggleRowSelection(index: any): void {
     const selectedIndex = this.selectedRows.indexOf(index);
@@ -90,6 +119,12 @@ export class SpaceProjectComponent {
   addNewTask() {
     console.log(this.newTaskName);
     this.savedTaskList.push(this.newTaskName)
+  }
+  addNewTaskOnEnter(event: any) {
+    if (event.keyCode === 13) {
+      this.addNewTask()
+      this.newTaskName = ''
+    }
   }
 
   // open task detail modal

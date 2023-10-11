@@ -1,14 +1,33 @@
-.table__header .table__th {
+.table__header > div {
     @apply hover:bg-[#F0F1F3];
     @apply px-2;
-    @apply font-bold;
-    @apply h-[25px];
+    @apply h-full;
+    @apply flex;
+    @apply items-center;
+    @apply font-bold
+}
+.table__header > div:hover {
+    @apply border-x-2;
+    @apply border-[#BCC0C7];
+}
+.table__header > div:nth-child(1){
+    @apply hover:bg-transparent;
+    @apply border-none;
+}
+.table__row {
+    @apply hover:bg-[#F0F1F3];
+    @apply text-xs;
+    @apply flex;
+    @apply items-center;
+    @apply h-[38px]
+}
+.table__row > div {
+    @apply h-full;
     @apply flex;
     @apply items-center;
 }
 
-
-table thead tr th {
+/* table thead tr th {
     @apply hover:bg-[#F0F1F3];
     @apply py-0;
     @apply px-2;
@@ -17,13 +36,10 @@ table thead tr th:hover {
     @apply border-x-2;
     @apply border-[#BCC0C7];
 }
-/* table thead tr th:nth-child(2), table tbody tr td:nth-child(2) {
-    @apply text-left;
-} */
 table thead tr th:nth-child(1){
     @apply hover:bg-transparent;
     @apply border-none;
-}
+} */
 table tbody tr {
     @apply text-center;
     @apply hover:bg-[#F0F1F3];

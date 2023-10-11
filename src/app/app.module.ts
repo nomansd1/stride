@@ -11,6 +11,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay'
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -106,7 +107,8 @@ import { DocsCommentComponent } from './components/docs/docs-creation/docs-comme
     MatDialogModule,
     TextFieldModule,
     NgSelectModule,
-    OverlayModule
+    OverlayModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
