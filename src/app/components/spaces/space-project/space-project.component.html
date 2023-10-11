@@ -275,9 +275,7 @@
                                                         src="../../../../assets/voptions.svg" alt="">
                                                 </button>
                                             </td>
-                                        </tr>
-                                        <tr *ngFor="let subtask of list.tasks.subtasks" ngIf="list.tasks.subtasks">
-                                            <td colspan="9">additional data</td>
+                                            <td colspan="9" class="block w-full bg-red-500">additional info</td>
                                         </tr>
                                         <!-- temporary saved tasks -->
                                         <tr *ngFor="let task of savedTaskList; let i = index"
@@ -464,6 +462,38 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <!-- <div class="flex flex-col w-full">
+                                    <div class="table__header flex items-start w-full uppercase text-[10px] font-light text-center">
+                                        <span class="flex-1 max-w-[77px] w-[77px] table__th"></span>
+                                        <span class="flex-1 max-w-[128px] w-[128px] table__th"></span>
+                                        <span class="flex-1 w-[25%] text-left table__th">
+                                            <span class="hover:bg-[#F0F1F3] px-3 py-1.5 table__th">Task</span>
+                                        </span>
+                                        <span class="flex-1 table__th">Assignee</span>
+                                        <span class="flex-1 table__th">Due Date</span>
+                                        <span class="flex-1 table__th">Priority</span>
+                                        <span class="flex-1 table__th">Status</span>
+                                        <span class="flex-1 w-[90px] table__th">Comments</span>
+                                        <span class="flex-1 table__th">
+                                            <button class="hover:bg-[#F0F1F3] p-1">
+                                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g stroke-width="0"></g>
+                                                    <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g>
+                                                        <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"
+                                                            stroke="#1C274C" stroke-width="1.5"
+                                                            stroke-linecap="round"></path>
+                                                        <path
+                                                            d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7"
+                                                            stroke="#1C274C" stroke-width="1.5"
+                                                            stroke-linecap="round"></path>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div> -->
                                 <!-- Add new task row toolbar -->
                                 <div *ngIf="taskRowVisibility[i]"
                                     class="h-[37px] selected-row flex items-center ml-[77px]">

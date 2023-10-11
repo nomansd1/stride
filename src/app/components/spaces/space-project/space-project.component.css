@@ -1,3 +1,13 @@
+.table__header .table__th {
+    @apply hover:bg-[#F0F1F3];
+    @apply px-2;
+    @apply font-bold;
+    @apply h-[25px];
+    @apply flex;
+    @apply items-center;
+}
+
+
 table thead tr th {
     @apply hover:bg-[#F0F1F3];
     @apply py-0;
