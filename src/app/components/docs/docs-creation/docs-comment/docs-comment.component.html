@@ -8,8 +8,11 @@ class="h-full border-l-2 border-secondary-color">
                     <ng-template mat-tab-label>
                         <span class="text-xs font-medium py-2 mx-1">Open</span>
                     </ng-template>
-                    <div class="flex flex-col justify-between items-end w-full h-full overflow-y-auto bg-red-300">
-                        <div class="w-full mt-auto bg-green-500">
+                    <div class="flex flex-col justify-between w-full comments__height flex-grow overflow-y-auto">
+                        <div class="flex flex-grow justify-center items-center">
+                            <h1 class="text-xs italic">No comments on this page!</h1>
+                        </div>
+                        <div class="w-full self-end bg-green-500">
                             <app-comment-box></app-comment-box>
                         </div>
                     </div>
@@ -18,16 +21,26 @@ class="h-full border-l-2 border-secondary-color">
                     <ng-template mat-tab-label>
                         <span class="text-xs font-medium py-2 mx-1">Assigned to me</span>
                     </ng-template>
-                    <div class="w-full h-full overflow-y-auto bg-red-300">
-                        <h1>hello</h1>
+                    <div class="flex flex-col justify-between w-full comments__height flex-grow overflow-y-auto">
+                        <div class="flex flex-grow justify-center items-center">
+                            <h1 class="text-xs italic">No comments on this page!</h1>
+                        </div>
+                        <div class="w-full self-end bg-green-500">
+                            <app-comment-box></app-comment-box>
+                        </div>
                     </div>
                 </mat-tab>
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <span class="text-xs font-medium py-2 mx-1">Resolved</span>
                     </ng-template>
-                    <div class="w-full h-full overflow-y-auto bg-red-300">
-                        <h1>hello</h1>
+                    <div class="flex flex-col justify-between w-full comments__height flex-grow overflow-y-auto">
+                        <div class="flex flex-grow justify-center items-center">
+                            <h1 class="text-xs italic">No comments on this page!</h1>
+                        </div>
+                        <div class="w-full self-end bg-green-500">
+                            <app-comment-box></app-comment-box>
+                        </div>
                     </div>
                 </mat-tab>
             </mat-tab-group>

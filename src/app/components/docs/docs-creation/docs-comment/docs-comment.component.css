@@ -11,3 +11,6 @@
 .transition {
     transition: all 0.3s ease-in-out
 }
+.comments__height {
+    height: calc(100vh - 180px);
+}

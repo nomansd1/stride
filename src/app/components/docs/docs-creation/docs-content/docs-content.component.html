@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col flex-grow relative">
+<div class="w-full flex flex-col flex-grow relative overflow-hidden">
     <!-- Doc Content Header -->
     <div
         class="w-full bg-white flex items-center justify-between px-3 h-[48px] border-2 border-b-secondary-color sticky top-0">
@@ -20,7 +20,7 @@
             <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
                 <img class="w-[18px] h-[18px] toolbar__icon" src="assets/fav.svg" alt="">
             </button>
-            <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
+            <button (click)="showCommentBox()" class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
                 <img class="w-[18px] h-[18px] scale-x-[-1] toolbar__icon" src="assets/comments.svg" alt="">
             </button>
             <button class="inline-flex items-center px-1.5 py-1 rounded-md hover:bg-secondary-color mr-0.5">
