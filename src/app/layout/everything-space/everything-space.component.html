@@ -1,6 +1,6 @@
 <app-space-header [spaceTitle]="'Everything'"  (tabSelected)="onTabSelected($event)"></app-space-header>
 <app-space-search></app-space-search>
-<div *ngIf="selectedTabIndex === 0">
+<div *ngIf="selectedTabIndex === 0" class="overflow-y-auto custom__height">
     <app-space-project [data]="taskData"></app-space-project>
 </div>
 <div *ngIf="selectedTabIndex === 1">
