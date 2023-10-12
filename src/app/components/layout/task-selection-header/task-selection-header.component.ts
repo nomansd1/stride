@@ -26,6 +26,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
     { tooltip: 'Tasks Linking', url: '', icon: '../../../../assets/tasklinking.svg' },
     { tooltip: 'No Custom Fields available', url: '', icon: '../../../../assets/nocustomfield.svg' },
     { tooltip: 'Archive tasks', url: '', icon: '../../../../assets/arch.svg' },
+    { tooltip: 'Schedule Meeting', url: '', icon: '../../../../assets/meeting.svg' },
     { tooltip: 'Delete', url: '', icon: '../../../../assets/del.svg' },
   ]
 

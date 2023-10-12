@@ -9,10 +9,16 @@ export class ScheduleMeetingComponent {
   
   selectedRequiredAttendee!: number;
   selectedOptionalAttendee!: number;
-  
+  currentDate: string;
+
   attendees = [
     { id: 1, name: "John Doe" },
     { id: 2, name: "Cassey Roe" },
     { id: 3, name: "Goerge Smith " },
   ]
+
+  constructor() {
+    const today = new Date();
+    this.currentDate = today.toISOString().substring(0, 10);
+  }
 }

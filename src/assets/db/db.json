@@ -19,6 +19,7 @@
                       {
                         "id": 1,
                         "title": "Task 1",
+                        "duedate": "Oct 15",
                         "subtasks": [
                           {
                             "id": 1000001,
@@ -33,6 +34,7 @@
                       {
                         "id": 2,
                         "title": "Task 2",
+                        "duedate": "Today",
                         "subtasks": [
                           {
                             "id": 2000001,
@@ -47,6 +49,7 @@
                       {
                         "id": 3,
                         "title": "Task 3",
+                        "duedate": "Yesterday",
                         "subtasks": [
                           {
                             "id": 2000001,
@@ -67,11 +70,13 @@
                       {
                         "id": 4,
                         "title": "Testing 1",
+                        "duedate": "Nov 23",
                         "subtasks": []
                       },
                       {
                         "id": 5,
                         "title": "Testing 2",
+                        "duedate": "Nov 27",
                         "subtasks": []
                       }
                     ]

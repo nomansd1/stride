@@ -69,3 +69,6 @@ table tbody tr td {
 .icon:hover {
     filter: invert(38%) sepia(85%) saturate(467%) hue-rotate(165deg) brightness(91%) contrast(83%);
 }
+.subtask__collapse img {
+    transform: rotate(90deg);
+}

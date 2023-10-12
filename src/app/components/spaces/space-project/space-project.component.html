@@ -119,7 +119,7 @@
                                                 <td class="max-w-[128px] w-[128px]">
                                                     <div class="inline-flex items-center">
                                                         <button *ngIf="task.subtasks.length > 0"
-                                                            (click)="toggleSubTasksRow(i)"
+                                                            (click)="toggleSubTasksRow(i)" [ngClass]="{'subtask__collapse': isSubTaskRow[i] === true }"
                                                             class="inline-flex items-center">
                                                             <img class="w-4 h-4 header__icon"
                                                                 src="assets/caretsolid.svg" alt="">
@@ -156,11 +156,19 @@
                                                     </button>
                                                 </td>
                                                 <td class="relative">
-                                                    <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
-                                                        #triggerOrigin="cdkOverlayOrigin" class="p-1">
-                                                        <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                    <button [ngClass]="{
+                                                        'text-[#6BC950]': list.status === 'Completed',
+                                                        'text-[#F18A8B]': list.status === 'In Progress'
+                                                        }" class="font-medium" *ngIf="task.duedate; else calendarpicker" >
+                                                        {{task.duedate}}
                                                     </button>
-                                                    <ng-template cdkConnectedOverlay cdkConnectedOverlay
+                                                    <ng-template #calendarpicker>
+                                                        <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
+                                                            #triggerOrigin="cdkOverlayOrigin" class="p-1">
+                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                    <!-- <ng-template cdkConnectedOverlay cdkConnectedOverlay
                                                         (backdropClick)="closeCalendarPicker()"
                                                         [cdkConnectedOverlayHasBackdrop]="true"
                                                         [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
@@ -168,7 +176,7 @@
                                                         [cdkConnectedOverlayOpen]="isDropdownOpenList[i]"
                                                         class="relative">
                                                         <st-calendar-picker></st-calendar-picker>
-                                                    </ng-template>
+                                                    </ng-template> -->
                                                 </td>
                                                 <td>
                                                     <button class="p-1">
