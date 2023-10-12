@@ -41,31 +41,31 @@
             <div class="inline-flex items-center mb-2">
                 <label class="text-sm !w-[170px] container__label" for="">Start Time:</label>
                 <input type="date" [(ngModel)]="currentDate" class="container__input">
-                <input type="time" class="container__input mx-2">
+                <input type="time"  [disabled]="isRecurringStartDate" class="container__input mx-2 disabled:cursor-not-allowed">
                 <div class="inline-flex items-center">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="" [(ngModel)]="isRecurringStartDate">
                     <label class="text-sm ml-2 text-[#34343466]" for="">All Day</label>
                 </div>
             </div>
             <div class="inline-flex items-center mb-2">
                 <label class="text-sm !w-[170px] container__label" for="">End Time:</label>
                 <input type="date" [(ngModel)]="currentDate" class="container__input">
-                <input type="time" class="container__input mx-2">
+                <input type="time"  [disabled]="isRecurringEndDate" class="container__input mx-2 disabled:cursor-not-allowed">
                 <div class="inline-flex items-center">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="" [(ngModel)]="isRecurringEndDate">
                     <label class="text-sm ml-2 text-[#34343466]" for="">Recurring</label>
                 </div>
             </div>
-            <div class="inline-flex items-center mb-6">
-                <label class="text-sm !w-[170px] container__label" for="">Task Name:</label>
-                <span class="text-sm font-medium">Conduct in-depth market research and competitor analysis</span>
-            </div>
-            <div class="inline-flex items-center mb-6">
-                <label class="text-sm !w-[170px] container__label" for="">Task URL:</label>
-                <a routerLink="https://stridect.vercel.app/app/everything" class="text-sm text-primary text-primary-hover">https://stridect.vercel.app/app/everything</a>
-            </div>
-            <div class="w-full mt-3">
-                <textarea name="" id="" class="container__textarea w-full" placeholder="Comment"></textarea>
+            <div class="flex flex-col w-full container__textarea mt-3">
+                <div class="inline-flex items-center mb-6">
+                    <label class="text-sm !w-[170px] container__label" for="">Task Name:</label>
+                    <span class="text-sm font-medium">Conduct in-depth market research and competitor analysis</span>
+                </div>
+                <div class="inline-flex items-center mb-6">
+                    <label class="text-sm !w-[170px] container__label" for="">Task URL:</label>
+                    <a routerLink="https://stridect.vercel.app/app/everything" class="text-sm text-primary text-primary-hover">https://stridect.vercel.app/app/everything</a>
+                </div>
+                <textarea autofocus name="" id="" class="focus:outline-none w-full" placeholder="Comment"></textarea>
             </div>
         </div>
     </div>

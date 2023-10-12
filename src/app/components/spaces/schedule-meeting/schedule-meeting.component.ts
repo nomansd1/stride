@@ -10,6 +10,8 @@ export class ScheduleMeetingComponent {
   selectedRequiredAttendee!: number;
   selectedOptionalAttendee!: number;
   currentDate: string;
+  isRecurringStartDate: boolean = true;
+  isRecurringEndDate: boolean = true;
 
   attendees = [
     { id: 1, name: "John Doe" },
