@@ -50,9 +50,9 @@
             <div class="inline-flex items-center mb-2">
                 <label class="text-sm !w-[170px] container__label" for="">End Time:</label>
                 <input type="date" [(ngModel)]="currentDate" class="container__input">
-                <input type="time"  [disabled]="isRecurringEndDate" class="container__input mx-2 disabled:cursor-not-allowed">
+                <input type="time"  [disabled]="isRecurringStartDate" class="container__input mx-2 disabled:cursor-not-allowed">
                 <div class="inline-flex items-center">
-                    <input type="checkbox" name="" id="" [(ngModel)]="isRecurringEndDate">
+                    <input type="checkbox" name="" id="">
                     <label class="text-sm ml-2 text-[#34343466]" for="">Recurring</label>
                 </div>
             </div>
