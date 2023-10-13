@@ -11,6 +11,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-space-project',
@@ -40,6 +41,7 @@ export class SpaceProjectComponent {
     private selectionToolbarService: ListSelectionToolbarService,
     private apiClient: ApiClientService,
     public dialog: MatDialog,
+    private overlay: Overlay
     ) {}
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
@@ -142,10 +144,10 @@ export class SpaceProjectComponent {
   }
 
   // Opening and Closing of Calendar Picker
-  toggleCalendarPicker(index: number) {
+  toggleCalendarPicker(index: any) {
      // Toggle the state for the specified row
      this.triggerOrigin = index;
-     this.isDropdownOpenList[index] = !this.isDropdownOpenList[index];
+     this.isDropdownOpen = !this.isDropdownOpen;
   }
   closeCalendarPicker() {
     this.isDropdownOpen = false
