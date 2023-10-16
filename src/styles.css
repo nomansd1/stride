@@ -109,9 +109,33 @@ div.mat-expansion-panel-body {
     @apply !rounded-lg;
 }
 /* ng select styles for schedule meeting modal */
-.schedule__meeting  .ng-select .ng-select-container {
+.schedule__meeting.ng-select .ng-select-container {
     border: none !important;
     min-height: 0px !important;
     @apply focus:!outline-none;
     @apply focus-within:!outline-none;
+}
+/* ng select styles for date picker component */
+.date-picker__select.ng-select .ng-select-container {
+    border: none !important;
+    outline: none !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items {
+    padding: .5rem !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    background-color: white !important;
+    padding: 0 !important;
+    @apply rounded-md !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option .ng-option-label {
+    padding: 4px 1rem !important;
+    width: 100% !important;
+    min-height: 34px !important;
+    display: flex;
+    align-items: center;
+    @apply rounded-md;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option .ng-option-label:hover {
+    background-color: #F0F1F3;
 }

@@ -1,12 +1,11 @@
 .st-date__picker {
-    /* box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .15); */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background: #fff;
     border-radius: 0.375rem;
     z-index: 1000;
     min-width: 150px;
+    min-height: 354px;
     max-height: calc(100vh - 20px);
     overflow-y: auto;
-    position: absolute;
-    top: 5px;
+    margin-bottom: 2rem;
 }

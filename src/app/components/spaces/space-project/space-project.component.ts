@@ -37,6 +37,8 @@ export class SpaceProjectComponent {
   triggerOrigin: any;
   isSubTaskRow: boolean[] = [];
 
+
+  
   constructor(
     private selectionToolbarService: ListSelectionToolbarService,
     private apiClient: ApiClientService,

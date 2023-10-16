@@ -1,6 +1,30 @@
 <div class="st-date__picker">
-    <h1>hello to the futur </h1>
-    <h1>hello to the futur</h1>
-    <h1>hello to the futur</h1>
-    <h1>hello to the futur last</h1>
+    <!-- Date Picker Header -->
+    <div class="px-5 py-2 bg-white border-b-2 border-secondary-color inline-flex items-center">
+        <div class="flex flex-1 w-full items-center">
+            <img class="w-4 h-4" src="assets/startdate.svg" alt="">
+            <ng-select placeholder="Start date" class="date-picker__select text-xs w-[200px]">
+                <ng-option>option 1</ng-option>
+                <ng-option>option 2</ng-option>
+                <ng-option>option 3</ng-option>
+                <ng-option>option 4</ng-option>
+            </ng-select>
+        </div>
+        <span class="w-[3px] h-[20px] bg-secondary-color mx-3"></span>
+        <div class="flex flex-1 w-full items-center">
+            <img class="w-4 h-4" src="assets/startdate.svg" alt="">
+            <ng-select placeholder="End date" class="date-picker__select text-xs w-[200px]">
+                <ng-option>option 1</ng-option>
+                <ng-option>option 2</ng-option>
+                <ng-option>option 3</ng-option>
+                <ng-option>option 4</ng-option>
+            </ng-select>
+        </div>
+    </div>
+    <!-- Date Picker Content -->
+    <div class="flex w-full h-[300px]">
+        <div class="w-[173px] bg-[#F7F8F9] h-full px-1.5 py-2.5">
+            <button class="w-full p-2 text-xs text-left capitalize hover:bg-[#F2F2F2] rounded-md">Today</button>
+        </div>
+    </div>
 </div>

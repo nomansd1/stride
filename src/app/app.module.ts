@@ -12,6 +12,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay'
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -108,7 +111,8 @@ import { DocsCommentComponent } from './components/docs/docs-creation/docs-comme
     TextFieldModule,
     NgSelectModule,
     OverlayModule,
-    DragDropModule
+    DragDropModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]
