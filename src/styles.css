@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
+/* Default Styles for Angular-Calendar Module */
+/* @import "../node_modules/angular-calendar/css/angular-calendar.css"; */
+
 /* Default Styles for NgSelect Module */
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
@@ -154,4 +157,25 @@ div.mat-expansion-panel-body {
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option .ng-option-label:hover {
     background-color: #F0F1F3;
+}
+
+/* Update Styles for angular-calendar */
+.calendar__render .cal-month-view .cal-cell-row {
+    display: flex;
+}
+.calendar__render .cal-month-view .cal-cell-row .cal-cell {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    text-transform: uppercase;
+    @apply text-sm;
+    @apply px-2;
+    @apply py-1;
+    @apply rounded-md;
+    @apply m-0.5;
+    @apply inline-flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply hover:bg-[#E5E4FC];
+    @apply cursor-pointer;
 }

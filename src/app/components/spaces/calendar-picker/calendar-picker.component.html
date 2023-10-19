@@ -1,9 +1,9 @@
 <div class="st-date__picker">
     <!-- Date Picker Header -->
-    <div class="px-5 py-2 bg-white border-b-2 border-secondary-color inline-flex items-center">
+    <div class="w-full px-5 py-2 bg-white border-b-2 border-secondary-color inline-flex items-center">
         <div class="flex flex-1 w-full items-center">
             <img class="w-4 h-4" src="assets/startdate.svg" alt="">
-            <ng-select placeholder="Start date" class="date-picker__select text-xs w-[200px]">
+            <ng-select placeholder="Start date" class="date-picker__select text-xs w-full">
                 <ng-option>option 1</ng-option>
                 <ng-option>option 2</ng-option>
                 <ng-option>option 3</ng-option>
@@ -13,7 +13,7 @@
         <span class="w-[3px] h-[20px] bg-secondary-color mx-3"></span>
         <div class="flex flex-1 w-full items-center">
             <img class="w-4 h-4" src="assets/startdate.svg" alt="">
-            <ng-select placeholder="End date" class="date-picker__select text-xs w-[200px]">
+            <ng-select placeholder="End date" class="date-picker__select text-xs w-full">
                 <ng-option>option 1</ng-option>
                 <ng-option>option 2</ng-option>
                 <ng-option>option 3</ng-option>
@@ -23,11 +23,52 @@
     </div>
     <!-- Date Picker Content -->
     <div class="flex w-full h-[300px]">
-        <div class="w-[173px] bg-[#F7F8F9] h-full px-1.5 py-2.5">
-            <button *ngFor="let option of calendarShorcutOptions" mwlCalendarToday [(viewDate)]="viewDate" class="w-full inline-flex items-center justify-between p-2 text-xs text-left capitalize hover:bg-[#F2F2F2] rounded-md">
-                <span>{{ option.title }}</span>
+        <div class="min-w-[170px] bg-[#F7F8F9] h-full px-1.5 py-2.5">
+            <button *ngFor="let option of calendarShortcutOptions"
+                class="w-full inline-flex items-center justify-between p-2 text-xs text-left capitalize hover:bg-[#F2F2F2] rounded-md">
+                <span class="text-[11px]">{{ option.title }}</span>
                 <span class="text-[11px] text-[#b9bec7]">{{ option.detail }}</span>
-            </button>         
+            </button>
+        </div>
+        <div class="flex flex-col w-full">
+            <div class="w-full flex items-center justify-between px-4 py-2.5">
+                <div class="flex items-center">
+                    <h2 class="text-sm">{{ viewDate | date: 'MMMM yyyy' }}</h2>
+                </div>
+                <div class="flex items-center">
+                    <button 
+                        mwlCalendarPreviousView
+                        [view]="view"
+                        [(viewDate)]="viewDate"
+                        class="px-2 py-1 hover:bg-secondary-color rounded-md">
+                        <img class="w-4 h-4 scale-[-1]" src="assets/nextbtn.svg" alt="">
+                    </button>
+                    <button 
+                        mwlCalendarNextView
+                        [view]="view"
+                        [(viewDate)]="viewDate"
+                        class="px-2 py-1 hover:bg-secondary-color rounded-md">
+                        <img class="w-4 h-4" src="assets/nextbtn.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="w-full px-4">
+                <mwl-calendar-month-view 
+                [viewDate]="viewDate" 
+                [events]="events"
+                [headerTemplate]="headerTemplate"
+                (dayClicked)="onDateClick($event.day)"
+                class="calendar__render">
+                <!-- scroll height 40 x 40 x 54 -->
+                    <ng-template #headerTemplate mwlCalendarMonthViewHeader>
+                        <div class="flex items-center py-1">
+                            <div *ngFor="let day of daysOfWeek" class="uppercase text-xs inline-flex justify-center items-center w-[32px] h-[32px] px-2 py-1 mx-0.5">
+                                {{day}}
+                            </div>
+                        </div>
+                    </ng-template>
+                </mwl-calendar-month-view>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { addDays, format, getDay } from 'date-fns';
+import { CalendarView, CalendarEvent, CalendarMonthViewDay, DateFormatterParams } from 'angular-calendar';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'st-calendar-picker',
@@ -8,7 +10,12 @@ import { addDays, format, getDay } from 'date-fns';
 })
 export class CalendarPickerComponent {
   
+  view: CalendarView = CalendarView.Month;
   viewDate: Date = new Date();
+  events: CalendarEvent[] = [];
+  daysOfWeek: any = [];
+  selectedDate: any = null;
+
   currentDay!: string;
   currentDate!: Date | string;
   // later: string;
@@ -16,51 +23,65 @@ export class CalendarPickerComponent {
   tomorrowDay!: string;
   thisWeekendDate!: Date | string;
   thisWeekendDay!: string;
-  nextWeek: string = "Monday";
+  nextWeek: string = "Mon";
   nextWeekendDate!: Date | string;
   twoWeeks!: Date | string;
   fourWeeks!: Date | string;
-  calendarShorcutOptions: any;
+  calendarShortcutOptions: any;
+
   constructor() {
     this.renderDefaultDates()
+    this.renderCalendarHeader()
+  }
+
+  renderCalendarHeader() {
+    for (let i = 0; i < 7; i++) {
+      const dayName = format(new Date(0, 0, i), 'E');
+      this.daysOfWeek.push(dayName);
+    }
+  }
+
+  onDateClick(dateObj: any) {    
+    this.selectedDate = dateObj.date;
+    this.selectedDate = format(this.selectedDate, 'MMM dd')    
   }
 
   renderDefaultDates() {
     // For today
     let today = new Date()
-    this.currentDate = format(today, 'MM-dd-yyyy')
+    this.currentDate = format(today, 'MMM dd')
     this.currentDay = format(today, 'E')
     
     // For tomorrow
     let tomorrow: Date | number = new Date(today)
     tomorrow = tomorrow.setDate(today.getDate() + 1)
-    this.tomorrowDate = format(tomorrow, 'MM-dd-yyyy')
+    this.tomorrowDate = format(tomorrow, 'MMM dd')
     this.tomorrowDay = format(tomorrow, 'E')
     
     // For this weekend
     let daysUntilSaturday = 6 - today.getDay()
     let saturdayDate: Date | number = new Date(today)
     saturdayDate = saturdayDate.setDate(today.getDate() + daysUntilSaturday)
-    this.thisWeekendDate = format(saturdayDate, 'MM-dd-yyyy')
-    this.thisWeekendDay = format(saturdayDate, 'e')
+    this.thisWeekendDate = format(saturdayDate, 'MMM dd')
+    this.thisWeekendDay = format(saturdayDate, 'E')
 
     // For next weekend
     let nextSaturdayDate: Date | number = new Date(today)
     nextSaturdayDate = nextSaturdayDate.setDate(today.getDate() + daysUntilSaturday + 7)
-    this.nextWeekendDate = format(nextSaturdayDate, 'MM-dd-yyyy')
+    this.nextWeekendDate = format(nextSaturdayDate, 'MMM dd')
 
     // For two weeks later
     let twoWeeksLater: Date| number = new Date(today);
     twoWeeksLater = twoWeeksLater.setDate(today.getDate() + 14)
-    this.twoWeeks = format(twoWeeksLater, 'MM-dd-yyyy')
+    this.twoWeeks = format(twoWeeksLater, 'MMM dd')
 
     // For four weeks
     let fourWeeksLater: Date| number = new Date(today)
     fourWeeksLater = fourWeeksLater.setDate(today.getDate() + 28)
-    this.fourWeeks = format(fourWeeksLater, 'MM-dd-yyyy')
+    this.fourWeeks = format(fourWeeksLater, 'MMM dd')
 
-    this.calendarShorcutOptions = [
-      { title: 'Today', detail: this.currentDate },
+    this.calendarShortcutOptions = [
+      { title: 'Today', detail: this.currentDay },
       { title: 'Tomorrow', detail: this.tomorrowDay },
       { title: 'This Weekend', detail: this.thisWeekendDay },
       { title: 'Bext Week', detail: this.nextWeek },
