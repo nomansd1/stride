@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CreateDocComponent } from '../../docs-creation/create-doc/create-doc.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./docs-listing-header.component.css']
 })
 export class DocsListingHeaderComponent {
+  @Input() selectedTabIndex: number = 0;
+  @Output() tabSelected = new EventEmitter<number>();
   
   constructor(private dialog: MatDialog) {}
 

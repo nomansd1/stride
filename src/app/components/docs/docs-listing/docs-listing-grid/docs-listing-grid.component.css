@@ -14,3 +14,6 @@ table tbody tr td {
 .custom__height {
     height: calc(100vh - 100px);
 }
+.custom__shadow {
+    border: 1px solid rgba(232, 234, 237, 1);
+}

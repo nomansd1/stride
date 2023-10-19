@@ -24,10 +24,10 @@
     <!-- Date Picker Content -->
     <div class="flex w-full h-[300px]">
         <div class="w-[173px] bg-[#F7F8F9] h-full px-1.5 py-2.5">
-            <button mwlCalendarToday [(viewDate)]="viewDate" class="w-full inline-flex items-center p-2 text-xs text-left capitalize hover:bg-[#F2F2F2] rounded-md">
-                <span>Today</span>
-                <span>{{viewDate}}</span>
-            </button>            
+            <button *ngFor="let option of calendarShorcutOptions" mwlCalendarToday [(viewDate)]="viewDate" class="w-full inline-flex items-center justify-between p-2 text-xs text-left capitalize hover:bg-[#F2F2F2] rounded-md">
+                <span>{{ option.title }}</span>
+                <span class="text-[11px] text-[#b9bec7]">{{ option.detail }}</span>
+            </button>         
         </div>
     </div>
 </div>

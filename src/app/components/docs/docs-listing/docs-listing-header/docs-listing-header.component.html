@@ -13,6 +13,24 @@
                 <img class="w-6 h-6" src="assets/caret.svg" alt="">
             </button>
         </div>
+        <div class="mr-2 docs-listing__tab ">
+            <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span (click)="tabSelected.emit(0)" class="px-2 py-1.5 rounded-md">
+                            <img class="w-4 h-4" src="assets/list.svg" alt="">
+                        </span>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span (click)="tabSelected.emit(1)" class="px-2 py-1.5 rounded-md">
+                            <img class="w-4 h-4" src="assets/grid.svg" alt="">
+                        </span>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
         <button (click)="openDialog()" class="inline-flex items-center bg-primary hover:bg-primary-hover rounded-md px-2 py-1.5">
             <img class="w-4 h-4 mr-2 icon__white" src="assets/add.svg" alt="">
             <span class="text-sm text-white">New Doc</span>

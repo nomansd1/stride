@@ -1,0 +1,6 @@
+.icon {
+    filter: invert(63%) sepia(12%) saturate(370%) hue-rotate(178deg) brightness(89%) contrast(88%);
+}
+.custom__shadow {
+    border: 1px solid rgba(232, 234, 237, 1);
+}

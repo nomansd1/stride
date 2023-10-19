@@ -1,4 +1,4 @@
-<div class="px-3 pr-5 pb-5 custom__height"> 
+<div *ngIf="selectedTabIndex === 0" class="px-3 pr-5 pb-16 custom__height"> 
     <div class="overflow-auto w-full h-full mt-3">
         <table class="w-full border-2 border-secondary-color">
             <thead>
@@ -49,5 +49,20 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+<div *ngIf="selectedTabIndex === 1" class="px-3 pr-5 pb-16 custom__height overflow-auto mt-3">
+    <div class="grid gap-5 md:grid-cols-4 lg:grid-cols-5 xl:flex xl:flex-wrap">
+        <!-- grid view item -->
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
+        <st-docs-listing-grid-item></st-docs-listing-grid-item>
     </div>
 </div>

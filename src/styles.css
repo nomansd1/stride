@@ -84,6 +84,11 @@ div.mat-expansion-panel-body {
     color: var(--hover-color) !important;
     border-bottom: 3px solid var(--hover-color) !important;
 }
+.mat-mdc-tab-header {
+    --mdc-tab-indicator-active-indicator-height: 0px !important;
+    --mdc-secondary-navigation-tab-container-height: fit-content !important;
+}
+/* Notification header mat tab styles for Notifications page */
 .type__notifyTabs .mdc-tab-indicator {
     display: none;
 }
@@ -94,9 +99,20 @@ div.mat-expansion-panel-body {
 .type__notifyTabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label span {
     @apply !bg-[#7F77F1];
 }
-.mat-mdc-tab-header {
-    --mdc-tab-indicator-active-indicator-height: 0px !important;
+/* Docs listing page header mat tab styles  */
+.docs-listing__tab .mdc-tab-indicator {
+    display: none;
 }
+.docs-listing__tab .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    @apply !border-none;
+}
+.mat-mdc-tab .mat-ripple {
+    display: none !important;
+}
+.docs-listing__tab .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label span {
+    @apply !bg-[#E8EAED];
+}
+
 /* tool tip */
 .custom__tooltip > div {
     background: #000 !important;
