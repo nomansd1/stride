@@ -12,6 +12,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Overlay } from '@angular/cdk/overlay';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-space-project',
@@ -32,19 +33,21 @@ export class SpaceProjectComponent {
   newTaskName!: string;
   // for temporay use 
   savedTaskList: any = []
-  isDropdownOpen = false;
+  isDropdownOpen: any;
   isDropdownOpenList: boolean[] = []
   triggerOrigin: any;
   isSubTaskRow: boolean[] = [];
 
-
+  selectedDate: any;
   
   constructor(
     private selectionToolbarService: ListSelectionToolbarService,
     private apiClient: ApiClientService,
     public dialog: MatDialog,
     private overlay: Overlay
-    ) {}
+    ) {
+      this.isDropdownOpenList = new Array(this.listOfTasks.length + this.subTasks.length ).fill(false);
+    }
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
   ngOnChanges(changes: SimpleChanges) {
@@ -150,8 +153,14 @@ export class SpaceProjectComponent {
      // Toggle the state for the specified row
      this.triggerOrigin = index;
      this.isDropdownOpen = !this.isDropdownOpen;
+     
   }
   closeCalendarPicker() {
     this.isDropdownOpen = false
+  }
+
+  selectedDateChange(date: any) {
+    this.selectedDate = date;
+    this.selectedDate = format(this.selectedDate, 'MMM dd, HH:m a')
   }
 }

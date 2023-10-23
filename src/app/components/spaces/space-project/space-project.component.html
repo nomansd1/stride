@@ -156,19 +156,16 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <!-- <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
-                                                    #triggerOrigin="cdkOverlayOrigin" [ngClass]="{
-                                                        'text-[#6BC950]': list.status === 'Completed',
-                                                        'text-[#F18A8B]': list.status === 'In Progress'
-                                                        }" class="font-medium" *ngIf="task.duedate; else calendarpicker" >
-                                                        {{task.duedate}}
-                                                    </button> -->
-                                                    <!-- <ng-template #calendarpicker> -->
+                                                    <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
+                                                    #triggerOrigin="cdkOverlayOrigin" class="font-medium text-[#F18A8B]" *ngIf="selectedDate; else calendarpicker" >
+                                                        {{selectedDate}}
+                                                    </button>
+                                                    <ng-template #calendarpicker>
                                                         <button (click)="toggleCalendarPicker(trigger)" cdkOverlayOrigin
                                                             #trigger="cdkOverlayOrigin" class="p-1">
                                                             <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                         </button>
-                                                    <!-- </ng-template> -->
+                                                    </ng-template>
                                                     <ng-template cdkConnectedOverlay
                                                         (backdropClick)="closeCalendarPicker()"
                                                         [cdkConnectedOverlayHasBackdrop]="true"
@@ -176,7 +173,7 @@
                                                         [cdkConnectedOverlayOrigin]="triggerOrigin"
                                                         [cdkConnectedOverlayOpen]="isDropdownOpen === true"
                                                         class="relative">
-                                                        <st-calendar-picker></st-calendar-picker>
+                                                        <st-calendar-picker (selectedDateChange)="selectedDateChange($event)"></st-calendar-picker>
                                                     </ng-template>
                                                 </td>
                                                 <td>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { addDays, format, getDay } from 'date-fns';
 import { CalendarView, CalendarEvent, CalendarMonthViewDay, DateFormatterParams } from 'angular-calendar';
 import { DatePipe } from '@angular/common';
@@ -14,11 +14,9 @@ export class CalendarPickerComponent {
   viewDate: Date = new Date();
   events: CalendarEvent[] = [];
   daysOfWeek: any = [];
-  selectedDate: any = null;
-
+  
   currentDay!: string;
   currentDate!: Date | string;
-  // later: string;
   tomorrowDate!: Date | string;
   tomorrowDay!: string;
   thisWeekendDate!: Date | string;
@@ -28,11 +26,40 @@ export class CalendarPickerComponent {
   twoWeeks!: Date | string;
   fourWeeks!: Date | string;
   calendarShortcutOptions: any;
+  
+  dateOptions: string[] = [];
+  startDate!: string;
+  endDate!: string;
+  startDateInputType!: any;
+  endDateInputType!: any;
+  
+  selectedDate: any = this.startDate;
+  
+  @Output() selectedDateChange = new EventEmitter<any>();
 
   constructor() {
     this.renderDefaultDates()
     this.renderCalendarHeader()
+    // this.generateDateOptions();
   }
+
+  // For select dropdown dates option
+  // generateDateOptions() {
+  //   const currentDate = new Date();
+  //   const startYear = currentDate.getFullYear() - 10;
+  //   const endYear = currentDate.getFullYear() + 10;
+  //   const options = [];
+
+  //   for (let year = startYear; year <= endYear; year++) {
+  //     for (let month = 0; month < 12; month++) {
+  //       let date: any = new Date(year, month, 1);
+  //       date = format(date, 'MM/dd/yyyy')
+  //       options.push(date);
+  //     }
+  //   }
+
+  //   this.dateOptions = options;
+  // }
 
   renderCalendarHeader() {
     for (let i = 0; i < 7; i++) {
@@ -43,7 +70,9 @@ export class CalendarPickerComponent {
 
   onDateClick(dateObj: any) {    
     this.selectedDate = dateObj.date;
-    this.selectedDate = format(this.selectedDate, 'MMM dd')    
+    // this.selectedDate = format(this.selectedDate, 'MMM dd')
+    this.startDate = this.selectedDate; 
+    this.selectedDateChange.emit(this.selectedDate);
   }
 
   renderDefaultDates() {
@@ -93,7 +122,6 @@ export class CalendarPickerComponent {
 
   selectToday() {
     const today = new Date();
-
   }
   
 }

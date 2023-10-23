@@ -3,22 +3,23 @@
     <div class="w-full px-5 py-2 bg-white border-b-2 border-secondary-color inline-flex items-center">
         <div class="flex flex-1 w-full items-center">
             <img class="w-4 h-4" src="assets/startdate.svg" alt="">
-            <ng-select placeholder="Start date" class="date-picker__select text-xs w-full">
-                <ng-option>option 1</ng-option>
-                <ng-option>option 2</ng-option>
-                <ng-option>option 3</ng-option>
-                <ng-option>option 4</ng-option>
-            </ng-select>
+            <!-- <ng-select placeholder="Start date" class="date-picker__select text-xs w-full">
+                <ng-option *ngFor="let option of dateOptions">{{option}}</ng-option>
+            </ng-select> -->
+            <input [type]="startDateInputType" [(ngModel)]="startDate" [value]="startDate" placeholder="Start date" (focus)="this.startDateInputType = 'datetime-local'"
+            (blur)="this.startDateInputType = 'text'" class="text-xs w-full px-2 py-1.5 focus:outline-none">
         </div>
         <span class="w-[3px] h-[20px] bg-secondary-color mx-3"></span>
         <div class="flex flex-1 w-full items-center">
             <img class="w-4 h-4" src="assets/startdate.svg" alt="">
-            <ng-select placeholder="End date" class="date-picker__select text-xs w-full">
+            <!-- <ng-select placeholder="End date" class="date-picker__select text-xs w-full">
                 <ng-option>option 1</ng-option>
                 <ng-option>option 2</ng-option>
                 <ng-option>option 3</ng-option>
                 <ng-option>option 4</ng-option>
-            </ng-select>
+            </ng-select> -->
+            <input [type]="endDateInputType" [(ngModel)]="endDate" placeholder="End date" (focus)="this.endDateInputType = 'datetime-local'"
+            (blur)="this.endDateInputType = 'text'" class="text-xs w-full px-2 py-1.5 focus:outline-none">
         </div>
     </div>
     <!-- Date Picker Content -->
