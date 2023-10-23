@@ -1,0 +1,6 @@
+.white__icon {
+    filter: invert(98%) sepia(14%) saturate(352%) hue-rotate(253deg) brightness(118%) contrast(100%);
+}
+.st__monthSelect {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

@@ -159,7 +159,7 @@ div.mat-expansion-panel-body {
     background-color: #F0F1F3;
 }
 
-/* Update Styles for angular-calendar */
+/* Update Styles for angular-calendar for calendar picker component */
 .calendar__render .cal-month-view .cal-cell-row {
     display: flex;
 }
@@ -178,4 +178,16 @@ div.mat-expansion-panel-body {
     @apply justify-center;
     @apply hover:bg-[#E5E4FC];
     @apply cursor-pointer;
+}
+
+/* Update Styles for angular-calendar for calendar dashboard component */
+.st__calendar_dashboard .cal-month-view .cal-cell-row {
+    display: flex;
+}
+.st__calendar_dashboard .cal-month-view .cal-days .cal-cell-row .cal-cell {
+    min-width: 107px;
+    min-height: 140px;
+    display: flex;
+    width: 100%;
+    border: 1px solid #e1e1e1;
 }

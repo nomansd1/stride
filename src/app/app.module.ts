@@ -56,6 +56,8 @@ import { CalendarPickerComponent } from './components/spaces/calendar-picker/cal
 import { SpaceBoardComponent } from './components/spaces/kanban-board/space-board/space-board.component';
 import { DocsCommentComponent } from './components/docs/docs-creation/docs-comment/docs-comment.component';
 import { DocsListingGridItemComponent } from './components/docs/docs-listing/docs-listing-grid-item/docs-listing-grid-item.component';
+import { CalendarDashboardComponent } from './components/spaces/calendar-dashboard/calendar-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -99,6 +101,7 @@ import { DocsListingGridItemComponent } from './components/docs/docs-listing/doc
     SpaceBoardComponent,
     DocsCommentComponent,
     DocsListingGridItemComponent,
+    CalendarDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,6 +120,6 @@ import { DocsListingGridItemComponent } from './components/docs/docs-listing/doc
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
