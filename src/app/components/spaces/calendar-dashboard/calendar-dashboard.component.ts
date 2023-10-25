@@ -10,18 +10,18 @@ import { addYears, format, parseISO } from 'date-fns';
 })
 export class CalendarDashboardComponent {
   public viewDate = new Date();
-  public viewYears = new Date();
+  public viewYears = this.viewDate;
   public view: CalendarView = CalendarView.Month;
   public daysOfWeek: any = [];
 
   public isDropdownOpen = false;
   public monthNames: any;
-  public activeMonth: any;
+  public activeMonth: any = this.viewDate;
   public selectedMonth: any;
 
   constructor() {
     this.renderCalendarHeader();
-    this.renderMonthNames();  
+    this.renderMonthNames();    
   }
 
   public renderCalendarHeader() {
@@ -30,19 +30,37 @@ export class CalendarDashboardComponent {
       this.daysOfWeek.push(dayName);
     }
   }
+
   public toggleMonthSelection() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
+
+  public getMonthsFromDate(date: Date): Date[] {
+    const months: any = [];
+    for (let month = 0; month < 12; month++) {
+      const newDate = new Date(date);
+      newDate.setMonth(month);
+      months.push(newDate);
+    }
+    return months;
+  }
+
   public changeYear(changeValue: number) {
     this.viewYears = addYears(this.viewYears, changeValue);
+    this.renderMonthNames();
+    // console.log(this.viewYears);
   }
+  
   public renderMonthNames() {
-    this.monthNames = getLocaleMonthNames('en', FormStyle.Standalone, TranslationWidth.Abbreviated);
-    this.activeMonth = format(this.viewDate, 'MMM');
+    this.monthNames = this.getMonthsFromDate(this.viewYears);
+    // this.activeMonth = format(this.viewYears, 'MMM');
+    this.activeMonth = this.viewYears;
   }
+
   // This function will select a month via dropdown of month selection
   public selectionOfMonth(month: any) {
-    this.activeMonth = month;
+    this.activeMonth = month;    
+    this.viewDate = this.activeMonth;
     this.isDropdownOpen = false;
   }
 }
