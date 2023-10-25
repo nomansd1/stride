@@ -9,6 +9,7 @@ import { addYears, format, parseISO } from 'date-fns';
   styleUrls: ['./calendar-dashboard.component.css'],
 })
 export class CalendarDashboardComponent {
+  
   public viewDate = new Date();
   public viewYears = this.viewDate;
   public view: CalendarView = CalendarView.Month;
