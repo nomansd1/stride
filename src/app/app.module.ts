@@ -57,6 +57,7 @@ import { SpaceBoardComponent } from './components/spaces/kanban-board/space-boar
 import { DocsCommentComponent } from './components/docs/docs-creation/docs-comment/docs-comment.component';
 import { DocsListingGridItemComponent } from './components/docs/docs-listing/docs-listing-grid-item/docs-listing-grid-item.component';
 import { CalendarDashboardComponent } from './components/spaces/calendar-dashboard/calendar-dashboard.component';
+import { QuickTaskCreatePanelComponent } from './components/spaces/quick-task-create-panel/quick-task-create-panel.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { CalendarDashboardComponent } from './components/spaces/calendar-dashboa
     DocsCommentComponent,
     DocsListingGridItemComponent,
     CalendarDashboardComponent,
+    QuickTaskCreatePanelComponent,
   ],
   imports: [
     BrowserModule,

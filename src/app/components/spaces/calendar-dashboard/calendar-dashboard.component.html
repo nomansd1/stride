@@ -89,10 +89,19 @@
             <ng-template #datesTemplate mwlCalendarMonthView let-day="day">
                 <div class="flex w-full min-w-[107px] group">
                     <div class="text-[13px] w-full h-full flex justify-end items-end px-3">
-                        <button matTooltip="Create task" matTooltipClass="custom__tooltip" matTooltipPosition="above"
+                        <button #quickTask="cdkOverlayOrigin" matTooltip="Create task" matTooltipClass="custom__tooltip" matTooltipPosition="above"
                             class="w-[18px] h-[18px] group-[:hover]:inline-flex hidden justify-center items-center py-1 rounded-sm bg-primary-hover mb-1 mx-1">
                             <img class="w-3 h-3 white__icon" src="assets/add.svg" alt="">
                         </button>
+                        <ng-template 
+                            cdkConnectedOverlay (backdropClick)="isDropdownOpen = false"
+                            [cdkConnectedOverlayHasBackdrop]="true"
+                            [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
+                            [cdkConnectedOverlayOrigin]="selectMonthDropdown"
+                            [cdkConnectedOverlayOpen]="isDropdownOpen === true"
+                        >
+                            <st-quick-task-create-panel></st-quick-task-create-panel>
+                        </ng-template>
                         {{ day.date | date: 'dd' }}
                     </div>
                 </div>
