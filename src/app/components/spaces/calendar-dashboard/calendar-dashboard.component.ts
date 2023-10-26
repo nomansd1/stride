@@ -1,8 +1,9 @@
-import { DatePipe, FormStyle, TranslationWidth, getLocaleMonthNames } from '@angular/common';
-import { Component } from '@angular/core';
+import { CdkConnectedOverlay } from '@angular/cdk/overlay';
+import { Component, ViewChild } from '@angular/core';
 import { CalendarView } from 'angular-calendar';
 import { addYears, format, parseISO } from 'date-fns';
-
+import { QuickTaskPanelService } from 'src/app/services/quick-task-panel.service';
+ 
 @Component({
   selector: 'st-calendar-dashboard',
   templateUrl: './calendar-dashboard.component.html',
@@ -20,9 +21,15 @@ export class CalendarDashboardComponent {
   public activeMonth: any = this.viewDate;
   public selectedMonth: any;
 
-  constructor() {
+  public isQuickTaskPanel = this.quickTaskService.isQuickTaskPanel;
+  public quickTaskOrigin: any; 
+
+  @ViewChild(CdkConnectedOverlay, { static: true })
+  private connectedOverlay!: CdkConnectedOverlay;
+
+  constructor(private quickTaskService: QuickTaskPanelService) {
     this.renderCalendarHeader();
-    this.renderMonthNames();    
+    this.renderMonthNames();
   }
 
   public renderCalendarHeader() {
@@ -63,5 +70,14 @@ export class CalendarDashboardComponent {
     this.activeMonth = month;    
     this.viewDate = this.activeMonth;
     this.isDropdownOpen = false;
+  }
+
+  public toggleQuickTaskPanel(elementOrigin: any) {
+    this.quickTaskService.openQuickTaskPanel();
+    this.isQuickTaskPanel = this.quickTaskService.isQuickTaskPanel;
+    this.quickTaskOrigin = elementOrigin;
+  }
+  public closeQuickTaskPanel() {
+    this.isQuickTaskPanel = false; 
   }
 }

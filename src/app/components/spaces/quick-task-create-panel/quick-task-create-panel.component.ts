@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { QuickTaskPanelService } from 'src/app/services/quick-task-panel.service';
 
 @Component({
   selector: 'st-quick-task-create-panel',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./quick-task-create-panel.component.css']
 })
 export class QuickTaskCreatePanelComponent {
+  @Output() close = new EventEmitter<void>();
+  
+  public taskList: any = []
+  public taskName: string = '';
 
+constructor(private quickTaskService: QuickTaskPanelService) {}
+
+  addTask() {
+    this.taskList.push(this.taskName);
+    this.quickTaskService.closeQuickTaskPanel();
+    this.closePanel()
+  }
+
+  closePanel() {
+    this.close.emit();
+  }
 }
