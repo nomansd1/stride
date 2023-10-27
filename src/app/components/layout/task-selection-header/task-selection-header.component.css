@@ -1,6 +1,6 @@
-a img {
+button img {
     filter: invert(93%) sepia(12%) saturate(101%) hue-rotate(177deg) brightness(93%) contrast(88%)
 }
-a img:hover {
+button img:hover {
     filter: invert(38%) sepia(85%) saturate(467%) hue-rotate(165deg) brightness(91%) contrast(83%);
 }

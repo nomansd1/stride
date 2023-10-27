@@ -21,8 +21,9 @@ export class CalendarDashboardComponent {
   public activeMonth: any = this.viewDate;
   public selectedMonth: any;
 
-  public isQuickTaskPanel = this.quickTaskService.isQuickTaskPanel;
+  public isQuickTaskPanel: any = this.quickTaskService.isQuickTaskPanel;
   public quickTaskOrigin: any; 
+  public taskList: any;
 
   @ViewChild(CdkConnectedOverlay, { static: true })
   private connectedOverlay!: CdkConnectedOverlay;
@@ -30,6 +31,7 @@ export class CalendarDashboardComponent {
   constructor(private quickTaskService: QuickTaskPanelService) {
     this.renderCalendarHeader();
     this.renderMonthNames();
+    this.renderTask();
   }
 
   public renderCalendarHeader() {
@@ -72,12 +74,19 @@ export class CalendarDashboardComponent {
     this.isDropdownOpen = false;
   }
 
-  public toggleQuickTaskPanel(elementOrigin: any) {
+  public toggleQuickTaskPanel(elementOrigin: any, index?: any) {
     this.quickTaskService.openQuickTaskPanel();
     this.isQuickTaskPanel = this.quickTaskService.isQuickTaskPanel;
     this.quickTaskOrigin = elementOrigin;
   }
+  
   public closeQuickTaskPanel() {
-    this.isQuickTaskPanel = false; 
+    this.isQuickTaskPanel = false;
+    this.renderTask();
+  }
+
+  public renderTask() {
+    this.taskList = this.quickTaskService.taskList;
+    console.log(this.taskList, this.quickTaskOrigin); 
   }
 }

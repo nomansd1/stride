@@ -59,8 +59,8 @@
                                 <table class="w-full">
                                     <thead>
                                         <tr class="uppercase text-[10px] font-light text-center">
-                                            <th class="max-w-[77px] w-[77px]"></th>
-                                            <th class="max-w-[128px] w-[128px]"></th>
+                                            <th class="max-w-[50px] w-[50px]"></th>
+                                            <th class="max-w-[78px] w-[78px]"></th>
                                             <th class="w-[25%] text-left">
                                                 <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{list.tasks.length}}
                                                     tasks</span>
@@ -81,7 +81,7 @@
                                         <ng-container *ngFor="let task of list.tasks; let i = index">
                                             <tr [class.selected-row]="selectedRows.includes(task.id)" class="group">
                                                 <td [class.right__border]="selectedRows.includes(task.id)"
-                                                    class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
+                                                    class="group-[:hover]:bg-white border border-white !px-0 max-w-[50px] w-[50px]">
                                                     <button [class.visible]="selectedRows.includes(task.id)"
                                                         (click)="toggleRowSelection(task.id)"
                                                         class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
@@ -116,7 +116,7 @@
                                                         <img class="w-5 h-6 icon" src="assets/tabledrag.svg" alt="">
                                                     </button>
                                                 </td>
-                                                <td class="max-w-[128px] w-[128px]">
+                                                <td class="max-w-[78px] w-[78px]">
                                                     <div class="inline-flex items-center">
                                                         <button *ngIf="task.subtasks.length > 0"
                                                             (click)="toggleSubTasksRow(i)" [ngClass]="{'subtask__collapse': isSubTaskRow[i] === true }"
@@ -199,7 +199,7 @@
                                                     [class.selected-row]="selectedRows.includes(subtask.id)"
                                                     class="group">
                                                     <td [class.right__border]="selectedRows.includes(subtask.id)"
-                                                        class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
+                                                        class="group-[:hover]:bg-white border border-white !px-0 max-w-[50px] w-[50px]">
                                                         <button [class.visible]="selectedRows.includes(subtask.id)"
                                                             (click)="toggleRowSelection(subtask.id)"
                                                             class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
@@ -235,7 +235,7 @@
                                                             <img class="w-5 h-6 icon" src="assets/tabledrag.svg" alt="">
                                                         </button>
                                                     </td>
-                                                    <td class="max-w-[128px] w-[128px] !pl-20">
+                                                    <td class="max-w-[78px] w-[78px] !pl-20">
                                                         <button [ngClass]="{
                                                             'bg-[#6BC950]': list.status === 'Completed',
                                                             'bg-[#1090E0]': list.status === 'In Progress',
@@ -298,7 +298,7 @@
                                         <tr *ngFor="let task of savedTaskList; let i = index"
                                             [class.selected-row]="selectedRows.includes(i)" class="group">
                                             <td [class.right__border]="selectedRows.includes(i)"
-                                                class="group-[:hover]:bg-white border border-white !px-0 max-w-[77px] w-[77px]">
+                                                class="group-[:hover]:bg-white border border-white !px-0 max-w-[50px] w-[50px]">
                                                 <button [class.visible]="selectedRows.includes(i)"
                                                     (click)="toggleRowSelection(i)"
                                                     class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
@@ -332,7 +332,7 @@
                                                     <img class="w-5 h-6 icon" src="assets/tabledrag.svg" alt="">
                                                 </button>
                                             </td>
-                                            <td class="max-w-[128px] w-[128px]">
+                                            <td class="max-w-[78px] w-[78px]">
                                                 <button [ngClass]="{
                                                         'bg-[#6BC950]': list.status === 'Completed',
                                                         'bg-[#1090E0]': list.status === 'In Progress',
@@ -406,9 +406,9 @@
                                 </div> -->
                                 <!-- Add new task row toolbar -->
                                 <div *ngIf="taskRowVisibility[i]"
-                                    class="h-[37px] selected-row flex items-center ml-[77px]">
+                                    class="h-[37px] selected-row flex items-center ml-[50px]">
                                     <!-- new task add row toolbar -->
-                                    <div class="w-[128px] h-full flex items-center justify-center">
+                                    <div class="w-[78px] h-full flex items-center justify-center">
                                         <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
                                     </div>
                                     <div class="w-[60%] text-left">
