@@ -115,7 +115,7 @@ export class CalendarPickerComponent {
       { title: 'Today', detail: this.currentDay },
       { title: 'Tomorrow', detail: this.tomorrowDay },
       { title: 'This Weekend', detail: this.thisWeekendDay },
-      { title: 'Bext Week', detail: this.nextWeek },
+      { title: 'Next Week', detail: this.nextWeek },
       { title: 'Next Weekend', detail: this.nextWeekendDate },
       { title: 'Two Weeks', detail: this.twoWeeks },
       { title: 'Four Weeks', detail: this.fourWeeks },
