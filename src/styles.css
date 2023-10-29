@@ -191,3 +191,9 @@ div.mat-expansion-panel-body {
     width: 100%;
     border: 1px solid #e1e1e1;
 }
+
+.cdk-overlay-container {
+    position: fixed;
+    /* z-index: 1000; */
+    opacity: 1;
+}

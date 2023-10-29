@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { addDays, format, getDay } from 'date-fns';
 import { CalendarView, CalendarEvent, CalendarMonthViewDay, DateFormatterParams } from 'angular-calendar';
 import { DatePipe } from '@angular/common';
+import { CalendarPickerService } from 'src/app/services/calendar-picker.service';
 
 @Component({
   selector: 'st-calendar-picker',
@@ -37,7 +38,7 @@ export class CalendarPickerComponent {
   
   @Output() selectedDateChange = new EventEmitter<any>();
 
-  constructor() {
+  constructor(private calPickService: CalendarPickerService) {
     this.renderDefaultDates()
     this.renderCalendarHeader()
     // this.generateDateOptions();
@@ -71,7 +72,8 @@ export class CalendarPickerComponent {
   onDateClick(dateObj: any) {    
     this.selectedDate = dateObj.date;
     // this.selectedDate = format(this.selectedDate, 'MMM dd')
-    this.startDate = this.selectedDate; 
+    this.startDate = this.selectedDate;
+    this.calPickService.setSelectedDate(this.selectedDate);
     this.selectedDateChange.emit(this.selectedDate);
   }
 

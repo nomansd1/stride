@@ -11,8 +11,14 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { format } from 'date-fns';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { CalendarPickerComponent } from '../calendar-picker/calendar-picker.component';
+
+import { Subscription } from 'rxjs';
+import { CalendarPickerService } from 'src/app/services/calendar-picker.service';
+
 
 @Component({
   selector: 'app-space-project',
@@ -22,8 +28,8 @@ import { format } from 'date-fns';
 export class SpaceProjectComponent {
   @Input() data: any;
   isRowSelected = false;
-  selectedRows: number[]= [];
-  taskRowVisibility: boolean[] = [];  
+  selectedRows: number[] = [];
+  taskRowVisibility: boolean[] = [];
   closedTaskFilterButton = "Show Closed"; // button text for filtration button for closed task
   listOfFolders: any[] = [];
   listOfSubFolders: any[] = [];
@@ -33,43 +39,53 @@ export class SpaceProjectComponent {
   newTaskName!: string;
   // for temporay use 
   savedTaskList: any = []
-  isDropdownOpen: any;
-  isDropdownOpenList: boolean[] = []
-  triggerOrigin: any;
   isSubTaskRow: boolean[] = [];
 
-  selectedDate: any;
-  
+  selectedDate: any = [];
+
+  overlayRef: any = [];
+
+  private selectedDateSubscription!: Subscription;
+
   constructor(
     private selectionToolbarService: ListSelectionToolbarService,
     private apiClient: ApiClientService,
     public dialog: MatDialog,
-    private overlay: Overlay
-    ) {
-      this.isDropdownOpenList = new Array(this.listOfTasks.length + this.subTasks.length ).fill(false);
-    }
+    private overlay: Overlay,
+    private calPickService: CalendarPickerService
+  ) {
+    // this.selectedDateSubscription = this.calPickService.selectedDate$.subscribe(selectedDate => {
+    //   selectedDate = format(selectedDate, 'MMM dd, HH:m a')
+    //   this.selectedDate.push(selectedDate);
+    //   this.closeCalenderPicker();
+    // });
+  }
+
+  ngOnDestroy() {
+    this.selectedDateSubscription.unsubscribe();
+  }
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] && changes['data'].currentValue) {
       console.log(this.data);
       this.listOfFolders = [].concat(
-        ...this.data.map((item:any) => item.folders)
+        ...this.data.map((item: any) => item.folders)
       );
       this.listOfSubFolders = [].concat(
-        ...this.listOfFolders.map((item:any) => item.subfolders)
+        ...this.listOfFolders.map((item: any) => item.subfolders)
       )
       this.listOfTasks = [].concat(
-        ...this.listOfSubFolders.map((item:any) => item.lists)
+        ...this.listOfSubFolders.map((item: any) => item.lists)
       )
       this.subTasks = [].concat(
-        ...this.listOfTasks.map((item:any) => item.subtasks)
+        ...this.listOfTasks.map((item: any) => item.subtasks)
       )
-      this.taskRowVisibility = Array(this.listOfTasks.length).fill(false);      
+      this.taskRowVisibility = Array(this.listOfTasks.length).fill(false);
     }
   }
 
-// Drag and Drop of list items
+  // Drag and Drop of list items
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -86,7 +102,7 @@ export class SpaceProjectComponent {
   // Toggle sub tasks row
   toggleSubTasksRow(index: any) {
     this.isSubTaskRow[index] = !this.isSubTaskRow[index];
-  } 
+  }
 
   toggleRowSelection(index: any): void {
     const selectedIndex = this.selectedRows.indexOf(index);
@@ -108,7 +124,7 @@ export class SpaceProjectComponent {
   hideAddNewTaskToolbar(index: number): void {
     this.taskRowVisibility[index] = false;
   }
-  
+
   // closed task Filteration
   closedTaskFiltration(): void {
     if (this.closedTaskFilterButton === "Show Closed") {
@@ -118,7 +134,7 @@ export class SpaceProjectComponent {
       this.closedTaskFilterButton = "Show Closed"
     }
   }
-  
+
   toggleListSelectionToolbar() {
     this.selectionToolbarService.toggleHeaderVisibility();
   }
@@ -148,19 +164,53 @@ export class SpaceProjectComponent {
     });
   }
 
-  // Opening and Closing of Calendar Picker
+  // testing for creation of overlay
   toggleCalendarPicker(index: any) {
-     // Toggle the state for the specified row
-     this.triggerOrigin = index;
-     this.isDropdownOpen = !this.isDropdownOpen;
-     
-  }
-  closeCalendarPicker() {
-    this.isDropdownOpen = false
+    // Unsubscribe from the previous subscription if it exists
+    if (this.selectedDateSubscription) {
+      this.selectedDateSubscription.unsubscribe();
+    }
+
+    // Subscribe to the selectedDate$ observable
+    this.selectedDateSubscription = this.calPickService.selectedDate$.subscribe(selectedDate => {
+      selectedDate = format(selectedDate, 'MMM dd, HH:m a');
+      this.selectedDate[index] = selectedDate; // Update the selectedDate array at the specified index
+      this.closeCalenderPicker();
+    });
+
+
+    // Toggle the state for the specified row
+    const btnRef: any = document.querySelector(`#overlay${index}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'start', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
+    }
+
+    this.overlayRef[index] = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(CalendarPickerComponent);
+    this.overlayRef[index].attach(dropdownOverlay);
+    console.log(this.overlayRef);
+
+
+    this.overlayRef[index].backdropClick().subscribe(() => {
+      this.overlayRef[index].detach()
+      this.overlayRef[index] = null;
+    });
+    // this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  selectedDateChange(date: any) {
-    this.selectedDate = date;
-    this.selectedDate = format(this.selectedDate, 'MMM dd, HH:m a')
+  public closeCalenderPicker() {
+    for (const overlay of this.overlayRef) {
+      if (overlay && overlay.hasAttached()) {
+        overlay.detach(); // Detach the overlay
+        overlay.dispose(); // Dispose of the overlay
+      }
+    }
   }
 }

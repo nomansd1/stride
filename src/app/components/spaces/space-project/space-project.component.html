@@ -135,19 +135,18 @@
                                                     {{ task.title }}
                                                     <span class="hidden group-[:hover]:inline-flex">
                                                         <button *ngIf="task.subtasks.length > 0"
-                                                            class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
                                                             <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
                                                                 alt="">
                                                             <span class="text-xs ml-1">{{task.subtasks.length}}</span>
                                                         </button>
                                                         <button matTooltipPosition="above" matTooltip="Rename"
                                                             matTooltipClass="custom__tooltip"
-                                                            class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
                                                             <img class="w-3.5 h-3.5 icon" src="assets/nocustomfield.svg"
                                                                 alt="">
                                                         </button>
                                                     </span>
-
                                                 </td>
                                                 <td>
                                                     <button
@@ -156,17 +155,22 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
-                                                    #triggerOrigin="cdkOverlayOrigin" class="font-medium text-[#F18A8B]" *ngIf="selectedDate; else calendarpicker" >
-                                                        {{selectedDate}}
+                                                    <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)" class="font-medium text-[#F18A8B]" *ngIf="selectedDate[i]; else calendarpicker" >
+                                                        {{selectedDate[i]}}
                                                     </button>
-                                                    <ng-template #calendarpicker>
+                                                    <!-- <ng-template #calendarpicker>
                                                         <button (click)="toggleCalendarPicker(trigger)" cdkOverlayOrigin
                                                             #trigger="cdkOverlayOrigin" class="p-1">
                                                             <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                         </button>
+                                                    </ng-template> -->
+                                                    <ng-template #calendarpicker>
+                                                        <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                            class="p-1">
+                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                        </button>
                                                     </ng-template>
-                                                    <ng-template cdkConnectedOverlay
+                                                    <!-- <ng-template cdkConnectedOverlay
                                                         (backdropClick)="closeCalendarPicker()"
                                                         [cdkConnectedOverlayHasBackdrop]="true"
                                                         [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
@@ -174,7 +178,7 @@
                                                         [cdkConnectedOverlayOpen]="isDropdownOpen === true"
                                                         class="relative">
                                                         <st-calendar-picker (selectedDateChange)="selectedDateChange($event)"></st-calendar-picker>
-                                                    </ng-template>
+                                                    </ng-template> -->
                                                 </td>
                                                 <td>
                                                     <button class="p-1">
@@ -247,7 +251,7 @@
                                                         <span class="hidden group-[:hover]:inline-flex">
                                                             <button matTooltipPosition="above" matTooltip="Rename"
                                                                 matTooltipClass="custom__tooltip"
-                                                                class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
                                                                 <img class="w-3.5 h-3.5 icon"
                                                                     src="assets/nocustomfield.svg" alt="">
                                                             </button>
@@ -264,7 +268,7 @@
                                                             #triggerOrigin="cdkOverlayOrigin" class="p-1">
                                                             <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                         </button>
-                                                        <ng-template cdkConnectedOverlay cdkConnectedOverlay
+                                                        <!-- <ng-template cdkConnectedOverlay cdkConnectedOverlay
                                                             (backdropClick)="closeCalendarPicker()"
                                                             [cdkConnectedOverlayHasBackdrop]="true"
                                                             [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
@@ -272,7 +276,7 @@
                                                             [cdkConnectedOverlayOpen]="isDropdownOpenList[i]"
                                                             class="relative">
                                                             <st-calendar-picker></st-calendar-picker>
-                                                        </ng-template>
+                                                        </ng-template> -->
                                                     </td>
                                                     <td>
                                                         <button class="p-1">
@@ -346,14 +350,14 @@
                                                             {{ task }}
                                                             <span class="hidden group-[:hover]:inline-flex">
                                                                 <button *ngIf="task.subtasks.length > 0"
-                                                                    class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
                                                                     <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
                                                                         alt="">
                                                                     <span class="text-xs ml-1">{{task.subtasks.length}}</span>
                                                                 </button>
                                                                 <button matTooltipPosition="above" matTooltip="Rename"
                                                                     matTooltipClass="custom__tooltip"
-                                                                    class="mx-0.5 p-0.5 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
                                                                     <img class="w-3.5 h-3.5 icon" src="assets/nocustomfield.svg"
                                                                         alt="">
                                                                 </button>
