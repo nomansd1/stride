@@ -30,14 +30,19 @@
                     <img class="w-4 h-4 trans__icon" src="assets/add.svg" alt="">
                 </button>
             </div>
-            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 grouping">
+            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 mb-1.5 grouping">
                 <button class="hover:bg-secondary-color uppercase text-[11px] px-2 py-1 rounded-sm text-[#bcc0c7]">+ add subtask</button>
             </div>
-            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color group-[:hover]:bottom-0 inline-flex items-center justify-between absolute -bottom-full left-0 right-0 bg-white mt-1 transition-all !duration-1000 ease-linear actions__toolbar">
+            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color inline-flex items-center justify-between  actions__toolbar">
                 <div class="inline-flex items-center">
-                    <button matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
-                        <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                    <button [id]="'overlay'+ 1" (click)="toggleCalendarPicker(1)" class="font-medium text-[#F18A8B] text-xs mr-2.5" *ngIf="selectedDate[1]; else calendarpicker" >
+                        {{selectedDate[1]}}
                     </button>
+                    <ng-template #calendarpicker>
+                        <button [id]="'overlay'+ 1" (click)="toggleCalendarPicker(1)" matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
+                            <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                        </button>
+                    </ng-template>
                     <button matTooltip="Set priority" matTooltipClass="custom__tooltip" class="mr-2.5">
                         <img class="w-4 h-4 trans__icon" src="assets/priority.svg" alt="">
                     </button>
@@ -139,14 +144,19 @@
                     <img class="w-4 h-4 trans__icon" src="assets/add.svg" alt="">
                 </button>
             </div>
-            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 grouping">
+            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 mb-1.5 grouping">
                 <button class="hover:bg-secondary-color uppercase text-[11px] px-2 py-1 rounded-sm text-[#bcc0c7]">+ add subtask</button>
             </div>
-            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color group-[:hover]:bottom-0 inline-flex items-center justify-between absolute -bottom-full left-0 right-0 bg-white mt-1 transition-all !duration-1000 ease-linear actions__toolbar">
+            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color inline-flex items-center justify-between bg-white mt-1 actions__toolbar">
                 <div class="inline-flex items-center">
-                    <button matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
-                        <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                    <button [id]="'overlay'+ 2" (click)="toggleCalendarPicker(2)" class="font-medium text-[#F18A8B] text-xs mr-2.5" *ngIf="selectedDate[2]; else calendarpicker" >
+                        {{selectedDate[2]}}
                     </button>
+                    <ng-template #calendarpicker>
+                        <button [id]="'overlay'+ 2" (click)="toggleCalendarPicker(2)" matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
+                            <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                        </button>
+                    </ng-template>
                     <button matTooltip="Set priority" matTooltipClass="custom__tooltip" class="mr-2.5">
                         <img class="w-4 h-4 trans__icon" src="assets/priority.svg" alt="">
                     </button>
@@ -198,14 +208,19 @@
                     <img class="w-4 h-4 trans__icon" src="assets/add.svg" alt="">
                 </button>
             </div>
-            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 grouping">
+            <div *ngIf="createSubTaskToolbar === false" (click)="openCreateSubTaskToolbar()" class="mt-3 mb-1.5 grouping">
                 <button class="hover:bg-secondary-color uppercase text-[11px] px-2 py-1 rounded-sm text-[#bcc0c7]">+ add subtask</button>
             </div>
-            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color group-[:hover]:bottom-0 inline-flex items-center justify-between absolute -bottom-full left-0 right-0 bg-white mt-1 transition-all !duration-1000 ease-linear actions__toolbar">
+            <div *ngIf="createSubTaskToolbar === false" class="w-full p-2 border-t-2 border-secondary-color inline-flex items-center justify-between bg-white mt-1 actions__toolbar">
                 <div class="inline-flex items-center">
-                    <button matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
-                        <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                    <button [id]="'overlay'+ 3" (click)="toggleCalendarPicker(3)" class="font-medium text-[#F18A8B] text-xs mr-2.5" *ngIf="selectedDate[3]; else calendarpicker" >
+                        {{selectedDate[3]}}
                     </button>
+                    <ng-template #calendarpicker>
+                        <button [id]="'overlay'+ 3" (click)="toggleCalendarPicker(3)" matTooltip="Set duedate" matTooltipClass="custom__tooltip" class="mr-2.5">
+                            <img class="w-4 h-4 trans__icon" src="assets/duedate.svg" alt="">
+                        </button>
+                    </ng-template>
                     <button matTooltip="Set priority" matTooltipClass="custom__tooltip" class="mr-2.5">
                         <img class="w-4 h-4 trans__icon" src="assets/priority.svg" alt="">
                     </button>
