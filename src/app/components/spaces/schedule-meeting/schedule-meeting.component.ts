@@ -13,6 +13,8 @@ export class ScheduleMeetingComponent {
   isRecurringStartDate: boolean = true;
   isRecurringEndDate: boolean = true;
 
+  public fromRecipient = false;
+
   attendees = [
     { id: 1, name: "John Doe" },
     { id: 2, name: "Cassey Roe" },

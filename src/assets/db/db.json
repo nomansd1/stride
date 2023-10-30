@@ -20,6 +20,7 @@
                         "id": 1,
                         "title": "Task 1",
                         "duedate": "Oct 15",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
                         "subtasks": [
                           {
                             "id": 1000001,
@@ -35,6 +36,7 @@
                         "id": 2,
                         "title": "Task 2",
                         "duedate": "Today",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIr2BEgNFbb_FtGL9tzYMDVfHncA4ruHY2E8_Wavtmm3ErFLNREBWH17GbM5BCDVtTNno&usqp=CAU",
                         "subtasks": [
                           {
                             "id": 2000001,
@@ -71,6 +73,7 @@
                         "id": 4,
                         "title": "Testing 1",
                         "duedate": "Nov 23",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIr2BEgNFbb_FtGL9tzYMDVfHncA4ruHY2E8_Wavtmm3ErFLNREBWH17GbM5BCDVtTNno&usqp=CAU",
                         "subtasks": []
                       },
                       {
