@@ -1,9 +1,13 @@
-import { CdkConnectedOverlay } from '@angular/cdk/overlay';
+import { CdkConnectedOverlay, Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
 import { Component, ViewChild } from '@angular/core';
-import { CalendarView } from 'angular-calendar';
+import { CalendarView, CalendarMonthViewDay } from 'angular-calendar';
 import { addYears, format, parseISO } from 'date-fns';
 import { QuickTaskPanelService } from 'src/app/services/quick-task-panel.service';
+import { QuickTaskCreatePanelComponent } from '../quick-task-create-panel/quick-task-create-panel.component';
+import { Subscription } from 'rxjs';
  
+
 @Component({
   selector: 'st-calendar-dashboard',
   templateUrl: './calendar-dashboard.component.html',
@@ -23,15 +27,22 @@ export class CalendarDashboardComponent {
 
   public isQuickTaskPanel: any = this.quickTaskService.isQuickTaskPanel;
   public quickTaskOrigin: any; 
-  public taskList: any;
+  public taskList: any = [];
 
-  @ViewChild(CdkConnectedOverlay, { static: true })
-  private connectedOverlay!: CdkConnectedOverlay;
+  public overlayRef: any = [];
+  public cellIndex: any;
+  public selectedCell: any;
 
-  constructor(private quickTaskService: QuickTaskPanelService) {
+  public taskSubscription!: Subscription;
+
+
+  constructor(
+    private quickTaskService: QuickTaskPanelService,
+    private overlay: Overlay,
+    ) {
     this.renderCalendarHeader();
     this.renderMonthNames();
-    this.renderTask();
+    // this.renderTask();
   }
 
   public renderCalendarHeader() {
@@ -74,22 +85,70 @@ export class CalendarDashboardComponent {
     this.isDropdownOpen = false;
   }
 
-  public toggleQuickTaskPanel(elementOrigin: any, index?: any) {
-    this.quickTaskService.openQuickTaskPanel();
-    this.isQuickTaskPanel = this.quickTaskService.isQuickTaskPanel;
-    this.quickTaskOrigin = elementOrigin;
-  }
+  // public toggleQuickTaskPanel(elementOrigin: any, index?: any) {
+  //   this.quickTaskService.openQuickTaskPanel();
+  //   this.isQuickTaskPanel = this.quickTaskService.isQuickTaskPanel;
+  //   this.quickTaskOrigin = elementOrigin;
+  // }
   
+  public toggleQuickTaskPanel(index: any) {
+    this.selectedCell = index;
+    const ceLLIndex = format(index, 'dd')
+    
+    const btnRef: any = document.querySelector(`#overlay${ceLLIndex}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'start', originY: 'bottom', overlayX: 'end', overlayY: 'top' },
+          { originX: 'start', originY: 'bottom', overlayX: 'start', overlayY: 'top' },
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
+    }
+
+    // Only subscribe to the task$ observable once.
+    if (!this.taskSubscription) {
+      this.taskSubscription = this.quickTaskService.task$.subscribe(task => {
+        this.taskList.push(task);
+        this.closeQuickTaskPanel();
+      });
+    }
+
+
+    this.overlayRef[ceLLIndex] = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(QuickTaskCreatePanelComponent);
+    this.overlayRef[ceLLIndex].attach(dropdownOverlay);
+
+    this.overlayRef[ceLLIndex].backdropClick().subscribe(() => {
+      this.closeQuickTaskPanel();
+      console.log(this.taskList);
+      this.overlayRef[ceLLIndex].detach()
+      this.overlayRef[ceLLIndex] = null;
+    });
+  }
+
   public closeQuickTaskPanel() {
-    this.isQuickTaskPanel = false;
-    this.renderTask();
+    for (const overlay of this.overlayRef) {
+      if (overlay && overlay.hasAttached()) {
+        overlay.detach(); // Detach the overlay
+        overlay.dispose(); // Dispose of the overlay
+      }
+    }
+    // this.renderTask();
   }
 
   public renderTask() {
     this.taskList = this.quickTaskService.taskList;
-    console.log(this.taskList, this.quickTaskOrigin); 
+    // console.log(this.taskList, this.quickTaskOrigin); 
   }
 
-
-  
+  beforeMonthViewRender({ body }: { body: CalendarMonthViewDay[] }): void {
+    // console.log(body.length);
+    this.cellIndex = body;
+    body.forEach((element: any, index: any) => {
+      // console.log(index);
+    })
+  }
 }

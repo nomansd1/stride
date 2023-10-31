@@ -62,7 +62,7 @@ export class SpaceProjectComponent {
   }
 
   ngOnDestroy() {
-    this.selectedDateSubscription.unsubscribe();
+    this.selectedDateSubscription?.unsubscribe();
   }
 
   // When the component initializes or when the 'data' input changes, update the 'lists' property

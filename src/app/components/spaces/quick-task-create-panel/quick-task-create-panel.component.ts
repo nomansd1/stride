@@ -16,10 +16,11 @@ export class QuickTaskCreatePanelComponent {
   constructor(private quickTaskService: QuickTaskPanelService) {}
 
   public addTask() {
-    this.taskList.push(this.taskName);
-    this.quickTaskService.taskList = this.taskList;
-    this.quickTaskService.closeQuickTaskPanel();
-    this.closePanel()
+    // this.taskList.push(this.taskName);
+    // this.quickTaskService.taskList = this.taskList;
+    this.quickTaskService.setAddTask(this.taskName)
+    // this.quickTaskService.closeQuickTaskPanel();
+    // this.closePanel()
   }
 
   public closePanel() {

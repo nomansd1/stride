@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { format, parseISO } from 'date-fns';
 
 @Component({
   selector: 'app-schedule-meeting',
@@ -9,7 +10,7 @@ export class ScheduleMeetingComponent {
   
   selectedRequiredAttendee!: number;
   selectedOptionalAttendee!: number;
-  currentDate: string;
+  currentDate: any;
   isRecurringStartDate: boolean = true;
   isRecurringEndDate: boolean = true;
 
@@ -22,7 +23,14 @@ export class ScheduleMeetingComponent {
   ]
 
   constructor() {
-    const today = new Date();
+    let today: any = new Date();
     this.currentDate = today.toISOString().substring(0, 10);
+  }
+
+  public formatDate() {
+    // const day = this.currentDate.getDate();
+    // const month = this.currentDate.getMonth() + 1;
+    // const year = this.currentDate.getFullYear();
+    // this.currentDate = new Date(`${day}/${month}/${year}`);
   }
 }

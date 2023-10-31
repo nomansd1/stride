@@ -72,8 +72,8 @@
                                             <!-- <th>assigned to</th>
                                             <th>meeting reference</th>-->
                                             <th>approval req</th>
-                                            <th>approval status</th> 
-                                            
+                                            <th>approval status</th>
+
                                             <!-- need to remove -->
 
                                             <th class="w-[90px]">status</th>
@@ -127,7 +127,8 @@
                                                 <td class="max-w-[78px] w-[78px]">
                                                     <div class="inline-flex items-center">
                                                         <button *ngIf="task.subtasks.length > 0"
-                                                            (click)="toggleSubTasksRow(i)" [ngClass]="{'subtask__collapse': isSubTaskRow[i] === true }"
+                                                            (click)="toggleSubTasksRow(i)"
+                                                            [ngClass]="{'subtask__collapse': isSubTaskRow[i] === true }"
                                                             class="inline-flex items-center">
                                                             <img class="w-4 h-4 header__icon"
                                                                 src="assets/caretsolid.svg" alt="">
@@ -140,21 +141,24 @@
                                                     </div>
                                                 </td>
                                                 <td (click)="openDialog()" class="text-left !px-5">
-                                                    {{ task.title }}
-                                                    <span class="hidden group-[:hover]:inline-flex">
-                                                        <button *ngIf="task.subtasks.length > 0"
-                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                            <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
-                                                                alt="">
-                                                            <span class="text-xs ml-1">{{task.subtasks.length}}</span>
-                                                        </button>
-                                                        <button matTooltipPosition="above" matTooltip="Rename"
-                                                            matTooltipClass="custom__tooltip"
-                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                            <img class="w-3.5 h-3.5 icon" src="assets/nocustomfield.svg"
-                                                                alt="">
-                                                        </button>
-                                                    </span>
+                                                    <div class="inline-flex items-center">
+                                                        <span>{{ task.title }}</span>
+                                                        <span class="hidden group-[:hover]:inline-flex">
+                                                            <button *ngIf="task.subtasks.length > 0"
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
+                                                                    alt="">
+                                                                <span
+                                                                    class="text-xs ml-1">{{task.subtasks.length}}</span>
+                                                            </button>
+                                                            <button matTooltipPosition="above" matTooltip="Rename"
+                                                                matTooltipClass="custom__tooltip"
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                <img class="w-3.5 h-3.5 icon"
+                                                                    src="assets/nocustomfield.svg" alt="">
+                                                            </button>
+                                                        </span>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <button *ngIf="!task.assignee; else assignee"
@@ -163,13 +167,14 @@
                                                     </button>
                                                     <ng-template #assignee>
                                                         <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
-                                                            <img class="w-full h-full" [src]="task.assignee"
-                                                                alt="">
+                                                            <img class="w-full h-full" [src]="task.assignee" alt="">
                                                         </button>
                                                     </ng-template>
                                                 </td>
                                                 <td>
-                                                    <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)" class="font-medium text-[#F18A8B]" *ngIf="selectedDate[i]; else calendarpicker" >
+                                                    <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]"
+                                                        *ngIf="selectedDate[i]; else calendarpicker">
                                                         {{selectedDate[i]}}
                                                     </button>
                                                     <!-- <ng-template #calendarpicker>
@@ -271,15 +276,17 @@
                                                             }" class="w-2 h-2 rounded-sm"></button>
                                                     </td>
                                                     <td (click)="openDialog()" class="text-left !px-5">
-                                                        {{ subtask.title }}
-                                                        <span class="hidden group-[:hover]:inline-flex">
-                                                            <button matTooltipPosition="above" matTooltip="Rename"
-                                                                matTooltipClass="custom__tooltip"
-                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                <img class="w-3.5 h-3.5 icon"
-                                                                    src="assets/nocustomfield.svg" alt="">
-                                                            </button>
-                                                        </span>
+                                                        <div class="inline-flex items-center">
+                                                            <span>{{ subtask.title }}</span>
+                                                            <span class="hidden group-[:hover]:inline-flex">
+                                                                <button matTooltipPosition="above" matTooltip="Rename"
+                                                                    matTooltipClass="custom__tooltip"
+                                                                    class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    <img class="w-3.5 h-3.5 icon"
+                                                                        src="assets/nocustomfield.svg" alt="">
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <button
@@ -374,28 +381,22 @@
                                                         }" class="w-2 h-2 rounded-sm ml-3"></button>
                                             </td>
                                             <td class="text-left !px-5">
-                                                <mat-expansion-panel class="!shadow-none w-fit !h-full">
-                                                    <mat-expansion-panel-header class="!p-0">
-                                                        <mat-panel-title>
-                                                            {{ task }}
-                                                            <span class="hidden group-[:hover]:inline-flex">
-                                                                <button *ngIf="task.subtasks.length > 0"
-                                                                    class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                    <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
-                                                                        alt="">
-                                                                    <span class="text-xs ml-1">{{task.subtasks.length}}</span>
-                                                                </button>
-                                                                <button matTooltipPosition="above" matTooltip="Rename"
-                                                                    matTooltipClass="custom__tooltip"
-                                                                    class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
-                                                                    <img class="w-3.5 h-3.5 icon" src="assets/nocustomfield.svg"
-                                                                        alt="">
-                                                                </button>
-                                                            </span>
-                                                        </mat-panel-title>
-                                                    </mat-expansion-panel-header>
-                                                    <div class="w-full absolute -bottom-2">red</div>
-                                                </mat-expansion-panel>
+                                                <div class="inline-flex items-center">
+                                                    <span>{{ task }}</span>
+                                                    <span class="hidden group-[:hover]:inline-flex">
+                                                        <button *ngIf="task.subtasks.length > 0"
+                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                            <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg" alt="">
+                                                            <span class="text-xs ml-1">{{task.subtasks.length}}</span>
+                                                        </button>
+                                                        <button matTooltipPosition="above" matTooltip="Rename"
+                                                            matTooltipClass="custom__tooltip"
+                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                            <img class="w-3.5 h-3.5 icon" src="assets/nocustomfield.svg"
+                                                                alt="">
+                                                        </button>
+                                                    </span>
+                                                </div>
                                             </td>
                                             <td>
                                                 <button
@@ -414,15 +415,16 @@
                                                     <img class="w-5 h-5 icon" src="assets/priority.svg" alt="">
                                                 </button>
                                             </td>
-                                            <td [ngClass]="{
-                                                'bg-[#6BC950]': list.status === 'Completed',
-                                                'bg-[#1090E0]': list.status === 'In Progress',
-                                                'bg-[#E8EAED] text-black': list.status === 'To do'
-                                                }" class="text-white">{{list.status}}</td>
+
+                                            <td>Yes</td>
+                                            <td>Approved</td>
+
+                                            <td class="text-white bg-[#6BC950]">Completed</td>
                                             <td>
                                                 <button
                                                     class="transition-all duration-[-1s] ease invisible group-[:hover]:visible mx-auto">
-                                                    <img class="w-4 h-4 icon" src="../../../../assets/voptions.svg" alt="">
+                                                    <img class="w-4 h-4 icon" src="../../../../assets/voptions.svg"
+                                                        alt="">
                                                 </button>
                                             </td>
                                         </tr>
@@ -452,9 +454,9 @@
                                     </div>
                                     <div class="flex-1 h-full inline-flex items-center justify-center px-2">
                                         <button
-                                                    class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
-                                                    <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
-                                                </button>
+                                            class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                            <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                        </button>
                                         <button
                                             class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
                                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
