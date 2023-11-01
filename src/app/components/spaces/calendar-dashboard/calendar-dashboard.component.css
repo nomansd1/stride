@@ -4,3 +4,11 @@
 .st__monthSelect {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
+.task__status-btn {
+    width: 3px;
+    padding-right: 0;
+}
+.task__status-btn:hover {
+    padding-right: 15px;
+}

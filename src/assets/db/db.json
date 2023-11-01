@@ -35,7 +35,7 @@
                       {
                         "id": 2,
                         "title": "Task 2",
-                        "duedate": "Today",
+                        "duedate": "",
                         "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIr2BEgNFbb_FtGL9tzYMDVfHncA4ruHY2E8_Wavtmm3ErFLNREBWH17GbM5BCDVtTNno&usqp=CAU",
                         "subtasks": [
                           {
@@ -51,7 +51,7 @@
                       {
                         "id": 3,
                         "title": "Task 3",
-                        "duedate": "Yesterday",
+                        "duedate": "",
                         "subtasks": [
                           {
                             "id": 2000001,
@@ -79,7 +79,7 @@
                       {
                         "id": 5,
                         "title": "Testing 2",
-                        "duedate": "Nov 27",
+                        "duedate": "",
                         "subtasks": []
                       }
                     ]
