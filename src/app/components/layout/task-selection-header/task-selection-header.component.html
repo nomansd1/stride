@@ -6,7 +6,7 @@
         </button>
     </div>
     <div class="flex items-center h-full">
-        <button *ngFor="let option of toolbarOptions" (click)="option?.action()" [matTooltip]="option.tooltip" matTooltipClass="custom__tooltip" class="h-full flex items-center mr-0.5 rounded-md hover:bg-[#2B343B] px-2">
+        <button *ngFor="let option of toolbarOptions; let index = index" [id]="'option'+index" (click)="option?.action(index)" [matTooltip]="option.tooltip" matTooltipClass="custom__tooltip" class="h-full flex items-center mr-0.5 rounded-md hover:bg-[#2B343B] px-2">
             <img class="w-5 h-5" [src]="option.icon" alt="">
         </button>
     </div>

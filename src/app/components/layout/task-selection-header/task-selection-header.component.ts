@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ListSelectionToolbarService } from 'src/app/services/list-selection-toolbar.service';
 import { ScheduleMeetingComponent } from '../../spaces/schedule-meeting/schedule-meeting.component';
+import { Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { TaskLinkingPanelComponent } from '../task-linking-panel/task-linking-panel.component';
 
 @Component({
   selector: 'app-task-selection-header',
@@ -11,6 +14,8 @@ import { ScheduleMeetingComponent } from '../../spaces/schedule-meeting/schedule
 export class TaskSelectionHeaderComponent implements OnInit {
   public isHeaderVisible = true;
   public selectedRowsCount: number = 0;
+  public overlayRef: any;
+
 
   toolbarOptions = [
     { tooltip: 'Set Watchers', url: '', icon: '../../../../assets/watcher.svg' },
@@ -24,7 +29,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
     { tooltip: 'Set Priority', url: '', icon: '../../../../assets/toolpriority.svg' },
     { tooltip: 'Dependencies', url: '', icon: '../../../../assets/dependencies.svg' },
     { tooltip: 'Merge tasks', url: '', icon: '../../../../assets/mergetask.svg' },
-    { tooltip: 'Tasks Linking', url: '', icon: '../../../../assets/tasklinking.svg' },
+    { tooltip: 'Tasks Linking', url: '', icon: '../../../../assets/tasklinking.svg', action: (index: number) => this.openTaskLinkingDropdown(index) },
     { tooltip: 'No Custom Fields available', url: '', icon: '../../../../assets/nocustomfield.svg' },
     { tooltip: 'Archive tasks', url: '', icon: '../../../../assets/arch.svg' },
     { tooltip: 'Schedule Meeting', url: '', icon: '../../../../assets/meeting.svg', action: () => this.scheduleMeetingIdalog() },
@@ -33,7 +38,8 @@ export class TaskSelectionHeaderComponent implements OnInit {
 
   constructor(
     private selectionToolbarService: ListSelectionToolbarService, 
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private overlay: Overlay,
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +61,30 @@ export class TaskSelectionHeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openTaskLinkingDropdown(index: number): void {
+    const btnRef: any = document.querySelector(`#option${index}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'start', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
+    }
+
+    this.overlayRef = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(TaskLinkingPanelComponent);
+    this.overlayRef.attach(dropdownOverlay);
+
+
+    this.overlayRef.backdropClick().subscribe(() => {
+      this.overlayRef.detach()
+      this.overlayRef = null;
     });
   }
 }
