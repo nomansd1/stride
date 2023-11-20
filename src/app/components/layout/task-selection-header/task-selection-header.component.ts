@@ -5,6 +5,7 @@ import { ScheduleMeetingComponent } from '../../spaces/schedule-meeting/schedule
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { TaskLinkingPanelComponent } from '../task-linking-panel/task-linking-panel.component';
+import { MergeTaskPanelComponent } from '../merge-task-panel/merge-task-panel.component';
 
 @Component({
   selector: 'app-task-selection-header',
@@ -28,7 +29,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
     { tooltip: 'Set Dates', url: '', icon: '../../../../assets/setdate.svg' },
     { tooltip: 'Set Priority', url: '', icon: '../../../../assets/toolpriority.svg' },
     { tooltip: 'Dependencies', url: '', icon: '../../../../assets/dependencies.svg' },
-    { tooltip: 'Merge tasks', url: '', icon: '../../../../assets/mergetask.svg' },
+    { tooltip: 'Merge tasks', url: '', icon: '../../../../assets/mergetask.svg', action: (index: number) => this.openMergeTaskPanel(index) },
     { tooltip: 'Tasks Linking', url: '', icon: '../../../../assets/tasklinking.svg', action: (index: number) => this.openTaskLinkingDropdown(index) },
     { tooltip: 'No Custom Fields available', url: '', icon: '../../../../assets/nocustomfield.svg' },
     { tooltip: 'Archive tasks', url: '', icon: '../../../../assets/arch.svg' },
@@ -64,7 +65,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
     });
   }
 
-  openTaskLinkingDropdown(index: number): void {
+  private openTaskLinkingDropdown(index: number): void {
     const btnRef: any = document.querySelector(`#option${index}`);
     const overlayConfig = {
       positionStrategy: this.overlay.position()
@@ -79,6 +80,30 @@ export class TaskSelectionHeaderComponent implements OnInit {
 
     this.overlayRef = this.overlay.create(overlayConfig);
     const dropdownOverlay = new ComponentPortal(TaskLinkingPanelComponent);
+    this.overlayRef.attach(dropdownOverlay);
+
+
+    this.overlayRef.backdropClick().subscribe(() => {
+      this.overlayRef.detach()
+      this.overlayRef = null;
+    });
+  }
+
+  private openMergeTaskPanel(index: number): void {
+    const btnRef: any = document.querySelector(`#option${index}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'start', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
+    }
+
+    this.overlayRef = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(MergeTaskPanelComponent);
     this.overlayRef.attach(dropdownOverlay);
 
 

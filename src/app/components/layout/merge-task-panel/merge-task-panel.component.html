@@ -1,22 +1,12 @@
 <div class="w-[355px] h-auto max-h-[calc(100vh-100px)] rounded-md shadow-md bg-white relative">
     <div class="flex items-center justify-between py-5 px-3">
-        <h1 class="text-sm font-medium capitalize">tasks linking</h1>
+        <h1 class="text-sm font-medium capitalize">Merge Tasks</h1>
         <button>
             <img class="w-3 h-3" src="assets/close3.svg" alt="">
         </button>
     </div>
     <div class="task__linkingDropdown p-3">
-        <div class="w-full flex items-center">
-            <button (click)="activeTab = 0" class="flex items-center justify-center p-3 rounded-md border border-[#e9ebf0] w-full mr-1.5 hover:bg-primary hover:text-white">
-                <img class="w-5 h-5" src="assets/many-to-many.svg" alt="">
-                <span class="ml-2 text-sm">Many to Many</span>
-            </button>
-            <button (click)="activeTab = 1" class="flex items-center justify-center p-3 rounded-md border border-[#e9ebf0] w-full ml-1.5 hover:bg-primary hover:text-white">
-                <img class="w-5 h-5" src="assets/many-to-one.svg" alt="">
-                <span class="ml-2 text-sm">Many to One</span>
-            </button>
-        </div>
-        <div *ngIf="activeTab === 1">
+        <div>
             <div class="flex items-center px-2 py-1.5 border border-[#E9EBF0] rounded-sm mt-3">
                 <img class="w-4 h-4 mr-2" src="assets/search.svg" alt="">
                 <input class="focus:outline-none bg-none w-full text-sm" type="text" placeholder="Search for task name">
@@ -133,8 +123,10 @@
     <div class="flex p-3 bg-[#FAFBFC]">
         <div class="flex items-center justify-between">
             <img class="w-5 h-5" src="assets/info.svg" alt="">
-            <p class="text-xs mx-2">All selected tasks will be linked to each other.</p>
+            <p class="text-xs mx-2"> Privacy and sharing will be inherited from the new task you merge into. This action cannot be reversed.</p>
         </div>
-        <button class="bg-primary rounded-md text-white py-2 px-3 text-xs font-medium hover:bg-primary-hover whitespace-nowrap">Link tasks</button>
+        <div>
+            <button class="bg-primary rounded-md text-white py-2 px-3 text-xs font-medium hover:bg-primary-hover whitespace-nowrap">Merge tasks</button>
+        </div>
     </div>
  </div>

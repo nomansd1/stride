@@ -58,6 +58,7 @@ import { DocsListingGridItemComponent } from './components/docs/docs-listing/doc
 import { CalendarDashboardComponent } from './components/spaces/calendar-dashboard/calendar-dashboard.component';
 import { QuickTaskCreatePanelComponent } from './components/spaces/quick-task-create-panel/quick-task-create-panel.component';
 import { TaskLinkingPanelComponent } from './components/layout/task-linking-panel/task-linking-panel.component';
+import { MergeTaskPanelComponent } from './components/layout/merge-task-panel/merge-task-panel.component';
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import { TaskLinkingPanelComponent } from './components/layout/task-linking-pane
     CalendarDashboardComponent,
     QuickTaskCreatePanelComponent,
     TaskLinkingPanelComponent,
+    MergeTaskPanelComponent,
   ],
   imports: [
     BrowserModule,

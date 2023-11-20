@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./task-linking-panel.component.css']
 })
 export class TaskLinkingPanelComponent {
-
+  public activeTab = 0;
 }
