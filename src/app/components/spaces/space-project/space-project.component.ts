@@ -18,6 +18,7 @@ import { CalendarPickerComponent } from '../calendar-picker/calendar-picker.comp
 
 import { Subscription } from 'rxjs';
 import { CalendarPickerService } from 'src/app/services/calendar-picker.service';
+import { ManageStatusPanelComponent } from '../manage-status-panel/manage-status-panel.component';
 
 
 @Component({
@@ -212,5 +213,19 @@ export class SpaceProjectComponent {
         overlay.dispose(); // Dispose of the overlay
       }
     }
+  }
+
+  // Open Manage Status Modal
+  openManageStatusDialog() {
+    const dialogRef = this.dialog.open(ManageStatusPanelComponent, {
+      width: '50%',
+      height: '95%',
+      maxWidth: '100vw',
+      panelClass: 'custom__modal'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

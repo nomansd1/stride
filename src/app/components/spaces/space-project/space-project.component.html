@@ -9,7 +9,7 @@
                             <div class="flex items-center">
                                 <div class="flex">
                                     <div class="flex items-center py-0.5 px-2 hover:bg-[#f2f2f2] rounded-sm">
-                                        <img class="w-5 h-5 rotate__icon" src="../../../../assets/rightangle.svg"
+                                        <img class="w-5 h-5 rotate__icon" src="assets/rightangle.svg"
                                             alt="">
                                         <span class="text-base  font-medium text-[#2A2E34] capitalize ml-2">{{
                                             project.name }}</span>
@@ -41,7 +41,7 @@
                             <mat-expansion-panel-header class="!p-0">
                                 <mat-panel-title>
                                     <div class="group flex items-center py-0.5 px-2 rounded-sm">
-                                        <img class="w-4 h-4 rotate__icon" src="../../../../assets/rightangle.svg"
+                                        <img class="w-4 h-4 rotate__icon" src="assets/rightangle.svg"
                                             alt="">
                                         <span [ngClass]="{
                                             'bg-[#6BC950]': list.status === 'Completed',
@@ -50,8 +50,10 @@
                                             }"
                                             class="text-[11px] font-medium p-0.5 px-2 text-white rounded-sm ml-2 uppercase">{{
                                             list.status }}</span>
-                                        <img class="group-[:hover]:flex hidden w-4 h-4 ml-1"
-                                            src="../../../../assets/voptions.svg" alt="">
+                                        <button (click)="openManageStatusDialog();  $event.stopPropagation()" matTooltip="List settings" matTooltipClass="custom__tooltip" matTooltipPosition="above" class="group-[:hover]:flex hidden ml-1">
+                                            <img class="w-4 h-4"
+                                            src="assets/voptions.svg" alt="">
+                                        </button>
                                     </div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>

@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class TaskDetailComponent {
   
   selectedRows: number[]= [];
+  selectedChecklistRow: number[] = []
   
   constructor(
     private dialog: MatDialog
@@ -40,5 +41,16 @@ export class TaskDetailComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  public toggleChecklistRowSelection(index: number) {
+    const selectedIndex = this.selectedChecklistRow.indexOf(index);
+    if (selectedIndex === -1) {
+      // Row is not selected, add it to the selectedRows array
+      this.selectedChecklistRow.push(index);
+    } else {
+      // Row is selected, remove it from the selectedRows array
+      this.selectedChecklistRow.splice(selectedIndex, 1);
+    }
   }
 }

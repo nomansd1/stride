@@ -319,7 +319,7 @@
                                         </span>
                                     </button>
                                     <button>
-                                        <img class="w-4 h-4 mx-2" src="../../../../assets/voptions.svg" alt="">
+                                        <img class="w-4 h-4 mx-2" src="assets/voptions.svg" alt="">
                                     </button>
                                 </div>
                             </div>
@@ -349,6 +349,52 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="w-full">
+                    <h1 class="text-xl">Checklists</h1>
+                    <div class="mt-3 border border-[#F7F8F9]">
+                        <div class="w-full bg-[#F7F8F9] px-3 py-1 rounded-t-md">
+                            <input class="text-sm focus:outline-none bg-transparent" type="text" value="Checklist">
+                        </div>
+                        <div class="w-full border-b border-b-[#F7F8F9] px-3 py-1 bg-white flex items-center group">
+                            <button (click)="toggleChecklistRowSelection(1)">
+                                <img *ngIf="selectedChecklistRow.includes(1) === true" class="w-5 h-5 checked__icon" src="assets/tick-circle.svg" alt="">
+                                <img *ngIf="selectedChecklistRow.includes(1) === false" class="w-5 h-5 unchecked__icon" src="assets/radio-button.svg" alt="">
+                            </button>
+                            <input type="text" class="text-sm focus:outline-none bg-transparent border border-[#F7F8F9] p-1 w-fit mx-2" value="Hello world">
+                            <button matTooltip="Assign" matTooltipClass="custom__tooltip" class="relative inline-flex group">
+                                <span
+                                    class="inline-flex justify-center items-center rounded-full border border-dashed border-[#c1c1c1] group-[:hover]:border-primary-hover w-[28px] h-[28px]">
+                                    <img class="w-3 h-3 unchecked__icon" src="assets/assignee.svg" alt="">
+                                </span>
+                                <span
+                                    class="absolute bottom-0 right-0 rounded-full bg-[#c1c1c1] group-[:hover]:bg-primary-hover p-[1px]">
+                                    <img class="w-3 h-3 add__icon" src="assets/add.svg" alt="">
+                                </span>
+                            </button>
+                            <button class="hidden group-[:hover]:flex mx-2">
+                                <img class="w-4 h-4" src="assets/voptions.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="w-full border-b border-b-[#F7F8F9] px-3 py-1 bg-white flex items-center">
+                            <img class="w-5 h-5 unchecked__icon" src="assets/add.svg" alt="">
+                            <input type="text" placeholder="New checklist item" class="focus:outline-none border-none bg-transparent placeholder:text-[#c1c1c1] text-sm italic mx-2 p-1 w-fit">
+                            <button matTooltip="Assign" matTooltipClass="custom__tooltip" class="relative inline-flex group">
+                                <span
+                                    class="inline-flex justify-center items-center rounded-full border border-dashed border-[#c1c1c1] group-[:hover]:border-primary-hover w-[28px] h-[28px]">
+                                    <img class="w-3 h-3 unchecked__icon" src="assets/assignee.svg" alt="">
+                                </span>
+                                <span
+                                    class="absolute bottom-0 right-0 rounded-full bg-[#c1c1c1] group-[:hover]:bg-primary-hover p-[1px]">
+                                    <img class="w-3 h-3 add__icon" src="assets/add.svg" alt="">
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="px-3 py-1.5 text-sm rounded-md hover:bg-secondary-color capitalize flex items-center my-3">
+                        <img class="w-3 h-3 mr-1" src="assets/add.svg" alt="">
+                        <span>create checklist</span>
+                    </button>
                 </div>
                 <div class="w-full py-8">
                     <div class="flex items-center">
@@ -503,11 +549,11 @@
                     </div>
                     <div class="h-auto py-2 px-4 flex flex-col w-full bg-white rounded-md ml-3">
                         <div class="flex justify-between items-center text-[#ACACAC] w-full">
-                            <span class="text-xs"></span>
+                            <span class="text-xs">Schedule Meeting</span>
                             <span class="text-[11px]">3:10pm</span>
                         </div>
                         <div class="w-full mt-3">
-                            <span class="text-sm">I have reschedule our meeting for 14th Nov at 3 PM sharp.</span>
+                            <span class="text-sm">I've scheduled an important meeting on 12th Nov at 3pm sharp. We'll be meeting at Meeting Room E-01. All the members of Finance team will participate in this meeting.</span>
                         </div>
                     </div>
                 </div>

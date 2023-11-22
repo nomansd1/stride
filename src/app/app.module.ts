@@ -59,6 +59,7 @@ import { CalendarDashboardComponent } from './components/spaces/calendar-dashboa
 import { QuickTaskCreatePanelComponent } from './components/spaces/quick-task-create-panel/quick-task-create-panel.component';
 import { TaskLinkingPanelComponent } from './components/layout/task-linking-panel/task-linking-panel.component';
 import { MergeTaskPanelComponent } from './components/layout/merge-task-panel/merge-task-panel.component';
+import { ManageStatusPanelComponent } from './components/spaces/manage-status-panel/manage-status-panel.component';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import { MergeTaskPanelComponent } from './components/layout/merge-task-panel/me
     QuickTaskCreatePanelComponent,
     TaskLinkingPanelComponent,
     MergeTaskPanelComponent,
+    ManageStatusPanelComponent,
   ],
   imports: [
     BrowserModule,
