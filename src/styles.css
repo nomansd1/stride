@@ -31,8 +31,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 ::-webkit-scrollbar {
     background: white;
-    width: 6px;
-    height: 10px;
+    width: 4px;
+    height: 4px;
 }
 ::-webkit-scrollbar-thumb {
     background-color: #ADB3BD;

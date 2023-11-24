@@ -60,8 +60,8 @@
                                     </div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                            <div class="w-full mt-3">
-                                <table class="w-full">
+                            <div class="mt-3 overflow-x-scroll w-full">
+                                <table class="w-full min-w-fit">
                                     <thead>
                                         <tr class="uppercase text-[10px] font-light text-center">
                                             <th class="max-w-[50px] w-[50px]"></th>
@@ -71,23 +71,16 @@
                                                     tasks</span>
                                             </th>
                                             <th>assigned to</th>
-                                            <th>due date</th>
-                                            <th>priority</th>
+                                            <!-- <th>priority</th> -->
                                             <!-- need to remove -->
                                             <!-- <th>assigned to</th>
-                                            <th>meeting reference</th>-->
-                                            <th>approval requirements</th>
-                                            <th>approval status</th>
-
-                                            <!-- need to remove -->
-
-                                            <th class="w-[90px]">status</th>
-                                            <th>
-                                                <button class="hover:bg-[#F0F1F3] p-1">
-                                                    <img class="w-4 h-4 header__icon" src="assets/tableoption.svg"
-                                                        alt="">
-                                                </button>
-                                            </th>
+                                                <th>meeting reference</th>-->
+                                                <th>meeting reference</th>
+                                                <th>approval requirements</th>
+                                                <th>approval status</th>
+                                                <th>status updated on</th>
+                                                <th>next actions</th>
+                                                <th>actions to be completed by</th>
                                         </tr>
                                     </thead>
                                     <tbody class="relative">
@@ -176,6 +169,13 @@
                                                         </button>
                                                     </ng-template>
                                                 </td>
+
+                                                <!-- need to remove -->
+                                                <td>
+                                                    <input type="text">
+                                                </td>
+                                                <td>Yes</td>
+                                                <td>Approved</td>
                                                 <td>
                                                     <ng-container *ngIf="task.duedate;">
                                                         <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
@@ -211,32 +211,20 @@
                                                     </ng-template> -->
                                                 </td>
                                                 <td>
-                                                    <button class="p-1">
-                                                        <img class="w-5 h-5 icon" src="assets/priority.svg" alt="">
-                                                    </button>
-                                                </td>
-
-                                                <!-- need to remove -->
-                                                <!-- <td></td>
-                                                <td>
                                                     <input type="text">
-                                                </td> -->
-                                                <td>Yes</td>
-                                                <td>Approved</td>
-                                                <!-- need to remove -->
-
-                                                <td [ngClass]="{
-                                                'bg-[#6BC950]': list.status === 'Completed',
-                                                'bg-[#1090E0]': list.status === 'In Progress',
-                                                'bg-[#E8EAED] text-black': list.status === 'To do'
-                                                }" class="text-white">{{list.status}}</td>
-                                                <td>
-                                                    <button
-                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible mx-auto">
-                                                        <img class="w-4 h-4 icon" src="../../../../assets/voptions.svg"
-                                                            alt="">
-                                                    </button>
                                                 </td>
+                                                <td>
+                                                    <button *ngIf="!task.assignee; else assignee"
+                                                        class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                        <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                    </button>
+                                                    <ng-template #assignee>
+                                                        <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                            <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                </td>
+                                                <!-- need to remove -->
                                             </tr>
                                             <ng-container *ngIf="isSubTaskRow[i] === true && task.subtasks.length > 0">
                                                 <tr *ngFor="let subtask of task.subtasks"
@@ -453,7 +441,7 @@
                                 </div> -->
                                 <!-- Add new task row toolbar -->
                                 <div *ngIf="taskRowVisibility[i]"
-                                    class="h-[37px] selected-row flex items-center ml-[50px]">
+                                    class="h-[37px] selected-row flex items-center pl-[50px]">
                                     <!-- new task add row toolbar -->
                                     <div class="w-[78px] h-full flex items-center justify-center">
                                         <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
@@ -515,7 +503,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div *ngIf="!taskRowVisibility[i]" class="w-full ml-[73px]">
+                                <div *ngIf="!taskRowVisibility[i]" class="w-full pl-[73px]">
                                     <button (click)="showAddNewTaskToolbar(i)"
                                         class="py-0.5 px-2 text-[10px] text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1">
                                         + New task
