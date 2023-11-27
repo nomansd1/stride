@@ -60,7 +60,7 @@ table thead tr th:nth-child(3),
 table tbody tr td:nth-child(1),
 table tbody tr td:nth-child(2),
 table tbody tr td:nth-child(3) {
-    @apply sticky;
+    @apply sticky z-50;
 }
 table thead tr th:nth-child(1),
 table tbody tr td:nth-child(1) {
@@ -68,7 +68,7 @@ table tbody tr td:nth-child(1) {
 }
 table thead tr th:nth-child(2),
 table tbody tr td:nth-child(2) {
-    @apply left-[49px];
+    @apply left-[50px];
 }
 table thead tr th:nth-child(3),
 table tbody tr td:nth-child(3) {

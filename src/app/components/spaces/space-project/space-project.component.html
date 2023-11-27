@@ -87,7 +87,7 @@
                                                 <th>meeting reference</th>-->
                                             <th class="min-w-[50px] max-w-[150px]">
                                                 <div>
-                                                    meeting reference for the thir party observer
+                                                    meeting reference
                                                 </div>
                                             </th>
                                             <th class="min-w-[50px] max-w-[150px]">
@@ -223,27 +223,12 @@
                                                         *ngIf="selectedDate[i]; else calendarpicker">
                                                         {{selectedDate[i]}}
                                                     </button>
-                                                    <!-- <ng-template #calendarpicker>
-                                                        <button (click)="toggleCalendarPicker(trigger)" cdkOverlayOrigin
-                                                            #trigger="cdkOverlayOrigin" class="p-1">
-                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
-                                                        </button>
-                                                    </ng-template> -->
                                                     <ng-template #calendarpicker>
                                                         <button *ngIf="!task.duedate" [id]="'overlay'+ i"
                                                             (click)="toggleCalendarPicker(i)" class="p-1">
                                                             <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                         </button>
                                                     </ng-template>
-                                                    <!-- <ng-template cdkConnectedOverlay
-                                                        (backdropClick)="closeCalendarPicker()"
-                                                        [cdkConnectedOverlayHasBackdrop]="true"
-                                                        [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
-                                                        [cdkConnectedOverlayOrigin]="triggerOrigin"
-                                                        [cdkConnectedOverlayOpen]="isDropdownOpen === true"
-                                                        class="relative">
-                                                        <st-calendar-picker (selectedDateChange)="selectedDateChange($event)"></st-calendar-picker>
-                                                    </ng-template> -->
                                                 </td>
                                                 <td>
                                                     <input type="text">
@@ -328,43 +313,44 @@
                                                             <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
                                                         </button>
                                                     </td>
-                                                    <td class="relative">
-                                                        <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
-                                                            #triggerOrigin="cdkOverlayOrigin" class="p-1">
-                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
-                                                        </button>
-                                                        <!-- <ng-template cdkConnectedOverlay cdkConnectedOverlay
-                                                            (backdropClick)="closeCalendarPicker()"
-                                                            [cdkConnectedOverlayHasBackdrop]="true"
-                                                            [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
-                                                            [cdkConnectedOverlayOrigin]="triggerOrigin"
-                                                            [cdkConnectedOverlayOpen]="isDropdownOpenList[i]"
-                                                            class="relative">
-                                                            <st-calendar-picker></st-calendar-picker>
-                                                        </ng-template> -->
-                                                    </td>
                                                     <td>
-                                                        <button class="p-1">
-                                                            <img class="w-5 h-5 icon" src="assets/priority.svg" alt="">
-                                                        </button>
+                                                        <input type="text">
                                                     </td>
-
-                                                    <!-- need to remove -->
                                                     <td>Yes</td>
                                                     <td>Approved</td>
-                                                    <!-- need to remove -->
-
-                                                    <td [ngClass]="{
-                                                    'bg-[#6BC950]': list.status === 'Completed',
-                                                    'bg-[#1090E0]': list.status === 'In Progress',
-                                                    'bg-[#E8EAED] text-black': list.status === 'To do'
-                                                    }" class="text-white">{{list.status}}</td>
                                                     <td>
-                                                        <button
-                                                            class="transition-all duration-[-1s] ease invisible group-[:hover]:visible mx-auto">
-                                                            <img class="w-4 h-4 icon"
-                                                                src="../../../../assets/voptions.svg" alt="">
+                                                        <ng-container *ngIf="task.duedate;">
+                                                            <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)"
+                                                                class="font-medium text-[#F18A8B]">
+                                                                {{task.duedate}}
+                                                            </button>
+                                                        </ng-container>
+                                                        <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]"
+                                                            *ngIf="selectedDate[i]; else calendarpicker">
+                                                            {{selectedDate[i]}}
                                                         </button>
+                                                        <ng-template #calendarpicker>
+                                                            <button *ngIf="!task.duedate" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)" class="p-1">
+                                                                <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                            </button>
+                                                        </ng-template>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text">
+                                                    </td>
+                                                    <td>
+                                                        <button *ngIf="!task.assignee; else assignee"
+                                                            class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                            <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                        </button>
+                                                        <ng-template #assignee>
+                                                            <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                                <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                            </button>
+                                                        </ng-template>
                                                     </td>
                                                 </tr>
                                             </ng-container>
@@ -440,27 +426,43 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <button (click)="toggleCalendarPicker(i)" cdkOverlayOrigin
-                                                    #triggerOrigin="cdkOverlayOrigin" class="p-1">
-                                                    <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
-                                                </button>
+                                                <input type="text">
                                             </td>
-                                            <td>
-                                                <button class="p-1">
-                                                    <img class="w-5 h-5 icon" src="assets/priority.svg" alt="">
-                                                </button>
-                                            </td>
-
                                             <td>Yes</td>
                                             <td>Approved</td>
-
-                                            <td class="text-white bg-[#6BC950]">Completed</td>
                                             <td>
-                                                <button
-                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible mx-auto">
-                                                    <img class="w-4 h-4 icon" src="../../../../assets/voptions.svg"
-                                                        alt="">
+                                                <ng-container *ngIf="task.duedate;">
+                                                    <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]">
+                                                        {{task.duedate}}
+                                                    </button>
+                                                </ng-container>
+                                                <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                    class="font-medium text-[#F18A8B]"
+                                                    *ngIf="selectedDate[i]; else calendarpicker">
+                                                    {{selectedDate[i]}}
                                                 </button>
+                                                <ng-template #calendarpicker>
+                                                    <button *ngIf="!task.duedate" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)" class="p-1">
+                                                        <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                    </button>
+                                                </ng-template>
+                                            </td>
+                                            <td>
+                                                <input type="text">
+                                            </td>
+                                            <td>
+                                                <button *ngIf="!task.assignee; else assignee"
+                                                    class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                    <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                </button>
+                                                <ng-template #assignee>
+                                                    <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                        <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                    </button>
+                                                </ng-template>
                                             </td>
                                         </tr>
                                     </tbody>
