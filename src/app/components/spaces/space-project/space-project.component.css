@@ -1,23 +1,24 @@
 table thead tr th {
-    @apply hover:bg-[#F0F1F3];
-    @apply py-0;
+    @apply bg-white hover:bg-[#F0F1F3];
+    @apply w-full;
     @apply px-2;
-    @apply max-w-[150px] min-w-[50px];
-    @apply overflow-hidden;
-    @apply text-ellipsis;
 }
-table thead tr th:hover {
-    @apply border-x-2;
-    @apply border-[#BCC0C7];
+table thead tr th div{
+    @apply w-full whitespace-nowrap text-ellipsis overflow-hidden;
 }
-table thead tr th:nth-child(1){
+table thead tr th:nth-child(1) {
     @apply hover:bg-transparent;
     @apply border-none;
 }
 table tbody tr {
     @apply text-center;
-    @apply hover:bg-[#F0F1F3];
     @apply text-xs
+}
+table tbody tr td {
+    @apply bg-white;
+}
+table tbody tr:hover td {
+    @apply bg-[#F0F1F3];
 }
 table tbody tr td {
     @apply py-1;
@@ -52,7 +53,7 @@ table tbody tr td:nth-child(3) {
 .subtask__collapse img {
     transform: rotate(90deg);
 }
-/* 
+
 table thead tr th:nth-child(1),
 table thead tr th:nth-child(2),
 table thead tr th:nth-child(3),
@@ -67,9 +68,9 @@ table tbody tr td:nth-child(1) {
 }
 table thead tr th:nth-child(2),
 table tbody tr td:nth-child(2) {
-    @apply left-[52px];
+    @apply left-[49px];
 }
 table thead tr th:nth-child(3),
 table tbody tr td:nth-child(3) {
-    @apply left-[80px];
-} */
+    @apply left-[100px];
+}
