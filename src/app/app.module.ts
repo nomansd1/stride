@@ -60,6 +60,7 @@ import { QuickTaskCreatePanelComponent } from './components/spaces/quick-task-cr
 import { TaskLinkingPanelComponent } from './components/layout/task-linking-panel/task-linking-panel.component';
 import { MergeTaskPanelComponent } from './components/layout/merge-task-panel/merge-task-panel.component';
 import { ManageStatusPanelComponent } from './components/spaces/manage-status-panel/manage-status-panel.component';
+import { WatchersPanelComponent } from './components/layout/watchers-panel/watchers-panel.component';
 
 
 @NgModule({
@@ -109,6 +110,7 @@ import { ManageStatusPanelComponent } from './components/spaces/manage-status-pa
     TaskLinkingPanelComponent,
     MergeTaskPanelComponent,
     ManageStatusPanelComponent,
+    WatchersPanelComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,12 @@ export class ScheduleMeetingComponent {
     { id: 3, name: "Goerge Smith " },
   ]
 
+  locations = [
+    { id: 1, title: 'Conference Room-01' },
+    { id: 2, title: 'Conference Room-02' },
+    { id: 3, title: 'Conference Room-03' },
+  ]
+
   constructor() {
     let today: any = new Date();
     this.currentDate = today.toISOString().substring(0, 10);

@@ -6,6 +6,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { TaskLinkingPanelComponent } from '../task-linking-panel/task-linking-panel.component';
 import { MergeTaskPanelComponent } from '../merge-task-panel/merge-task-panel.component';
+import { WatchersPanelComponent } from '../watchers-panel/watchers-panel.component';
 
 @Component({
   selector: 'app-task-selection-header',
@@ -19,7 +20,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
 
 
   toolbarOptions = [
-    { tooltip: 'Set Watchers', url: '', icon: '../../../../assets/watcher.svg' },
+    { tooltip: 'Set Watchers', url: '', icon: '../../../../assets/watcher.svg', action: (index: number) => this.openWatchersPanel(index) },
     { tooltip: 'Set Assignees', url: '', icon: '../../../../assets/assignee.svg' },
     { tooltip: 'Set Status', url: '', icon: '../../../../assets/status.svg' },
     { tooltip: 'Convert to subtask', url: '', icon: '../../../../assets/subtask.svg' },
@@ -30,7 +31,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
     { tooltip: 'Set Priority', url: '', icon: '../../../../assets/toolpriority.svg' },
     { tooltip: 'Dependencies', url: '', icon: '../../../../assets/dependencies.svg' },
     { tooltip: 'Merge tasks', url: '', icon: '../../../../assets/mergetask.svg', action: (index: number) => this.openMergeTaskPanel(index) },
-    { tooltip: 'Tasks Linking', url: '', icon: '../../../../assets/tasklinking.svg', action: (index: number) => this.openTaskLinkingDropdown(index) },
+    { tooltip: 'Tasks Referencing', url: '', icon: '../../../../assets/tasklinking.svg', action: (index: number) => this.openTaskLinkingDropdown(index) },
     { tooltip: 'No Custom Fields available', url: '', icon: '../../../../assets/nocustomfield.svg' },
     { tooltip: 'Archive tasks', url: '', icon: '../../../../assets/arch.svg' },
     { tooltip: 'Schedule Meeting', url: '', icon: '../../../../assets/meeting.svg', action: () => this.scheduleMeetingIdalog() },
@@ -104,6 +105,30 @@ export class TaskSelectionHeaderComponent implements OnInit {
 
     this.overlayRef = this.overlay.create(overlayConfig);
     const dropdownOverlay = new ComponentPortal(MergeTaskPanelComponent);
+    this.overlayRef.attach(dropdownOverlay);
+
+
+    this.overlayRef.backdropClick().subscribe(() => {
+      this.overlayRef.detach()
+      this.overlayRef = null;
+    });
+  }
+
+  private openWatchersPanel(index: number): void {
+    const btnRef: any = document.querySelector(`#option${index}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'start', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
+    }
+
+    this.overlayRef = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(WatchersPanelComponent);
     this.overlayRef.attach(dropdownOverlay);
 
 
