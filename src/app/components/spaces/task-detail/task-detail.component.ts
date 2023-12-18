@@ -11,6 +11,8 @@ export class TaskDetailComponent {
   
   selectedRows: number[]= [];
   selectedChecklistRow: number[] = []
+
+  commentDropdown: any = [false, false]
   
   constructor(
     private dialog: MatDialog
@@ -51,6 +53,18 @@ export class TaskDetailComponent {
     } else {
       // Row is selected, remove it from the selectedRows array
       this.selectedChecklistRow.splice(selectedIndex, 1);
+    }
+  }
+
+  public OpenCommentDropdown(index: any) {
+    if (this.commentDropdown[index] == false) {
+      this.commentDropdown[index] = true
+      console.log("if block chala");
+      
+    }
+    else {
+      this.commentDropdown = true
+      console.log("else block chala");
     }
   }
 }

@@ -176,12 +176,21 @@
                                                     <div class="inline-flex items-center">
                                                         <span>{{ task.title }}</span>
                                                         <span class="hidden group-[:hover]:inline-flex">
-                                                            <button *ngIf="task.subtasks.length > 0"
+                                                            <button matTooltipPosition="above" matTooltip="Subtasks"
+                                                            matTooltipClass="custom__tooltip" *ngIf="task.subtasks.length > 0"
                                                                 class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
                                                                 <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
                                                                     alt="">
                                                                 <span
                                                                     class="text-xs ml-1">{{task.subtasks.length}}</span>
+                                                            </button>
+                                                            <button matTooltipPosition="above" matTooltip="Referenced Tasks"
+                                                            matTooltipClass="custom__tooltip" *ngIf="task.reference?.length > 0"
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                <img class="w-3.5 h-3.5 icon" src="assets/taskreferencing.svg"
+                                                                    alt="">
+                                                                <span
+                                                                    class="text-xs ml-1">{{task.reference?.length}}</span>
                                                             </button>
                                                             <button matTooltipPosition="above" matTooltip="Rename"
                                                                 matTooltipClass="custom__tooltip"

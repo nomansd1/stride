@@ -30,6 +30,16 @@
                             "id": 1000002,
                             "title": "Subtask 2"
                           }
+                        ],
+                        "reference": [
+                          {
+                            "id": 12121,
+                            "title": "abc"
+                          },
+                          {
+                            "id": 12122,
+                            "title": "abc"
+                          }
                         ]
                       },
                       {
@@ -45,6 +55,12 @@
                           {
                             "id": 2000002,
                             "title": "Subtask 2"
+                          }
+                        ],
+                        "reference": [
+                          {
+                            "id": 21121,
+                            "title": "abc"
                           }
                         ]
                       },
@@ -74,13 +90,15 @@
                         "title": "Testing 1",
                         "duedate": "Nov 23",
                         "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIr2BEgNFbb_FtGL9tzYMDVfHncA4ruHY2E8_Wavtmm3ErFLNREBWH17GbM5BCDVtTNno&usqp=CAU",
-                        "subtasks": []
+                        "subtasks": [],
+                        "reference": []
                       },
                       {
                         "id": 5,
                         "title": "Testing 2",
                         "duedate": "",
-                        "subtasks": []
+                        "subtasks": [],
+                        "reference": []
                       }
                     ]
                   }

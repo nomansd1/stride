@@ -425,7 +425,7 @@
                                 <tr class="group">
                                     <td class="max-w-[55px]">
                                         <div>
-                                            <img class="w-[35px] h-[35px]" src="assets/jpg.svg" alt="">
+                                            <img class="w-[35px] h-[357px]" src="assets/jpg.svg" alt="">
                                         </div>
                                     </td>
                                     <td>
@@ -541,10 +541,29 @@
                         <div class="w-[35px] h-[35px] inline-flex justify-center items-center bg-orange-400 rounded-full text-white text-sm">NA</div>
                         <div class="rounded-full w-2.5 h-2.5 p-0.5 bg-green-400 absolute top-0 right-0"></div>
                     </div>
-                    <div class="h-auto py-2 px-4 flex flex-col w-full bg-white rounded-md ml-3">
+                    <div class="h-auto py-2 px-4 flex flex-col w-full bg-white rounded-md ml-3 relative">
                         <div class="flex justify-between items-center text-[#ACACAC] w-full">
                             <span class="text-xs"><b>You</b> commented</span>
-                            <span class="text-[11px]">9:30pm</span>
+                            <div class="flex items-center relative">
+                                <span class="text-[11px]">9:30pm</span>
+                                <button (click)="OpenCommentDropdown(0)" class="mx-2">
+                                    <img class="w-3 h-3" src="assets/voptions.svg" alt="">
+                                </button>
+                                <div *ngIf="commentDropdown[0] == true" class="absolute top-4 right-2 bg-white min-w-[200px] text-black flex flex-col shadow-md rounded-md p-2">
+                                    <button class="w-full inline-flex items-center px-3 py-1 hover:bg-secondary-color rounded-md whitespace-nowrap">
+                                        <img class="w-4 h-4 mr-3" src="/assets/nocustomfield.svg" alt="">
+                                        <span class="text-sm">Edit</span>
+                                    </button>
+                                    <button class="w-full inline-flex items-center px-3 py-1 hover:bg-secondary-color rounded-md whitespace-nowrap">
+                                        <img class="w-4 h-4 mr-3" src="/assets/del.svg" alt="">
+                                        <span class="text-sm">Delete</span>
+                                    </button>
+                                    <button class="w-full inline-flex items-center px-3 py-1 hover:bg-secondary-color rounded-md whitespace-nowrap">
+                                        <img class="w-4 h-4 mr-3" src="/assets/meeting.svg" alt="">
+                                        <span class="text-sm">Schedule Meeting</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="w-full mt-3">
                             <span class="text-sm">Hey! could you please provide us the details thanks.</span>
@@ -561,7 +580,26 @@
                     <div class="h-auto py-2 px-4 flex flex-col w-full bg-white rounded-md ml-3">
                         <div class="flex justify-between items-center text-[#ACACAC] w-full">
                             <span class="text-xs">Meeting Schedule</span>
-                            <span class="text-[11px]">3:10pm</span>
+                            <div class="flex items-center">
+                                <span class="text-[11px]">3:10pm</span>
+                                <button (click)="OpenCommentDropdown(1)" class="mx-2">
+                                    <img class="w-3 h-3" src="assets/voptions.svg" alt="">
+                                </button>
+                                <div *ngIf="commentDropdown[1] == true" class="absolute top-4 right-2 bg-white min-w-[200px] text-black flex flex-col shadow-md rounded-md p-2">
+                                    <button class="w-full inline-flex items-center px-3 py-1 hover:bg-secondary-color rounded-md whitespace-nowrap">
+                                        <img class="w-4 h-4 mr-3" src="/assets/nocustomfield.svg" alt="">
+                                        <span class="text-sm">Edit</span>
+                                    </button>
+                                    <button class="w-full inline-flex items-center px-3 py-1 hover:bg-secondary-color rounded-md whitespace-nowrap">
+                                        <img class="w-4 h-4 mr-3" src="/assets/del.svg" alt="">
+                                        <span class="text-sm">Delete</span>
+                                    </button>
+                                    <button class="w-full inline-flex items-center px-3 py-1 hover:bg-secondary-color rounded-md whitespace-nowrap">
+                                        <img class="w-4 h-4 mr-3" src="/assets/meeting.svg" alt="">
+                                        <span class="text-sm">Schedule Meeting</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="w-full mt-3">
                             <span class="text-sm">

@@ -120,7 +120,7 @@ export class TaskSelectionHeaderComponent implements OnInit {
       positionStrategy: this.overlay.position()
         .flexibleConnectedTo(btnRef)
         .withPositions([
-          { originX: 'start', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+          { originX: 'start', originY: 'bottom', overlayX: 'start', overlayY: 'top' }
         ])
         .setOrigin(btnRef),
       backdropClass: 'cdk-overlay-backdrop',

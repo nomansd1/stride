@@ -61,6 +61,7 @@ import { TaskLinkingPanelComponent } from './components/layout/task-linking-pane
 import { MergeTaskPanelComponent } from './components/layout/merge-task-panel/merge-task-panel.component';
 import { ManageStatusPanelComponent } from './components/spaces/manage-status-panel/manage-status-panel.component';
 import { WatchersPanelComponent } from './components/layout/watchers-panel/watchers-panel.component';
+import { DropdownComponent } from './components/layout/dropdown/dropdown.component';
 
 
 @NgModule({
@@ -111,6 +112,7 @@ import { WatchersPanelComponent } from './components/layout/watchers-panel/watch
     MergeTaskPanelComponent,
     ManageStatusPanelComponent,
     WatchersPanelComponent,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,
