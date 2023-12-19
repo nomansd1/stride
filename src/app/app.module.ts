@@ -62,6 +62,7 @@ import { MergeTaskPanelComponent } from './components/layout/merge-task-panel/me
 import { ManageStatusPanelComponent } from './components/spaces/manage-status-panel/manage-status-panel.component';
 import { WatchersPanelComponent } from './components/layout/watchers-panel/watchers-panel.component';
 import { DropdownComponent } from './components/layout/dropdown/dropdown.component';
+import { SapQaModuleComponent } from './layout/sap-qa-module/sap-qa-module.component';
 
 
 @NgModule({
@@ -113,6 +114,7 @@ import { DropdownComponent } from './components/layout/dropdown/dropdown.compone
     ManageStatusPanelComponent,
     WatchersPanelComponent,
     DropdownComponent,
+    SapQaModuleComponent,
   ],
   imports: [
     BrowserModule,

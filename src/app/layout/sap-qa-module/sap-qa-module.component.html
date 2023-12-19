@@ -1,0 +1,12 @@
+<app-space-header [spaceTitle]="'SAP QA Module'"  (tabSelected)="onTabSelected($event)"></app-space-header>
+<div *ngIf="selectedTabIndex === 0" class="overflow-y-auto overflow-x-hidden custom__height w-full">
+    <app-space-search></app-space-search>
+    <app-space-project2 [data]="taskData"></app-space-project2>
+</div>
+<div *ngIf="selectedTabIndex === 1">
+    <app-space-search></app-space-search>
+    <st-space-board [data]="taskData"></st-space-board>
+</div>
+<div *ngIf="selectedTabIndex === 2" class="overflow-auto custom__height w-full">
+    <st-calendar-dashboard></st-calendar-dashboard>
+</div>

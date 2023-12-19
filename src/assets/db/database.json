@@ -1,43 +1,153 @@
 {
-  "workspaces": [
+  "spaces": [
     {
       "id": 1,
-      "name": "team space",
+      "name": "Team Space",
       "folders": [
-        1
+        {
+          "id": 101,
+          "name": "Projects",
+          "subfolders": [
+            {
+              "id": 1001,
+              "name": "Project 1",
+              "lists": [
+                {
+                  "id": 10001,
+                  "status": "Completed",
+                  "tasks": [
+                    {
+                      "id": 1,
+                      "title": "Task 1",
+                      "rootcause": "",
+                      "poweruse": "",
+                      "createdon": "May 13",
+                      "duedate": "May 15",
+                      "actualcompletiondate": "May 27",
+                      "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                      "subtasks": [
+                        {
+                          "id": 1000001,
+                          "title": "Subtask 1"
+                        },
+                        {
+                          "id": 1000002,
+                          "title": "Subtask 2"
+                        }
+                      ],
+                      "reference": [
+                        {
+                          "id": 12121,
+                          "title": "abc"
+                        },
+                        {
+                          "id": 12122,
+                          "title": "abc"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 2,
+                      "title": "Task 2",
+                      "rootcause": "",
+                      "poweruse": "",
+                      "createdon": "June 16",
+                      "duedate": "June 22",
+                      "actualcompletiondate": "June 22",
+                      "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                      "subtasks": [
+                        {
+                          "id": 1000001,
+                          "title": "Subtask 1"
+                        }
+                      ],
+                      "reference": [
+                        {
+                          "id": 12121,
+                          "title": "abc"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": 10002,
+                  "status": "Deffered",
+                  "tasks": [
+                    {
+                      "id": 1,
+                      "title": "Task 1",
+                      "rootcause": "",
+                      "poweruse": "",
+                      "createdon": "May 7",
+                      "duedate": "May 9",
+                      "actualcompletiondate": "May 9",
+                      "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                      "subtasks": [],
+                      "reference": []
+                    }
+                  ]
+                },
+                {
+                  "id": 10003,
+                  "status": "To Do",
+                  "tasks": [
+                    {
+                      "id": 1,
+                      "title": "Task 1",
+                      "rootcause": "",
+                      "poweruse": "",
+                      "createdon": "July 27",
+                      "duedate": "July 29",
+                      "actualcompletiondate": "May 9",
+                      "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                      "subtasks": [],
+                      "reference": []
+                    }
+                  ]
+                },
+                {
+                  "id": 10004,
+                  "status": "Under UAT",
+                  "tasks": [
+                    {
+                      "id": 1,
+                      "title": "Task 1",
+                      "rootcause": "",
+                      "poweruse": "",
+                      "createdon": "Aug 13",
+                      "duedate": "Aug 15",
+                      "actualcompletiondate": "Aug 16",
+                      "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                      "subtasks": [],
+                      "reference": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "docs": [
+        {
+          "id": 1001,
+          "name": "ProjectPlan.docx"
+        }
+      ],
+      "whiteboards": [
+        {
+          "id": 10001,
+          "name": "Brainstorming"
+        }
       ]
     },
     {
       "id": 2,
-      "name": "work",
-      "folders": [
-        2
-      ]
+      "name": "Work",
+      "folders": [],
+      "docs": [],
+      "whiteboards": []
     }
-  ],
-  "folders": [
-    {
-      "id": 1,
-      "name": "Projects",
-      "subfolders": [1,2]
-    },
-    {
-      "id": 2,
-      "name": "Test Folder",
-      "subfolders": []
-    }
-  ],
-  "subfolders": [
-    {
-      "id": 1,
-      "name": "Projects 1",
-      "list": []
-    },
-    {
-      "id": 2,
-      "name": "Projects 2",
-      "list": []
-    }
-  ],
-  "docs": []
+  ]
 }

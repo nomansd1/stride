@@ -46,7 +46,7 @@
                                         <img class="w-4 h-4 rotate__icon" src="assets/rightangle.svg" alt="">
                                         <span [ngClass]="{
                                             'bg-[#6BC950]': list.status === 'Completed',
-                                            'bg-[#1090E0]': list.status === 'In Progress',
+                                            'bg-orange-500': list.status === 'Deffered',
                                             'bg-[#E8EAED]': list.status === 'To do'
                                             }"
                                             class="text-[11px] font-medium p-0.5 px-2 text-white rounded-sm ml-2 uppercase">{{
@@ -167,7 +167,7 @@
                                                         </button>
                                                         <button [ngClass]="{
                                                             'bg-[#6BC950]': list.status === 'Completed',
-                                                            'bg-[#1090E0]': list.status === 'In Progress',
+                                                            'bg-orange-500': list.status === 'Deffered',
                                                             'bg-[#E8EAED]': list.status === 'To do'
                                                             }" class="w-2 h-2 rounded-sm ml-3"></button>
                                                     </div>
