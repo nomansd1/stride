@@ -1,0 +1,118 @@
+{
+    "spaces": [
+      {
+        "id": 1,
+        "name": "Team Space",
+        "folders": [
+          {
+            "id": 101,
+            "name": "Projects",
+            "subfolders": [
+              {
+                "id": 1001,
+                "name": "Project 1",
+                "lists": [
+                  {
+                    "id": 10001,
+                    "status": "Completed",
+                    "tasks": [
+                      {
+                        "id": 1001,
+                        "title": "Task 1",
+                        "createdon": "Aug 13",
+                        "duedate": "Aug 15",
+                        "actualcompletiondate": "Aug 27",
+                        "initiator": "",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                        "subtasks": [],
+                        "reference": [
+                          {
+                            "id": 12121,
+                            "title": "abc"
+                          },
+                          {
+                            "id": 12122,
+                            "title": "abc"
+                          }
+                        ]
+                      },
+                      {
+                        "id": 1002,
+                        "title": "Task 2",
+                        "createdon": "Oct 16",
+                        "duedate": "Oct 22",
+                        "actualcompletiondate": "Oct 22",
+                        "initiator": "",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                        "subtasks": [],
+                        "reference": [
+                          {
+                            "id": 12121,
+                            "title": "abc"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": 10002,
+                    "status": "Deffered",
+                    "tasks": [
+                      {
+                        "id": 1003,
+                        "title": "Task 1",
+                        "createdon": "Nov 7",
+                        "duedate": "Nov 9",
+                        "actualcompletiondate": "Nov 9",
+                        "initiator": "",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                        "subtasks": [],
+                        "reference": []
+                      }
+                    ]
+                  },
+                  {
+                    "id": 10003,
+                    "status": "To Do",
+                    "tasks": [
+                      {
+                        "id": 1004,
+                        "title": "Task 1",
+                        "createdon": "Dec 27",
+                        "duedate": "Dec 29",
+                        "actualcompletiondate": "Dec 9",
+                        "initiator": "",
+                        "assignee": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv5T9G-B_94Liv4WQ2W-ulYpOqYM_0Yq6su6KgzQEzHU1InT6k-xEMNQvydTUrtqcPQio&usqp=CAU",
+                        "subtasks": [],
+                        "reference": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "docs": [
+          {
+            "id": 1001,
+            "name": "ProjectPlan.docx"
+          }
+        ],
+        "whiteboards": [
+          {
+            "id": 10001,
+            "name": "Brainstorming"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Work",
+        "folders": [],
+        "docs": [],
+        "whiteboards": []
+      }
+    ]
+  }
+  

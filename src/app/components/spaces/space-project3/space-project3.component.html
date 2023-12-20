@@ -1,0 +1,743 @@
+<div *ngFor="let project of listOfSubFolders" class="border-2 border-[#F0F1F3] p-3 my-3 relative w-[100%]">
+    <div class="flex justify-between items-start w-full">
+        <div class="flex flex-1 flex-col w-full">
+            <p class="text-[11px] text-[#34313a] ml-2 capitalize">Projects</p>
+            <div class="flex items-center project__ep w-full">
+                <mat-expansion-panel class="!shadow-none w-full project__spaceExp" expanded="true">
+                    <mat-expansion-panel-header class="!p-0">
+                        <mat-panel-title class="group">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <div class="flex items-center py-0.5 px-2 hover:bg-[#f2f2f2] rounded-sm">
+                                        <img class="w-5 h-5 rotate__icon" src="assets/rightangle.svg" alt="">
+                                        <span class="text-base  font-medium text-[#2A2E34] capitalize ml-2">{{
+                                            project.name }}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button (click)="showAddNewTaskToolbar(1); $event.stopPropagation()"
+                                        class="py-0.5 px-2 text-[10px] text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1 uppercase">
+                                        + new task
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="group-[:hover]:flex hidden">
+                                <button
+                                    class="py-0.5 px-2 text-[10px] text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1 uppercase">
+                                    add description
+                                </button>
+                                <button
+                                    class="py-0.5 px-2 text-[10px] text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1 uppercase">
+                                    add comment
+                                </button>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="w-full p-2 bg-white ">
+                        <!-- completed -->
+                        <mat-expansion-panel *ngFor="let list of listOfTasks; let i = index"
+                            class="!shadow-none w-full project__spaceExp !mb-3" expanded="true">
+                            <mat-expansion-panel-header class="!p-0">
+                                <mat-panel-title>
+                                    <div class="group flex items-center py-0.5 px-2 rounded-sm">
+                                        <img class="w-4 h-4 rotate__icon" src="assets/rightangle.svg" alt="">
+                                        <span [ngClass]="{
+                                            'completed': list.status === 'Completed',
+                                            'deffered': list.status === 'Deffered',
+                                            'todo': list.status === 'To Do',
+                                            'uat': list.status === 'Under UAT'
+                                            }" class="text-[11px] font-medium p-0.5 px-2 rounded-sm ml-2 uppercase">{{
+                                            list.status }}</span>
+                                        <button (click)="openManageStatusDialog();  $event.stopPropagation()"
+                                            matTooltip="List settings" matTooltipClass="custom__tooltip"
+                                            matTooltipPosition="above" class="group-[:hover]:flex hidden ml-1">
+                                            <img class="w-4 h-4" src="assets/voptions.svg" alt="">
+                                        </button>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div style="overflow-x: auto;" class="mt-3 w-full block">
+                                <table class="w-full block">
+                                    <thead>
+                                        <tr class="uppercase text-[10px] font-light text-center">
+                                            <th class="max-w-[50px] min-w-[50px] !w-[50px]">
+                                                <div></div>
+                                            </th>
+                                            <th class="max-w-[78px] min-w-[50px] !w-[78px]">
+                                                <div></div>
+                                            </th>
+                                            <th class="!max-w-[300px] min-w-[200px] text-left">
+                                                <div>
+                                                    <span class="hover:bg-[#F0F1F3] px-3 py-1.5">{{list.tasks.length}}
+                                                        tickets description
+                                                    </span>
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    ticket type
+                                                </div>
+                                            </th>
+                                            <!-- <th>priority</th> -->
+                                            <!-- need to remove -->
+                                            <!-- <th>assigned to</th>
+                                                <th>meeting reference</th>-->
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    Department
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    next action
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    root cause
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    ticket initiator
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    assigned to
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    created on
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    due date
+                                                </div>
+                                            </th>
+                                            <th class="min-w-[50px] max-w-[150px]">
+                                                <div>
+                                                    actual completion date
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="whitespace-normal">
+                                        <ng-container *ngFor="let task of list.tasks; let i = index">
+                                            <tr [class.selected-row]="selectedRows.includes(task.id)" class="group">
+                                                <td [class.right__border]="selectedRows.includes(task.id)"
+                                                    class="group-[:hover]:bg-white border border-white !px-0 max-w-[50px] w-[50px]">
+                                                    <button [class.visible]="selectedRows.includes(task.id)"
+                                                        (click)="toggleRowSelection(task.id)"
+                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
+                                                        <svg *ngIf="selectedRows.includes(task.id) === false"
+                                                            class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g stroke-width="0"></g>
+                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                            <g>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                    fill="#292d34"></path>
+                                                                <circle cx="12" cy="12" r="5.25" fill="none"></circle>
+                                                            </g>
+                                                        </svg>
+                                                        <svg *ngIf="selectedRows.includes(task.id) === true"
+                                                            class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g stroke-width="0"></g>
+                                                            <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                            <g>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                    fill="#3176b1"></path>
+                                                                <circle cx="12" cy="12" r="5.25" fill="#3176b1">
+                                                                </circle>
+                                                            </g>
+                                                        </svg>
+                                                    </button>
+                                                    <button
+                                                        class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
+                                                        <img class="w-5 h-6 icon" src="assets/tabledrag.svg" alt="">
+                                                    </button>
+                                                </td>
+                                                <td class="max-w-[78px] w-[78px]">
+                                                    <div class="inline-flex items-center">
+                                                        <button *ngIf="task.subtasks.length > 0"
+                                                            (click)="toggleSubTasksRow(i)"
+                                                            [ngClass]="{'subtask__collapse': isSubTaskRow[i] === true }"
+                                                            class="inline-flex items-center">
+                                                            <img class="w-4 h-4 header__icon"
+                                                                src="assets/caretsolid.svg" alt="">
+                                                        </button>
+                                                        <button [ngClass]="{
+                                                            'completed': list.status === 'Completed',
+                                                            'deffered': list.status === 'Deffered',
+                                                            'todo': list.status === 'To Do',
+                                                            'uat': list.status === 'Under UAT',
+                                                            }" class="w-2 h-2 rounded-sm ml-3"></button>
+                                                    </div>
+                                                </td>
+                                                <td (click)="openDialog()" class="text-left !px-5 !min-w-[21%]">
+                                                    <div class="inline-flex items-center">
+                                                        <span>{{ task.title }}</span>
+                                                        <span class="hidden group-[:hover]:inline-flex">
+                                                            <button matTooltipPosition="above" matTooltip="Subtasks"
+                                                                matTooltipClass="custom__tooltip"
+                                                                *ngIf="task.subtasks.length > 0"
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
+                                                                    alt="">
+                                                                <span
+                                                                    class="text-xs ml-1">{{task.subtasks.length}}</span>
+                                                            </button>
+                                                            <button matTooltipPosition="above"
+                                                                matTooltip="Referenced Tasks"
+                                                                matTooltipClass="custom__tooltip"
+                                                                *ngIf="task.reference?.length > 0"
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                <img class="w-3.5 h-3.5 icon"
+                                                                    src="assets/taskreferencing.svg" alt="">
+                                                                <span
+                                                                    class="text-xs ml-1">{{task.reference?.length}}</span>
+                                                            </button>
+                                                            <button matTooltipPosition="above" matTooltip="Rename"
+                                                                matTooltipClass="custom__tooltip"
+                                                                class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                <img class="w-3.5 h-3.5 icon"
+                                                                    src="assets/nocustomfield.svg" alt="">
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <select name="" id="">
+                                                        <option value="">Low Priority</option>
+                                                        <option value="">High Priority</option>
+                                                        <option value="">Live Issue</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="" id="">
+                                                        <option value="">Finance</option>
+                                                        <option value="">Marketing</option>
+                                                        <option value="">IT</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        class="border-none outline-none text-left px-2 w-[90%] h-full"
+                                                        [id]="'longText'+ task.id"
+                                                        (click)="openLongTextOverlayPanel(task.id)"
+                                                        type="text">...</button>
+                                                </td>
+                                                <td>
+                                                    <select name="" id="">
+                                                        <option value="">Others</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <button *ngIf="!task.initiator; else assignee"
+                                                        class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                        <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                    </button>
+                                                    <ng-template #assignee>
+                                                        <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                            <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                </td>
+
+                                                <td>
+                                                    <button *ngIf="!task.assignee; else assignee"
+                                                        class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                        <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                    </button>
+                                                    <ng-template #assignee>
+                                                        <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                            <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                </td>
+
+                                                <td>
+                                                    <ng-container *ngIf="task.createdon;">
+                                                        <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                            (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]">
+                                                            {{task.createdon}}
+                                                        </button>
+                                                    </ng-container>
+                                                    <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]"
+                                                        *ngIf="selectedDate[i]; else calendarpicker">
+                                                        {{selectedDate[i]}}
+                                                    </button>
+                                                    <ng-template #calendarpicker>
+                                                        <button *ngIf="!task.createdon" [id]="'overlay'+ i"
+                                                            (click)="toggleCalendarPicker(i)" class="p-1">
+                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                </td>
+
+                                                <td>
+                                                    <ng-container *ngIf="task.duedate;">
+                                                        <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                            (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]">
+                                                            {{task.duedate}}
+                                                        </button>
+                                                    </ng-container>
+                                                    <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]"
+                                                        *ngIf="selectedDate[i]; else calendarpicker">
+                                                        {{selectedDate[i]}}
+                                                    </button>
+                                                    <ng-template #calendarpicker>
+                                                        <button *ngIf="!task.duedate" [id]="'overlay'+ i"
+                                                            (click)="toggleCalendarPicker(i)" class="p-1">
+                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                </td>
+
+                                                <td>
+                                                    <ng-container *ngIf="task.actualcompletiondate;">
+                                                        <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                            (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]">
+                                                            {{task.actualcompletiondate}}
+                                                        </button>
+                                                    </ng-container>
+                                                    <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]"
+                                                        *ngIf="selectedDate[i]; else calendarpicker">
+                                                        {{selectedDate[i]}}
+                                                    </button>
+                                                    <ng-template #calendarpicker>
+                                                        <button *ngIf="!task.actualcompletiondate" [id]="'overlay'+ i"
+                                                            (click)="toggleCalendarPicker(i)" class="p-1">
+                                                            <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                        </button>
+                                                    </ng-template>
+                                                </td>
+                                                <!-- need to remove -->
+                                            </tr>
+                                            <ng-container *ngIf="isSubTaskRow[i] === true && task.subtasks.length > 0">
+                                                <tr *ngFor="let subtask of task.subtasks"
+                                                    [class.selected-row]="selectedRows.includes(subtask.id)"
+                                                    class="group">
+                                                    <td [class.right__border]="selectedRows.includes(subtask.id)"
+                                                        class="group-[:hover]:bg-white border border-white !px-0 max-w-[50px] w-[50px]">
+                                                        <button [class.visible]="selectedRows.includes(subtask.id)"
+                                                            (click)="toggleRowSelection(subtask.id)"
+                                                            class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
+                                                            <svg *ngIf="selectedRows.includes(subtask.id) === false"
+                                                                class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g stroke-width="0"></g>
+                                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                <g>
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                        d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                        fill="#292d34"></path>
+                                                                    <circle cx="12" cy="12" r="5.25" fill="none">
+                                                                    </circle>
+                                                                </g>
+                                                            </svg>
+                                                            <svg *ngIf="selectedRows.includes(subtask.id) === true"
+                                                                class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g stroke-width="0"></g>
+                                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                <g>
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                        d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                        fill="#3176b1"></path>
+                                                                    <circle cx="12" cy="12" r="5.25" fill="#3176b1">
+                                                                    </circle>
+                                                                </g>
+                                                            </svg>
+                                                        </button>
+                                                        <button
+                                                            class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
+                                                            <img class="w-5 h-6 icon" src="assets/tabledrag.svg" alt="">
+                                                        </button>
+                                                    </td>
+                                                    <td class="max-w-[78px] w-[78px] !pl-20">
+                                                        <button [ngClass]="{
+                                                            'completed': list.status === 'Completed',
+                                                            'deffered': list.status === 'Deffered',
+                                                            'todo': list.status === 'To Do',
+                                                            'uat': list.status === 'Under UAT',
+                                                            }" class="w-2 h-2 rounded-sm"></button>
+                                                    </td>
+                                                    <td (click)="openDialog()" class="text-left !px-5">
+                                                        <div class="inline-flex items-center">
+                                                            <span>{{ subtask.title }}</span>
+                                                            <span class="hidden group-[:hover]:inline-flex">
+                                                                <button matTooltipPosition="above" matTooltip="Rename"
+                                                                    matTooltipClass="custom__tooltip"
+                                                                    class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                                    <img class="w-3.5 h-3.5 icon"
+                                                                        src="assets/nocustomfield.svg" alt="">
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <button
+                                                            class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                            <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <ng-container *ngIf="task.createdon;">
+                                                            <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)"
+                                                                class="font-medium text-[#F18A8B]">
+                                                                {{task.createdon}}
+                                                            </button>
+                                                        </ng-container>
+                                                        <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]"
+                                                            *ngIf="selectedDate[i]; else calendarpicker">
+                                                            {{selectedDate[i]}}
+                                                        </button>
+                                                        <ng-template #calendarpicker>
+                                                            <button *ngIf="!task.createdon" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)" class="p-1">
+                                                                <img class="w-5 h-5 icon" src="assets/duedate.svg"
+                                                                    alt="">
+                                                            </button>
+                                                        </ng-template>
+                                                    </td>
+
+                                                    <td>
+                                                        <ng-container *ngIf="task.duedate;">
+                                                            <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)"
+                                                                class="font-medium text-[#F18A8B]">
+                                                                {{task.duedate}}
+                                                            </button>
+                                                        </ng-container>
+                                                        <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]"
+                                                            *ngIf="selectedDate[i]; else calendarpicker">
+                                                            {{selectedDate[i]}}
+                                                        </button>
+                                                        <ng-template #calendarpicker>
+                                                            <button *ngIf="!task.duedate" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)" class="p-1">
+                                                                <img class="w-5 h-5 icon" src="assets/duedate.svg"
+                                                                    alt="">
+                                                            </button>
+                                                        </ng-template>
+                                                    </td>
+
+                                                    <td>
+                                                        <ng-container *ngIf="task.actualcompletiondate;">
+                                                            <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                                (click)="toggleCalendarPicker(i)"
+                                                                class="font-medium text-[#F18A8B]">
+                                                                {{task.actualcompletiondate}}
+                                                            </button>
+                                                        </ng-container>
+                                                        <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                            class="font-medium text-[#F18A8B]"
+                                                            *ngIf="selectedDate[i]; else calendarpicker">
+                                                            {{selectedDate[i]}}
+                                                        </button>
+                                                        <ng-template #calendarpicker>
+                                                            <button *ngIf="!task.actualcompletiondate"
+                                                                [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                                class="p-1">
+                                                                <img class="w-5 h-5 icon" src="assets/duedate.svg"
+                                                                    alt="">
+                                                            </button>
+                                                        </ng-template>
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="text">
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                        </ng-container>
+                                        <!-- temporary saved tasks -->
+                                        <tr *ngFor="let task of savedTaskList; let i = index"
+                                            [class.selected-row]="selectedRows.includes(i)" class="group">
+                                            <td [class.right__border]="selectedRows.includes(i)"
+                                                class="group-[:hover]:bg-white border border-white !px-0 max-w-[50px] w-[50px]">
+                                                <button [class.visible]="selectedRows.includes(i)"
+                                                    (click)="toggleRowSelection(i)"
+                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible inline-flex items-center">
+                                                    <svg *ngIf="selectedRows.includes(i) === false" class="w-5 h-5"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                fill="#292d34"></path>
+                                                            <circle cx="12" cy="12" r="5.25" fill="none"></circle>
+                                                        </g>
+                                                    </svg>
+                                                    <svg *ngIf="selectedRows.includes(i) === true" class="w-5 h-5"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                                                fill="#3176b1"></path>
+                                                            <circle cx="12" cy="12" r="5.25" fill="#3176b1"></circle>
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                                <button
+                                                    class="transition-all duration-[-1s] ease invisible group-[:hover]:visible cursor-move">
+                                                    <img class="w-5 h-6 icon" src="assets/tabledrag.svg" alt="">
+                                                </button>
+                                            </td>
+                                            <td class="max-w-[78px] w-[78px]">
+                                                <button [ngClass]="{
+                                                    'completed': list.status === 'Completed',
+                                                            'deffered': list.status === 'Deffered',
+                                                            'todo': list.status === 'To Do',
+                                                            'uat': list.status === 'Under UAT',
+                                                        }" class="w-2 h-2 rounded-sm ml-3"></button>
+                                            </td>
+                                            <td class="text-left !px-5">
+                                                <div class="inline-flex items-center">
+                                                    <span>{{ task }}</span>
+                                                    <span class="hidden group-[:hover]:inline-flex">
+                                                        <button *ngIf="task.subtasks.length > 0"
+                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                            <img class="w-3.5 h-3.5 icon" src="assets/subtask.svg"
+                                                                alt="">
+                                                            <span class="text-xs ml-1">{{task.subtasks.length}}</span>
+                                                        </button>
+                                                        <button matTooltipPosition="above" matTooltip="Rename"
+                                                            matTooltipClass="custom__tooltip"
+                                                            class="mx-1 p-1 bg-[#F0F1F3] group-[:hover]:bg-white text-primary-hover rounded-sm inline-flex justify-center items-center">
+                                                            <img class="w-3.5 h-3.5 icon" src="assets/nocustomfield.svg"
+                                                                alt="">
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <select name="" id="">
+                                                    <option value="">Low Priority</option>
+                                                    <option value="">High Priority</option>
+                                                    <option value="">Live Issue</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" id="">
+                                                    <option value="">Finance</option>
+                                                    <option value="">Marketing</option>
+                                                    <option value="">IT</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    class="border-none outline-none text-left px-2 w-[90%] h-full"
+                                                    [id]="'longText'+ task.id"
+                                                    (click)="openLongTextOverlayPanel(task.id)"
+                                                    type="text">...</button>
+                                            </td>
+                                            <td>
+                                                <select name="" id="">
+                                                    <option value="">Others</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button *ngIf="!task.initiator; else assignee"
+                                                    class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                    <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                </button>
+                                                <ng-template #assignee>
+                                                    <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                        <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                    </button>
+                                                </ng-template>
+                                            </td>
+
+                                            <td>
+                                                <button *ngIf="!task.assignee; else assignee"
+                                                    class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                                    <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                                </button>
+                                                <ng-template #assignee>
+                                                    <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
+                                                        <img class="w-full h-full" [src]="task.assignee" alt="">
+                                                    </button>
+                                                </ng-template>
+                                            </td>
+
+                                            <td>
+                                                <ng-container *ngIf="task.createdon;">
+                                                    <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]">
+                                                        {{task.createdon}}
+                                                    </button>
+                                                </ng-container>
+                                                <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                    class="font-medium text-[#F18A8B]"
+                                                    *ngIf="selectedDate[i]; else calendarpicker">
+                                                    {{selectedDate[i]}}
+                                                </button>
+                                                <ng-template #calendarpicker>
+                                                    <button *ngIf="!task.createdon" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)" class="p-1">
+                                                        <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                    </button>
+                                                </ng-template>
+                                            </td>
+
+                                            <td>
+                                                <ng-container *ngIf="task.duedate;">
+                                                    <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]">
+                                                        {{task.duedate}}
+                                                    </button>
+                                                </ng-container>
+                                                <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                    class="font-medium text-[#F18A8B]"
+                                                    *ngIf="selectedDate[i]; else calendarpicker">
+                                                    {{selectedDate[i]}}
+                                                </button>
+                                                <ng-template #calendarpicker>
+                                                    <button *ngIf="!task.duedate" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)" class="p-1">
+                                                        <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                    </button>
+                                                </ng-template>
+                                            </td>
+
+                                            <td>
+                                                <ng-container *ngIf="task.actualcompletiondate;">
+                                                    <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)"
+                                                        class="font-medium text-[#F18A8B]">
+                                                        {{task.actualcompletiondate}}
+                                                    </button>
+                                                </ng-container>
+                                                <button [id]="'overlay'+ i" (click)="toggleCalendarPicker(i)"
+                                                    class="font-medium text-[#F18A8B]"
+                                                    *ngIf="selectedDate[i]; else calendarpicker">
+                                                    {{selectedDate[i]}}
+                                                </button>
+                                                <ng-template #calendarpicker>
+                                                    <button *ngIf="!task.actualcompletiondate" [id]="'overlay'+ i"
+                                                        (click)="toggleCalendarPicker(i)" class="p-1">
+                                                        <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
+                                                    </button>
+                                                </ng-template>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- cdk drop list -->
+                                <!-- <div cdkDropListGroup>
+                                    <div cdkDropList [cdkDropListData]="list.tasks" class=""
+                                        (cdkDropListDropped)="drop($event)">
+                                        <div [class.selected-row]="selectedRows.includes(task.id)" class="group flex w-full table__row" *ngFor="let task of list.tasks;" cdkDrag>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- Add new task row toolbar -->
+                                <div *ngIf="taskRowVisibility[i]"
+                                    class="h-[37px] selected-row flex items-center pl-[50px]">
+                                    <!-- new task add row toolbar -->
+                                    <div class="w-[78px] h-full flex items-center justify-center">
+                                        <button class="w-2 h-2 bg-[#6BC950] rounded-sm"></button>
+                                    </div>
+                                    <div class="w-[60%] text-left">
+                                        <input (keypress)="addNewTaskOnEnter($event)" [(ngModel)]="newTaskName"
+                                            type="text" class="w-full focus:outline-none px-2 text-xs"
+                                            placeholder="Task name" autofocus>
+                                    </div>
+                                    <div class="flex-1 h-full inline-flex items-center justify-center px-2">
+                                        <button
+                                            class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
+                                            <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
+                                        </button>
+                                        <button
+                                            class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                stroke="#b9bec7">
+                                                <g stroke-width="0"></g>
+                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M3 9H21M9 15L11 17L15 13M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                        <button
+                                            class="w-6 h-6 bg-transparent border border-[#b9bec7] inline-flex justify-center items-center rounded-full p-1 text-[#b9bec7] mx-1.5">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                stroke="#b9bec7">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M5 21V3.90002C5 3.90002 5.875 3 8.5 3C11.125 3 12.875 4.8 15.5 4.8C18.125 4.8 19 3.9 19 3.9V14.7C19 14.7 18.125 15.6 15.5 15.6C12.875 15.6 11.125 13.8 8.5 13.8C5.875 13.8 5 14.7 5 14.7"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                        <button type="submit" (click)="addNewTask()"
+                                            (keypress)="$event.keyCode === 13 ? addNewTask() : hideAddNewTaskToolbar(i)"
+                                            (click)="hideAddNewTaskToolbar(i)"
+                                            class="bg-primary text-white rounded-sm text-xs px-2.5 py-1 uppercase mx-1.5">Save</button>
+                                        <button (click)="hideAddNewTaskToolbar(i)" class="w-6 h-6 text-[#b9bec7]">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g stroke-width="0"></g>
+                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g>
+                                                    <circle cx="12" cy="12" r="10" stroke="currentColor"
+                                                        stroke-width="1.5"></circle>
+                                                    <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
+                                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div *ngIf="!taskRowVisibility[i]" class="w-full pl-[73px]">
+                                    <button (click)="showAddNewTaskToolbar(i)"
+                                        class="py-0.5 px-2 text-[10px] text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1">
+                                        + New task
+                                    </button>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </div>
+        <button (click)="closedTaskFiltration()"
+            class="absolute top-3 right-3 p-0.5 px-2 text-xs text-[#7c828d] hover:bg-[#f2f2f2] rounded-md mx-0.5 ml-1 uppercase inline-flex items-center">
+            <img src="../../../../assets/show.svg" class="w-3 h-3 mr-1" alt="">
+            {{ closedTaskFilterButton }}
+        </button>
+    </div>
+</div>

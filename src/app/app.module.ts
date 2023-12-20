@@ -64,6 +64,8 @@ import { WatchersPanelComponent } from './components/layout/watchers-panel/watch
 import { DropdownComponent } from './components/layout/dropdown/dropdown.component';
 import { SapQaModuleComponent } from './layout/sap-qa-module/sap-qa-module.component';
 import { LongTextPanelComponent } from './components/spaces/long-text-panel/long-text-panel.component';
+import { ItTicketsComponent } from './layout/it-tickets/it-tickets.component';
+import { SpaceProject3Component } from './components/spaces/space-project3/space-project3.component';
 
 
 @NgModule({
@@ -117,6 +119,8 @@ import { LongTextPanelComponent } from './components/spaces/long-text-panel/long
     DropdownComponent,
     SapQaModuleComponent,
     LongTextPanelComponent,
+    ItTicketsComponent,
+    SpaceProject3Component,
   ],
   imports: [
     BrowserModule,

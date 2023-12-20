@@ -14,6 +14,7 @@ import { Project1Component } from './layout/project1/project1.component';
 import { Project2Component } from './layout/project2/project2.component';
 import { DocsListingComponent } from './layout/docs-listing/docs-listing.component';
 import { SapQaModuleComponent } from './layout/sap-qa-module/sap-qa-module.component';
+import { ItTicketsComponent } from './layout/it-tickets/it-tickets.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'notifications', component: NotificationsComponent },
       { path: 'everything', component: EverythingSpaceComponent },
       { path: 'SAPQAModule', component: SapQaModuleComponent },
+      { path: 'IT-Tickets', component: ItTicketsComponent },
       { path: 'teamspace', component: TeamspaceComponent },
       { path: 'projects', component: ProjectsComponent },
       { path: 'project1', component: Project1Component },

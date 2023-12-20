@@ -1,0 +1,89 @@
+table thead tr th {
+    @apply bg-white hover:bg-[#F0F1F3];
+    @apply w-full;
+    @apply px-2;
+}
+table thead tr th div{
+    @apply w-full whitespace-nowrap text-ellipsis overflow-hidden;
+}
+table thead tr th:nth-child(1) {
+    @apply hover:bg-transparent;
+    @apply border-none;
+}
+table tbody tr {
+    @apply text-center;
+    @apply text-xs
+}
+table tbody tr td {
+    @apply bg-white;
+}
+table tbody tr:hover td {
+    @apply bg-[#F0F1F3];
+}
+table tbody tr td {
+    @apply py-1;
+    @apply px-2;
+    @apply max-w-[150px] whitespace-nowrap;
+    @apply overflow-hidden;
+    @apply text-ellipsis;
+}
+table tbody tr td:nth-child(3) {
+    @apply !max-w-[25%]
+}
+.selected-row {
+    border: 1px solid black;
+}
+.visible {
+    visibility: visible;
+}
+.right__border {
+    border-right: 1px solid black !important;
+}
+.header__icon {
+    filter: invert(10%) sepia(59%) saturate(1265%) hue-rotate(199deg) brightness(100%) contrast(91%);
+}
+
+.icon {
+    filter: invert(10%) sepia(3%) saturate(4185%) hue-rotate(180deg) brightness(91%) contrast(80%);
+}
+
+.icon:hover {
+    filter: invert(38%) sepia(85%) saturate(467%) hue-rotate(165deg) brightness(91%) contrast(83%);
+}
+.subtask__collapse img {
+    transform: rotate(90deg);
+}
+
+table thead tr th:nth-child(1),
+table thead tr th:nth-child(2),
+table thead tr th:nth-child(3),
+table tbody tr td:nth-child(1),
+table tbody tr td:nth-child(2),
+table tbody tr td:nth-child(3) {
+    @apply sticky z-50;
+}
+table thead tr th:nth-child(1),
+table tbody tr td:nth-child(1) {
+    @apply left-0;
+}
+table thead tr th:nth-child(2),
+table tbody tr td:nth-child(2) {
+    @apply left-[50px];
+}
+table thead tr th:nth-child(3),
+table tbody tr td:nth-child(3) {
+    @apply left-[100px];
+}
+
+.completed {
+    @apply bg-[#6BC950] text-white
+}
+.deffered {
+    @apply bg-orange-500 text-white
+}
+.todo {
+    @apply bg-[#E8EAED] !text-black
+}
+.uat {
+    @apply bg-[#1090E0] text-white
+}
