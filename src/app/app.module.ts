@@ -63,6 +63,7 @@ import { ManageStatusPanelComponent } from './components/spaces/manage-status-pa
 import { WatchersPanelComponent } from './components/layout/watchers-panel/watchers-panel.component';
 import { DropdownComponent } from './components/layout/dropdown/dropdown.component';
 import { SapQaModuleComponent } from './layout/sap-qa-module/sap-qa-module.component';
+import { LongTextPanelComponent } from './components/spaces/long-text-panel/long-text-panel.component';
 
 
 @NgModule({
@@ -115,6 +116,7 @@ import { SapQaModuleComponent } from './layout/sap-qa-module/sap-qa-module.compo
     WatchersPanelComponent,
     DropdownComponent,
     SapQaModuleComponent,
+    LongTextPanelComponent,
   ],
   imports: [
     BrowserModule,

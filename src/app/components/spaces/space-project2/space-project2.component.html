@@ -1,6 +1,3 @@
-<!-- added commit -->
-
-
 <div *ngFor="let project of listOfSubFolders" class="border-2 border-[#F0F1F3] p-3 my-3 relative w-[100%]">
     <div class="flex justify-between items-start w-full">
         <div class="flex flex-1 flex-col w-full">
@@ -277,7 +274,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <input type="text">
+                                                    <button class="border-none outline-none text-left px-2 w-[90%] h-full" [id]="'longText'+ task.id" (click)="openLongTextOverlayPanel(task.id)" type="text">...</button>
                                                 </td>
                                                 <!-- need to remove -->
                                             </tr>

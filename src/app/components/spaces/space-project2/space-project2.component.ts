@@ -19,6 +19,7 @@ import { CalendarPickerComponent } from '../calendar-picker/calendar-picker.comp
 import { Subscription } from 'rxjs';
 import { CalendarPickerService } from 'src/app/services/calendar-picker.service';
 import { ManageStatusPanelComponent } from '../manage-status-panel/manage-status-panel.component';
+import { LongTextPanelComponent } from '../long-text-panel/long-text-panel.component';
 
 @Component({
   selector: 'app-space-project2',
@@ -44,6 +45,8 @@ export class SpaceProject2Component {
   selectedDate: any = [];
 
   overlayRef: any = [];
+
+  longTextOverlay: any = [];
 
   private selectedDateSubscription!: Subscription;
 
@@ -195,7 +198,6 @@ export class SpaceProject2Component {
     this.overlayRef[index] = this.overlay.create(overlayConfig);
     const dropdownOverlay = new ComponentPortal(CalendarPickerComponent);
     this.overlayRef[index].attach(dropdownOverlay);
-    console.log(this.overlayRef);
 
 
     this.overlayRef[index].backdropClick().subscribe(() => {
@@ -225,6 +227,29 @@ export class SpaceProject2Component {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openLongTextOverlayPanel(index: any) {
+    const btnRef: any = document.querySelector(`#longText${index}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'end', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
+    }
+    this.longTextOverlay[index] = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(LongTextPanelComponent);
+    this.longTextOverlay[index].attach(dropdownOverlay);
+
+
+    this.longTextOverlay[index].backdropClick().subscribe(() => {
+      this.longTextOverlay[index].detach()
+      this.longTextOverlay[index] = null;
     });
   }
 }
