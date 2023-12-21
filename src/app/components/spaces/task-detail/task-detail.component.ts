@@ -16,10 +16,10 @@ export class TaskDetailComponent {
   selectedChecklistRow: number[] = []
 
   commentOverlay: any = [];
-  isCommentCheckboxVisible = false
+  isCommentCheckboxVisible = true
   commentsCount = 0
-  commentsCheckboxValue1 = false;
-  commentsCheckboxValue2 = false;
+  commentsCheckboxValue1 = true;
+  commentsCheckboxValue2 = true;
 
 
   constructor(
