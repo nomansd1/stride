@@ -74,3 +74,8 @@ table thead tr th:nth-child(3),
 table tbody tr td:nth-child(3) {
     @apply left-[100px];
 }
+table tbody td input[type="text"] {
+    width: 140px;
+    padding: 0 10px;
+    height: 100%;
+}

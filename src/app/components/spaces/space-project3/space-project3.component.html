@@ -560,31 +560,31 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <button *ngIf="!task.initiator; else assignee"
+                                                <button
                                                     class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
                                                     <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
                                                 </button>
-                                                <ng-template #assignee>
+                                                <!-- <ng-template #assignee>
                                                     <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
                                                         <img class="w-full h-full" [src]="task.assignee" alt="">
                                                     </button>
-                                                </ng-template>
+                                                </ng-template> -->
                                             </td>
 
                                             <td>
-                                                <button *ngIf="!task.assignee; else assignee"
+                                                <button
                                                     class="border border-dashed border-[#c1c1c1] hover:border-primary inline-flex justify-center items-center rounded-full p-1.5 text-[10px]">
                                                     <img class="w-4 h-4 icon" src="assets/assignee.svg" alt="">
                                                 </button>
-                                                <ng-template #assignee>
+                                                <!-- <ng-template #assignee>
                                                     <button class="rounded-full w-[30px] h-[30px] overflow-hidden">
                                                         <img class="w-full h-full" [src]="task.assignee" alt="">
                                                     </button>
-                                                </ng-template>
+                                                </ng-template> -->
                                             </td>
 
                                             <td>
-                                                <ng-container *ngIf="task.createdon;">
+                                                <!-- <ng-container *ngIf="task.createdon;">
                                                     <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
                                                         (click)="toggleCalendarPicker(i)"
                                                         class="font-medium text-[#F18A8B]">
@@ -595,17 +595,15 @@
                                                     class="font-medium text-[#F18A8B]"
                                                     *ngIf="selectedDate[i]; else calendarpicker">
                                                     {{selectedDate[i]}}
-                                                </button>
-                                                <ng-template #calendarpicker>
-                                                    <button *ngIf="!task.createdon" [id]="'overlay'+ i"
+                                                </button> -->
+                                                    <button [id]="'overlay'+ i"
                                                         (click)="toggleCalendarPicker(i)" class="p-1">
                                                         <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                     </button>
-                                                </ng-template>
                                             </td>
 
                                             <td>
-                                                <ng-container *ngIf="task.duedate;">
+                                                <!-- <ng-container *ngIf="task.duedate;">
                                                     <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
                                                         (click)="toggleCalendarPicker(i)"
                                                         class="font-medium text-[#F18A8B]">
@@ -616,17 +614,15 @@
                                                     class="font-medium text-[#F18A8B]"
                                                     *ngIf="selectedDate[i]; else calendarpicker">
                                                     {{selectedDate[i]}}
-                                                </button>
-                                                <ng-template #calendarpicker>
-                                                    <button *ngIf="!task.duedate" [id]="'overlay'+ i"
+                                                </button> -->
+                                                    <button [id]="'overlay'+ i"
                                                         (click)="toggleCalendarPicker(i)" class="p-1">
                                                         <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                     </button>
-                                                </ng-template>
                                             </td>
 
                                             <td>
-                                                <ng-container *ngIf="task.actualcompletiondate;">
+                                                <!-- <ng-container *ngIf="task.actualcompletiondate;">
                                                     <button *ngIf="!selectedDate[i]" [id]="'overlay'+ i"
                                                         (click)="toggleCalendarPicker(i)"
                                                         class="font-medium text-[#F18A8B]">
@@ -637,13 +633,11 @@
                                                     class="font-medium text-[#F18A8B]"
                                                     *ngIf="selectedDate[i]; else calendarpicker">
                                                     {{selectedDate[i]}}
-                                                </button>
-                                                <ng-template #calendarpicker>
-                                                    <button *ngIf="!task.actualcompletiondate" [id]="'overlay'+ i"
+                                                </button> -->
+                                                    <button [id]="'overlay'+ i"
                                                         (click)="toggleCalendarPicker(i)" class="p-1">
                                                         <img class="w-5 h-5 icon" src="assets/duedate.svg" alt="">
                                                     </button>
-                                                </ng-template>
                                             </td>
                                         </tr>
                                     </tbody>

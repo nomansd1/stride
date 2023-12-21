@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ScheduleMeetingComponent } from '../schedule-meeting/schedule-meeting.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { DropdownComponent } from '../../layout/dropdown/dropdown.component';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'app-task-detail',
@@ -12,10 +15,16 @@ export class TaskDetailComponent {
   selectedRows: number[]= [];
   selectedChecklistRow: number[] = []
 
-  commentDropdown: any = [false, false]
-  
+  commentOverlay: any = [];
+  isCommentCheckboxVisible = false
+  commentsCount = 0
+  commentsCheckboxValue1 = false;
+  commentsCheckboxValue2 = false;
+
+
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private overlay: Overlay,
   ) {}
 
   toggleRowSelection(index: any): void {
@@ -57,14 +66,33 @@ export class TaskDetailComponent {
   }
 
   public OpenCommentDropdown(index: any) {
-    if (this.commentDropdown[index] == false) {
-      this.commentDropdown[index] = true
-      console.log("if block chala");
-      
+    const btnRef: any = document.querySelector(`#commentOverlay${index}`);
+    const overlayConfig = {
+      positionStrategy: this.overlay.position()
+        .flexibleConnectedTo(btnRef)
+        .withPositions([
+          { originX: 'end', originY: 'bottom', overlayX: 'end', overlayY: 'top' }
+        ])
+        .setOrigin(btnRef),
+      backdropClass: 'cdk-overlay-backdrop',
+      hasBackdrop: true
     }
-    else {
-      this.commentDropdown = true
-      console.log("else block chala");
-    }
+    this.commentOverlay[index] = this.overlay.create(overlayConfig);
+    const dropdownOverlay = new ComponentPortal(DropdownComponent);
+    this.commentOverlay[index].attach(dropdownOverlay);
+
+
+    this.commentOverlay[index].backdropClick().subscribe(() => {
+      this.commentOverlay[index].detach()
+      this.commentOverlay[index] = null;
+    });
+  }
+
+  public toggleCommentsScheduleCheckbox() {
+    this.isCommentCheckboxVisible = !this.isCommentCheckboxVisible
+  }
+
+  public commentsScheduleMeetingCount() {
+    
   }
 }
