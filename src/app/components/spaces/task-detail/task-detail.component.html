@@ -557,9 +557,10 @@
                         <span class="text-[10px]">Sep 23</span>
                     </div>
                     <span class="h-[25px] w-[1px] bg-[#c1c1c1] mx-5"></span>
-                    <button (click)="openDialog()" class="schedule__meeting-icon group inline-flex items-center border border-primary-hover hover:bg-primary-hover hover:text-white py-1 px-2 rounded-md text-[#080341]">
+                    <button (click)="openDialog()" class="relative schedule__meeting-icon group inline-flex items-center border border-primary-hover hover:bg-primary-hover hover:text-white py-1 px-2 rounded-md text-[#080341]">
                         <img class="w-4 h-4" src="assets/meeting.svg" alt="">
                         <span class="ml-2 text-xs capitalize">Schedule meeting</span>
+                        <span class="text-xs absolute -right-2 -top-2 bg-primary text-white w-4 h-4 rounded-full font-medium inline-flex items-center justify-center">2</span>
                     </button>
                 </div>
             </div>
@@ -572,10 +573,6 @@
                         </div>
                         <button matTooltip="Filter by person" matTooltipClass="custom__tooltip" class="py-1.5 px-2 bg-white mx-2 text-xs inline-flex items-center rounded-full">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#292d34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                        </button>
-                        <button (click)="toggleCommentsScheduleCheckbox()" matTooltip="Schedule meeting against desired comments" matTooltipClass="custom__tooltip" class="py-1.5 px-2 bg-white mx-2 text-xs inline-flex items-center rounded-md">
-                            <img class="w-4 h-4" src="assets/groupmeeting.svg" alt="">
-                            <span class="ml-2 text-sm">{{commentsCount}}</span>
                         </button>
                     </div>
                 </div>
